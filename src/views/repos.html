@@ -1,0 +1,17 @@
+<header class="header search-header">
+  <input type="text" ng-model="q" placeholder="Type a repository name" autofocus="true">
+</header>
+<div class="main">
+  <div class="repos">
+    <section class="repo" ng-repeat="repo in repos">
+      <div class="repo-info {{ repo.language | lowercase }}">
+        <h3 class="repo-title">{{ repo.name }}</h3>
+        <div class="repo-numbers">
+          <span class="repo-stars fa fa-fw fa-star">{{ repo.stargazers_count }}</span>
+          <span class="repo-forks fa fa-fw fa-code-fork">{{ repo.forks_count }}</span>
+          <span class="repo-watchers fa fa-fw fa-eye">{{ repo.watchers_count }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+/*********************************************************************
+*
+*  base/mixins
+*
+*  Mixins que facilitam a nossa vida.
+*
+*********************************************************************/
+
+/*********************************************************************
+*  =Colorful links
+*
+*  Provide a set of colors for normal, :visited, :hover, and :active
+*  links, based on a base color. Should be used like this:
+*
+*  .my-class a {
+*    @include colorful-links(#abcdef);
+*  }
+*********************************************************************/
+
+@mixin colorful-links($color) {
+  @include single-transition(color, .1s, ease-out);
+
+  color: $color;
+
+  &:visited { color: $color; }
+  &:hover   { color: adjust-color($color, $lightness: +10%); }
+  &:active  { color: adjust-color($color, $lightness: -5%); }
+}

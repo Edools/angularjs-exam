@@ -35,6 +35,7 @@ function($scope, $routeParams, IssuesModel, IssuesCommentsModel) {
 	$scope.remove = function(item){
 		var index = $scope.issues.indexOf(item);
 		console.log(index);
+		$scope.issues.splice(index,1);
 	}
 
 }]);

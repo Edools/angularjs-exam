@@ -1,0 +1,10 @@
+<h1>{{$routeParams.user}}</h1>
+
+<pre ng-show="!_loading && repositories.length == 0">Nenhum registro encontrado!</pre>
+<div ng-repeat="rep in repositories" class="block">
+	<h2><a ng-href="#/issues/{{rep.owner.login}}/{{rep.name}}">{{rep.name}}</a></h2>
+	<p>
+		{{rep.description}}
+		
+	</p>	
+</div>

@@ -1,0 +1,10 @@
+<h1>Repositories</h1>
+<div infinite-scroll="more()">
+	<div ng-repeat="rep in repositories" class="block">
+		<h2><a ng-href="#/issues/{{rep.owner.login}}/{{rep.name}}">{{rep.name}}</a></h2>
+		<p>
+			{{rep.description}}<br>
+			<small><a ng-href="#/users/{{rep.owner.login}}">{{rep.owner.login}}</a></small>
+		</p>	
+	</div>
+</div>

@@ -1,18 +1,47 @@
-AngularJS Exam
-==============
 
-Dear developer, the goal of this exam is know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with him.
+### Install Dependencies
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
+us manage and test the application.
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+* We get the tools we depend upon via `npm`, the [node package manager][npm].
+* We get the angular code via `bower`, a [client-side code package manager][bower].
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed.
+We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
-It is very important that you show us your knowledge regarding good programming practices, testing, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features.
+```
+npm install
+```
 
-We wish you good luck, and may the Quality be with you!
+Behind the scenes this will also call `bower install`.  You should find that you have two new
+folders in your project.
+
+* `node_modules` - contains the npm packages for the tools we need
+* `app/bower_components` - contains the angular framework files
+
+*Note that the `bower_components` folder would normally be installed in the root folder but
+angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes
+it easier to serve the files by a webserver.*
+
+### Run the Application
+
+We have preconfigured the project with a simple development web server.  The simplest way to start
+this server is:
+
+```
+npm start
+```
+
+Now browse to the app at `http://localhost:8000/app/`.
+
+
+### Running Unit Tests
+
+* the configuration is found at `test/karma.conf.js`
+* the unit tests are found in `test/unit/`.
+
+The easiest way to run the unit tests is to use the supplied npm script:
+
+```
+npm test
+```

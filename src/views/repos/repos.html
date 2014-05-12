@@ -1,0 +1,38 @@
+<div class="repos">
+  <div ng-show="failed" class="error">
+    <span>Request failed. Try again later.</span>
+  </div>
+  <section class="repo" id="{{ repo.name }}" ng-repeat="repo in repos">
+    <div class="repo-info {{ repo.language | lowercase }}">
+      <h3 class="repo-title">{{ repo.name }}</h3>
+      <div class="repo-numbers">
+        <div class="repo-stars">
+          <i class="fa fa-fw fa-star"></i>
+          <span>{{ repo.stargazers_count }}</span>
+        </div>
+        <div class="repo-forks">
+          <i class="fa fa-fw fa-code-fork"></i>
+          <span>{{ repo.forks_count }}</span>
+        </div>
+        <div class="repo-watchers">
+          <i class="fa fa-fw fa-eye"></i>
+          <span>{{ repo.watchers_count }}</span>
+        </div>
+      </div>
+      <a class="repo-homepage" target="_blank" href="{{ repo.homepage }}">{{ repo.homepage }}</a>
+    </div>
+    <div ng-hide="repo.readme === undefined" class="repo-content">
+      <div ui-view="repo"></div>
+    </div>
+    <footer class="repo-footer">
+      <a ui-sref="search.repos.repo({ repo: repo.name })" ng-show="repo.readme === undefined" class="repo-more">
+        <i class="fa fa-fw fa-angle-down"></i>
+        More
+      </a>
+      <a ng-show="repo.readme !== undefined" ui-sref="search.repos" class="repo-more">
+        <i class="fa fa-fw fa-angle-up"></i>
+        Less
+      </a>
+    </footer>
+  </section>
+</div>

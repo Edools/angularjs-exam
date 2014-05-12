@@ -1,0 +1,21 @@
+/*********************************************************************
+*
+*  main css file
+*
+*********************************************************************/
+
+// bower:scss
+@import "../bower_components/normalize.scss/_normalize.scss";
+// endbower
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+
+@import "base/variables";
+@import "base/functions";
+@import "base/helpers";
+@import "base/mixins";
+@import "core/basic";
+@import "core/buttons";
+@import "layout/header";
+@import "layout/main";
+@import "ui/search-header";
+@import "ui/repos-list";

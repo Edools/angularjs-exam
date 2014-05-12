@@ -1,0 +1,37 @@
+/*********************************************************************
+*
+*  base/variables
+*
+*  Todas as variáveis globais do projeto ficam aqui.
+*
+*********************************************************************/
+
+/*********************************************************************
+*  =Grid and typography
+*********************************************************************/
+$PROJECT_FONT_SIZE : 16px !default;
+$PROJECT_BASELINE : 24px !default;
+
+$GRID_COLUMN_WIDTH : 65px !default;
+$GRID_GUTTER : 20px !default;
+
+$MAIN_WIDTH: 650px !default;
+$HEADER_HEIGHT: 70px !default;
+
+/*********************************************************************
+*  =Colors
+*********************************************************************/
+$TEXT_COLOR : #555 !default;
+$LINK_COLOR : #37b2c0 !default;
+$BACKGROUND_COLOR: #EF4035 !default;
+$SELECTION_BACKGROUND_COLOR: #41bdce !default;
+$SELECTION_TEXT_COLOR: #fff !default;
+$PLACEHOLDER_COLOR: #ecf0f1 !default;
+
+$JAVASCRIPT_COLOR: #f7df1e;
+$RUBY_COLOR: #701516;
+$CSS_COLOR: #563d7c;
+$JAVA_COLOR: #b07219;
+$PYTHON_COLOR: #3581ba;
+$GO_COLOR: #375eab;
+$COFFEESCRIPT_COLOR: #244776;

@@ -4,16 +4,28 @@
 *  Github repositories list component
 *
 *********************************************************************/
-
 .repos {
   width: $MAIN_WIDTH;
   margin: em($HEADER_HEIGHT) auto 0 auto;
+
+  & .error {
+    background: #F0575B;
+    padding: 10px 5px;
+    border: 1px solid #F0575B;
+
+    text-align: center;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }
 }
 
+$repo-border-radius: 4px;
 .repo {
-  height: em(265px);
+  min-height: em(110px);
   margin: em(15px) 0;
   background: #fff;
+  border-radius: $repo-border-radius;
 
   -webkit-box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
   -moz-box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
@@ -23,24 +35,113 @@
 .repo-info {
   padding: em(3px);
   text-align: center;
+  border-radius: $repo-border-radius;
 
-  & .repo-title {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 100;
-    text-transform: uppercase;
-    color: #000;
-    font-size: em(24px);
+  &.javascript {
+    @include language-color($JAVASCRIPT_COLOR);
+  }
+
+  &.css {
+    @include language-color($CSS_COLOR);
+  }
+
+  &.ruby {
+    @include language-color($RUBY_COLOR);
+  }
+
+  &.go {
+    @include language-color($GO_COLOR);
+  }
+
+  &.java {
+    @include language-color($JAVA_COLOR);
+  }
+
+  &.coffeescript {
+    @include language-color($COFFEESCRIPT_COLOR);
+  }
+
+  &.python {
+    @include language-color($PYTHON_COLOR);
   }
 }
 
-.repo-info.javascript {
-  border-top: 5px solid $JAVASCRIPT_COLOR;
+.repo-title {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #000;
+  font-size: em(24px);
+}
+
+.repo-homepage {
+  @include colorful-links($BACKGROUND_COLOR)
 }
 
 .repo-numbers {
-  & span {
+  & div {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 em(15px);
+  }
+}
+
+.repo-content {
+  padding: em(5px) em(10px);
+}
+
+.repo-footer {
+  text-align: center;
+
+  & .repo-more {
+    color: #000;
+    cursor: pointer;
+    text-transform: lowercase;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    margin-left: -4px;
+
+    &:visited,
+    &:active,
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
+
+    & i {
+      color: $BACKGROUND_COLOR;
+    }
+  }
+}
+
+/*********************************************************************
+*  ANIMATIONS
+*********************************************************************/
+.repo {
+  &.ng-enter,
+  &.ng-move {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    
+    -webkit-transform: translateX(em(50px));
+    -moz-transform: translateX(em(50px));
+    -ms-transform: translateX(em(50px));
+    -o-transform: translateX(em(50px));
+    transform: translateX(em(50px));
+    opacity: 0;
+  }
+
+  &.ng-enter.ng-enter-active,
+  &.ng-move.ng-move-active {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
   }
 }

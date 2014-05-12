@@ -5,6 +5,9 @@
 *********************************************************************/
 
 .main {
-  background: #EF4035;
+  background: $BACKGROUND_COLOR;
   padding-top: em(15px);
+  height: 100%;
+  min-height: 800px;
+  font-family: 'Open Sans', sans-serif;
 }

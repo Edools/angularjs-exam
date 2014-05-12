@@ -1,28 +1,52 @@
 /*********************************************************************
 *
 *  app.js
-*  app and route definition
+*  app and states definition
 *
 *********************************************************************/
 angular
   .module('ngGithub', [
     'ngResource',
     'ngRoute',
-    'ngGithub.controllers',
-    'ngGithub.config',
-    'ngGithub.util'
+    'ngSanitize',
+    'ngAnimate',
+    'ngGithub.controllers.repos',
+    'ngGithub.controllers.repo',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     'use strict';
-
-    $routeProvider
-      .when('/repos', {
-        templateUrl: 'views/repos.html',
-        controller: 'repoController'
+    $stateProvider
+      /* Search state, had to be created because of a bug on reloadOnSearch prop */
+      .state('search', {
+        url: '/search',
+        templateUrl: 'views/search.html',
+        controller: 'reposController',
+        reloadOnSearch: false
       })
-      .otherwise({
-        redirectTo: '/repos'
+      /* Repositories list state */
+      .state('search.repos', {
+        url: '/repos?q',
+        reloadOnSearch: false,
+        views: {
+          'repos@search': {
+            templateUrl: 'views/repos/repos.html',
+            controller: 'reposController'
+          }
+        }
+      })
+      /* Repository detail state */
+      .state('search.repos.repo', {
+        url: '/:repo',
+        views: {
+          'repo@search.repos': {
+            templateUrl: 'views/repos/repo.html',
+            controller: 'repoController'
+          }
+        }
       });
+
+    $urlRouterProvider.otherwise('search/repos');
   });
 
 

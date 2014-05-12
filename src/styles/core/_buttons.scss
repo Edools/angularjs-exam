@@ -1,0 +1,21 @@
+/*********************************************************************
+*
+*  core/buttons
+*  buttons style
+*
+*********************************************************************/
+
+.btn-login {
+  width: em(100px);
+  height: em(30px);
+  padding: em(5px) em(15px);
+  border-radius: em(4px);
+  background: #2D3449;
+  cursor: pointer;
+
+  font-weight: 100;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+}

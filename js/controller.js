@@ -3,13 +3,11 @@ var app = angular.module('app', []);
 app.controller('Ctrl', ['$scope','github',function($scope, github){
   github.get().then(function(data){
     $scope.user = data.data;
-    $scope.user.memberSince = function() {
-      var strDate = $scope.user.created_at;
+    var strDate = $scope.user.created_at;
     $scope.array = strDate.split('-');
-      var year = $scope.array[0],
-          month = $scope.array[1];
-    return $scope.result = month+'/'+year;
-}
+    var year = $scope.array[0],
+        month = $scope.array[1];
+    $scope.user.memberSince = month+'/'+year;
   });
   
   github.repos().then(function(data){

@@ -3,24 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="http://necolas.github.io/normalize.css/latest/normalize.css">
-	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/base.min.css">
 	<title>Edools Repositories</title>
 </head>
   <body ng-app="app">
-    <div ng-controller="Ctrl">
-      <p>Olá {{user.name}} [member since: {{user.memberSince}}]</p>
-      <h2>Repo list:</h2>
-      <ul>
-        <li ng-repeat="repo in repos">
-        <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
-        </li>
-      </ul>
-      <h2>Member list:</h2>
-      <ul>
-        <li ng-repeat="member in members">
-        <a href="{{member.html_url}}" target="_blank">{{member.login}}</a>
-        </li>
-      </ul>
+    <div ng-controller="Ctrl" class="wrapper">
+    	<section class="user__info">
+			<figure class="user__avatar"><img src="{{user.avatar_url}}" alt=""></figure>
+			<h1>{{user.name}} 
+				<small class="memberSince">[member since: {{user.memberSince}}]</small>
+			</h1>
+		</section>
+		<section class="user__data">
+			<h2>Repo list:</h2>
+			<ul class="user__repo">
+				<li ng-repeat="repo in repos">
+					<a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+				</li>
+			</ul>
+			<h2>Member list:</h2>
+			<ul class="user__members">
+				<li ng-repeat="member in members">
+					<a href="{{member.html_url}}" target="_blank">
+					<figure class="user__members__avatar">
+						<img src="{{member.avatar_url}}" alt="">
+						<figcaption>{{member.login}}</figcaption>
+					</figure></a>
+				</li>
+			</ul>
+		</section>
     </div>
     <!-- Dependencies -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>

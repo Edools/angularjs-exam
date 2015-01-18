@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@color-base : #fff;
+@color-text : #777;
+@color-important : #6897c5;
+@default-margin : 10px;
+@transition : all .3s ease;
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+body {
+  color: @color-text;
+  background-color: @color-base;
+  background-image: radial-gradient(circle, transparent,rgba(0,0,0,.4));
+}
+ul {list-style: none}
+a {
+  transition: @transition;
+  &:link,&:visited,&:active {
+    text-decoration: none;
+    color: inherit
+  }
+  &:hover {
+    color: @color-important;
+    text-decoration: underline
+  }
+}
+img {
+  height: 100%;
+  border: none;
+}
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+.memberSince {
+  display: block;
+  font-size: 40%;
+  color: #fff;
+}
+.user__avatar {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  padding: 0;
+  margin: (-2 * @default-margin) 0;
+}
+.user__info {
+    margin: @default-margin 0;
+    padding: 20px 0;
+    position: relative;
+
+    h1 {
+      font-size: 300%;
+      color: @color-important;
+      text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+    }
+}
+.user__repo {
+    margin: (2*@default-margin) @default-margin;
+    li {
+      display: inline-block;
+      width: 50%;
+  }
+}
+.user__members {
+    &:extend(.user__repo);
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: @default-margin;
+      &:hover > img {
+        border: 2px solid @color-important;
+      }
+    }
+}
+.user__members__avatar {
+  height: 80px;
+  img {
+    border-radius: 50%;
+    vertical-align: middle;
+    transition: @transition;
+    border: 4px solid transparent
+  }
+  &:hover > img {
+    border-color: @color-important;
+  }
+}

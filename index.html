@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="searchGithub">
+<head>
+	<link rel="stylesheet" href="css/bootstrap-combined.min.css">
+	<link rel="stylesheet" href="css/theme.css">
+
+	<script src="lib/angular.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+
+<body>
+	<div class="upperBody" id="upperBody" ng-controller="SearchController">
+		<h1>GitHub File Browser</h1>
+		<br>
+		<form>
+			<input type="text" id="username" ng-model="username" placeholder="Enter github username here"><br>
+			<input type="text" id="repoName" ng-model="repoName" placeholder="Enter your repo name here"><br>
+			<input class="btn-primary" type="submit" value="Submit" data-ng-click="init()"> 
+		</form>
+
+		<div id="lowerBody" style="display: none">	
+			<hr style="width: 100%;">
+			<h4>Search for files in {{repository}}</h4>
+			<input type="text" ng-model="fileName" size="30" ng-change="startSearch()" placeholder="enter file name">
+			<ul>
+				<li ng-repeat="file in files">
+					<span>{{file.text}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	
+</body>
+</html>

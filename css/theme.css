@@ -1,0 +1,18 @@
+.upperBody {
+	position: fixed; 
+	left: 50px;
+	right: 50px; 
+	top: 20px;
+	bottom: 20px;
+}
+
+.lowerBody {
+	position: fixed;
+	left: 50px;
+	top: 400px;
+	z-index: 5;
+}
+
+hr {
+	width: 100%;
+}

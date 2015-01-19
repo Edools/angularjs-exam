@@ -1,0 +1,2 @@
+- Acesse o index.html
+- Insira o nome de usuário no qual deseja pesquisar os repositórios

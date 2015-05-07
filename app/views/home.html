@@ -30,7 +30,8 @@
 				<div class="panel-body">
 					<p class="issue-info">Status: <span>{{issue.state}}</span> | Criado por: <a ng-href='{{issue.user.html_url}}' target="_blank">{{issue.user.login}}</a></p>
 					<p class="issue-body">{{issue.body}}</p>
-					<input type="text" class="input-group-btn">
+					<textarea class="comment-field form-control" placeholder='adicione um comentário' ng-model='issueComment'> </textarea>
+					<button class="btn btn-info" ng-click='commentIssue(issueComment, issue.user.login, selectedRepo,issue.number)'>Comentar</button>
 				</div>				
 			</div>
 		

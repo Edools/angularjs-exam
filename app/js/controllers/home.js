@@ -1,6 +1,8 @@
 app.controller('homeCtrl', function($scope, repositoriesFactory){
 
 	$scope.showSearch = false;
+	$scope.issueComment = '';
+	$scope.selectedRepo = '';
 
     
     $scope.callRepos = function(org){
@@ -27,12 +29,21 @@ app.controller('homeCtrl', function($scope, repositoriesFactory){
 
     $scope.getIssues = function(owner, repo){
     	$scope.issuesList = [];
+    	$scope.selectedRepo = repo;
 
 	    repositoriesFactory.getIssues(owner, repo).then(function(data) {
 	    	console.log(data);
 	    	$scope.showIssues = true;
 	    	$scope.issuesList = data;
 	    });
+    }
+
+    $scope.commentIssue = function(comment, owner, repo, number) {
+    	console.log('comment');
+
+    	repositoriesFactory.commentIssue(comment, owner, repo, number).then(function(data){
+    		console.log(data);
+    	});
     }
 
 });

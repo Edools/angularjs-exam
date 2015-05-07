@@ -46,5 +46,21 @@ app.factory('repositoriesFactory', function($http, $q){
 
     }
 
+    service.commentIssue = function(comment, owner, repo, number) {
+        var deferred = $q.defer();
+
+        $http({
+            method:'POST',
+            url: 'https://api.github.com/repos/' + owner + '/'+ repo + '/issues/' + number + '/comments',
+            data: {'body' : comment}
+        }).success(function(data){
+            deferred.resolve(data);
+        }).error(function(){
+            alert('Ops... Tivemos um problema, tente novamente')
+        });
+
+        return deferred.promise;
+    }
+
     return service;
 });

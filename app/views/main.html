@@ -4,10 +4,10 @@
       <div class="form-group">
          <label for="searchUser">Search user:</label>
         <input type="text" class="form-control" name="searchUser" placeholder="Search" ng-model="ctrl.gm.userName" ng-change="ctrl.gm.searchUserName()">
-        <div class="pop-options">
+        <div class="pop-options"  ng-show="ctrl.gm.showUsers">
           <table class="table table-striped">
             <tbody>
-              <tr ng-repeat="user in ctrl.gm.users">
+              <tr ng-repeat="user in ctrl.gm.users" ng-click="ctrl.gm.setUser(user); ctrl.gm.searchUserRepos();">
                 <td>
                   <div class="col-xs-6 col-sm-3">
                     <img class="img-responsive" ng-src="{{ user.avatar_url }}">
@@ -18,6 +18,8 @@
             </tbody>
           </table>
         </div>
+        <label for="chooseUserRepo">Choose repository:</label>
+        <select class="form-control" name="chooseUserRepo" ng-model="ctrl.gm.repo" ng-options="repo.name for repo in ctrl.gm.repos"></select>
       </div>
     </form>
   </div>

@@ -1,7 +1,18 @@
-h1 {
-  color: red;
+.orgs-list .glyphicon-heart {
+  color: #ee0000;
 }
-
-p {
-  color: blue;
+.page-title {
+  margin-bottom: 10px;
+}
+.orgs-list a {
+  cursor: pointer;
+}
+.repos-search {
+  margin-bottom: 20px;
+}
+.repo-name {
+  font-weight: bold;
+}
+.issue-body {
+  font-style: italic;
 }

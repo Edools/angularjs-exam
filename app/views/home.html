@@ -1,1 +1,39 @@
-<h1>home</h1>
+<div class="home-wrapper container">
+	<div class="container-fluid">
+		<h3 class="page-title">Escolha uma organização:</h3>
+		<div class="col-md-4 col-xs-6">
+			<div class="list-group orgs-list">
+				<a ng-click='callRepos("Edools")' class="list-group-item">Edools <span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span></a>
+				<a ng-click='callRepos("Mozilla")' class="list-group-item">Mozilla</a>
+				<a ng-click='callRepos("Bocoup")' class="list-group-item">Bocoup</a>
+				<a ng-click='callRepos("Twitter")' class="list-group-item">Twitter</a>
+				<a ng-click='teste("hugodutra")' class="list-group-item">teste</a>
+			</div>
+			<div class="input-group repos-search" ng-show='showSearch'>
+			 	<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+				<input type="text" class="form-control" placeholder='Busca' aria-describedby="basic-addon1" ng-model='search.name'>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat='repo in reposList | filter:search'>
+					<p class="repo-name">{{repo.name}}</p>
+					<a ng-show='repo.open_issues > 0' ng-click='getIssues(repo.owner.login, repo.name)'>Listar issues</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-xs-12">
+			<h3 ng-show='showIssues'>Lista de Issues</h3>
+
+			<div class="panel panel-info" ng-repeat='issue in issuesList'>
+				<div class="panel-heading">	
+					<a ng-href="{{issue.html_url}}" target="_blank">{{issue.title}}</a>
+				</div>
+				<div class="panel-body">
+					<p class="issue-info">Status: <span>{{issue.state}}</span> | Criado por: <a ng-href='{{issue.user.html_url}}' target="_blank">{{issue.user.login}}</a></p>
+					<p class="issue-body">{{issue.body}}</p>
+					<input type="text" class="input-group-btn">
+				</div>				
+			</div>
+		
+		</div>
+	</div>
+</div>

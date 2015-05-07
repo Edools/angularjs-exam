@@ -1,5 +1,5 @@
-var app = angular.module('testApp', ['ngRoute'])
-    .config(function ($routeProvider) {
+var app = angular.module('edoolsApp', ['ngRoute'])
+    .config(function ($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
@@ -12,5 +12,5 @@ var app = angular.module('testApp', ['ngRoute'])
             .otherwise({
                 redirectTo: '/'
             });
-
+            
 });

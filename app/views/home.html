@@ -1,13 +1,14 @@
 <div class="home-wrapper container">
 	<div class="container-fluid">
+
 		<h3 class="page-title">Escolha uma organização:</h3>
+		
 		<div class="col-md-4 col-xs-6">
 			<div class="list-group orgs-list">
-				<a ng-click='callRepos("Edools")' class="list-group-item">Edools <span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span></a>
+				<a ng-click='callRepos("Edools")' class="list-group-item">Edools <!-- <span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span> --></a>
 				<a ng-click='callRepos("Mozilla")' class="list-group-item">Mozilla</a>
 				<a ng-click='callRepos("Bocoup")' class="list-group-item">Bocoup</a>
 				<a ng-click='callRepos("Twitter")' class="list-group-item">Twitter</a>
-				<a ng-click='teste("hugodutra")' class="list-group-item">teste</a>
 			</div>
 			<div class="input-group repos-search" ng-show='showSearch'>
 			 	<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -30,8 +31,7 @@
 				<div class="panel-body">
 					<p class="issue-info">Status: <span>{{issue.state}}</span> | Criado por: <a ng-href='{{issue.user.html_url}}' target="_blank">{{issue.user.login}}</a></p>
 					<p class="issue-body">{{issue.body}}</p>
-					<textarea class="comment-field form-control" placeholder='adicione um comentário' ng-model='issueComment'> </textarea>
-					<button class="btn btn-info" ng-click='commentIssue(issueComment, issue.user.login, selectedRepo,issue.number)'>Comentar</button>
+					<a ng-href="{{issue.html_url}}" class="btn btn-info" target="_blank">Ver issue</a>
 				</div>				
 			</div>
 		

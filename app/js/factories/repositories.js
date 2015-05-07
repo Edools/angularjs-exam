@@ -15,21 +15,7 @@ app.factory('repositoriesFactory', function($http, $q){
         
         return deferred.promise;
     }    
-    service.teste = function(org){
-        var deferred = $q.defer();
 
-        $http({
-            method: 'GET',
-            url: 'https://api.github.com/users/' + org + '/repos'
-        }).success(function(data){
-            deferred.resolve(data);
-        }).error(function(){
-            alert('Ops... Tivemos um problema, tente novamente')
-        });
-        
-        return deferred.promise;
-    }
-    
     service.getIssues = function(owner, repo) {
         var deferred = $q.defer();
 
@@ -39,27 +25,11 @@ app.factory('repositoriesFactory', function($http, $q){
         }).success(function(data){
             deferred.resolve(data);
         }).error(function(){
-            alert('Ops... Tivemos um problema, tente novamente')
+            alert('Ops... Tivemos um problema, tente novamente');
         });
 
         return deferred.promise;
 
-    }
-
-    service.commentIssue = function(comment, owner, repo, number) {
-        var deferred = $q.defer();
-
-        $http({
-            method:'POST',
-            url: 'https://api.github.com/repos/' + owner + '/'+ repo + '/issues/' + number + '/comments',
-            data: {'body' : comment}
-        }).success(function(data){
-            deferred.resolve(data);
-        }).error(function(){
-            alert('Ops... Tivemos um problema, tente novamente')
-        });
-
-        return deferred.promise;
     }
 
     return service;

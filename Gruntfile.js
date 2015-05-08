@@ -51,12 +51,22 @@ module.exports = function(grunt) {
 			development: {
 				files: {'app/styles/styles.css':'app/styles/less/{,*/}*.less'}
 			}
+		},
+
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js'
+			}
 		}
 	});
 
 	grunt.registerTask('serve', [
 		'connect',
 		'watch'
+	]);
+
+	grunt.registerTask('test', [
+		'karma'
 	]);
 
 }

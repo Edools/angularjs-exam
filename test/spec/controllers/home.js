@@ -1,20 +1,23 @@
 describe('Unit: homeCtrl', function(){
 	beforeEach(module('edoolsApp'));
 
-	var ctrl, scope;
+	var ctrl, scope, repositoriesFactory;
 
-	beforeEach(inject(function($controller,$rootScope){
-
+	beforeEach(inject(function($controller, $rootScope, $injector, _$httpBackend_){
 		scope = $rootScope.$new();
-		ctrl = $controller('homeCtrl', {
+		homeCtrl = $controller('homeCtrl', {
 			$scope: scope
 		});
+		repositoriesFactory = $injector.get('repositoriesFactory');
+		$httpBackend = _$httpBackend_;
 	}));
 
-	it('should create $scope.greeting when calling sayHello',
-		function(){
-			expect(scope.greeting).toBeUndefined();
-			scope.sayHello();
-			expect(scope.greeting).toEqual('Hello Ari');
-	})
+	it('should have a homeCtrl controller', function() {
+		expect(homeCtrl).toBeDefined();
+	});
+
+	it('should have a working repositoriesFactory factory', function(){
+		expect(repositoriesFactory.callRepos).toBeDefined();
+		expect(repositoriesFactory.getIssues).toBeDefined();
+	});
 });

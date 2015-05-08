@@ -5,7 +5,7 @@
 		
 		<div class="col-md-4 col-xs-6">
 			<div class="list-group orgs-list">
-				<a ng-click='callRepos("Edools")' class="list-group-item">Edools <!-- <span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span> --></a>
+				<a ng-click='callRepos("Edools")' class="list-group-item">Edools <span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span><span class='glyphicon glyphicon-heart'></span></a>
 				<a ng-click='callRepos("Mozilla")' class="list-group-item">Mozilla</a>
 				<a ng-click='callRepos("Bocoup")' class="list-group-item">Bocoup</a>
 				<a ng-click='callRepos("Twitter")' class="list-group-item">Twitter</a>
@@ -24,7 +24,7 @@
 		<div class="col-md-8 col-xs-12">
 			<h3 ng-show='showIssues'>Lista de Issues</h3>
 
-			<div class="panel panel-info" ng-repeat='issue in issuesList'>
+			<div class="panel panel-info" ng-repeat='issue in issuesList' ng-show='showIssues'>
 				<div class="panel-heading">	
 					<a ng-href="{{issue.html_url}}" target="_blank">{{issue.title}}</a>
 				</div>

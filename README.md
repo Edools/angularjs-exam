@@ -1,23 +1,21 @@
-AngularJS Exam
-==============
+AngularJS Exam - Hugo Dutra
+============================
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
+Hi, guys!
+This is my answer to the exam. 
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+You will be able to choose between four organizations to list their repositories. Inside each repository you can list their issues, if it has any, see some issues informations and open the issue on github.
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+To complete the exam I used Grunt, Less, Karma and Bower.
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
+To run the app after cloning the repository you need to:
 
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
+1 - Install Npm dependecies using npm install (maybe you have to use 'sudo' here)
+2 - Install bower dependencies using bower install
+3 - Run 'grunt serve' and the app will open on your browser
+4 - To run the tests you can run 'grunt test' or 'karma start karma.conf.js'
 
-Besides things mentioned above, there are a few things that would be a big plus to see:
+I REALLY hope you all like it!
 
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
+Thanks!
 
-We wish you good luck, and may the Quality be with you!

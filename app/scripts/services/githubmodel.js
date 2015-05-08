@@ -17,7 +17,10 @@ angular.module('myghApp')
       user: null,
       searchRepo: false,
       repos: [],
-      repo: null
+      repo: null,
+      searchIssue: false,
+      issues: [],
+      issue: null
     };
 
     gm.searchUserName = function () {
@@ -49,7 +52,7 @@ angular.module('myghApp')
 
       GithubApi.searchRepo(gm.user.login)
         .success(function (data) {
-          gm.searchRepo = true;
+          gm.searchRepo = false;
           gm.repos = data;
         })
         .error(function () {
@@ -57,6 +60,21 @@ angular.module('myghApp')
         });
 
       console.log('searchUserRepos');
+    };
+    
+    gm.searchUserRepoIssue = function () {
+      gm.searchIssue = true;
+
+      GithubApi.searchIssue(gm.user.login, gm.repo.name)
+        .success(function (data) {
+          gm.searchIssue = false;
+          gm.issues = data;
+        })
+        .error(function () {
+          console.error('ISSUE GET ERROR');
+        });
+
+      console.log('searchUserRepoIssue');
     };
 
     return gm;

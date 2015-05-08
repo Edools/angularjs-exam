@@ -3,7 +3,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,6 +14,7 @@ body {
   padding: 80px 0 0;
 }
 /* Custom header */
+
 .navbar {
   margin-bottom: 0;
 }
@@ -33,6 +33,7 @@ body {
   line-height: initial;
 }
 /* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
@@ -45,6 +46,7 @@ body {
 /*
  * Main content
  */
+
 .main {
   padding: 20px;
 }
@@ -55,6 +57,7 @@ body {
 /*
  * Sidebar
  */
+
 .sidebar {
   position: fixed;
   top: 80px;
@@ -66,13 +69,16 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   /* Scrollable contents if viewport is shorter than content. */
+  
   background-color: #f5f5f5;
   border-right: 1px solid #eee;
 }
 /* Sidebar navigation */
+
 .nav-sidebar {
   margin-right: -21px;
   /* 20px padding + 1px border */
+  
   margin-bottom: 20px;
   margin-left: -20px;
   li > a {
@@ -85,4 +91,18 @@ body {
     color: #fff;
     background-color: #428bca;
   }
+}
+
+.media-list img {
+  width: 64px;
+  height: 64px;
+}
+
+.media {
+  margin: 0;
+}
+
+.media:hover {
+  color: #555;
+  background-color: #f5f5f5;
 }

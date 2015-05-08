@@ -23,6 +23,18 @@ angular.module('myghApp')
         return $http.get(url, {
           params: {}
         });
+      },
+      searchIssue: function (user, repo, page) {
+        if (!page) {
+          page = 1;
+        }
+        var url = 'https://api.github.com/repos/' + user + '/' + repo + '/issues';
+        return $http.get(url, {
+          params: {
+            page: page,
+            state: 'all'
+          }
+        });
       }
     };
   }]);

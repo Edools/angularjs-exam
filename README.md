@@ -18,6 +18,8 @@ To run the app after cloning the repository you need to:
 
 4 - To run the tests you can run 'grunt test' or 'karma start karma.conf.js';
 
+5 - To run jslint just run grunt jslint;
+
 
 I REALLY hope you all like it!
 

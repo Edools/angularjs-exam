@@ -1,0 +1,38 @@
+<section id="user">
+  <h4>Search user:</h4>
+  <input type="text" class="form-control" placeholder="Search" ng-model="ctrl.gm.userName" ng-change="ctrl.gm.searchUserName()">
+  <ul class="media-list list-group" ng-show="ctrl.gm.showUsers">
+    <li class="media list-group-item" ng-repeat="user in ctrl.gm.users" ng-click="ctrl.gm.setUser(user); ctrl.gm.searchUserRepos();">
+      <div class="media-left">
+        <img class="media-object" ng-src="{{ user.avatar_url }}">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{ user.login }}</h4>
+      </div>
+    </li>
+  </ul>
+</section>
+<section id="repo">
+  <h4>Choose repository:</h4>
+  <select class="form-control" ng-model="ctrl.gm.repo" ng-options="repo.name for repo in ctrl.gm.repos" ng-change="ctrl.gm.searchUserRepoIssue()"></select>
+</section>
+<section id="issues">
+  <h4>Issues:</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>#Messages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="issue in ctrl.gm.issues | orderBy:'number'">
+        <td>{{ issue.number }}</td>
+        <td>{{ issue.title }}</td>
+        <td>{{ issue.state }}</td>
+        <td>{{ issue.comments }}</td>
+      </tr>
+  </table>
+</section>

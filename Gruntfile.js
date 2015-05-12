@@ -3,6 +3,7 @@
 module.exports = function(grunt) {
 
 	require('load-grunt-tasks')(grunt);
+	grunt.loadNpmTasks('grunt-jslint');
 
 	grunt.initConfig({
 
@@ -53,11 +54,22 @@ module.exports = function(grunt) {
 			}
 		},
 
+		jslint: {
+			server: {
+				src: [
+					'app/js/*.js',
+					'app/js/controllers/*.js',
+					'app/js/factories/*.js',
+				],
+			}
+		},
+
 		karma: {
 			unit: {
 				configFile: 'karma.conf.js'
 			}
-		}
+		},
+
 	});
 
 	grunt.registerTask('serve', [
@@ -68,5 +80,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', [
 		'karma'
 	]);
-
 }

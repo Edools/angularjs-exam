@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function($scope, repositoriesFactory){
+angular.module('edoolsApp.home', ['']).controller('homeCtrl', function($scope, repositoriesFactory){
 
 	$scope.showSearch = false;
 	$scope.issueComment = '';

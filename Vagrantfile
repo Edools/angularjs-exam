@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.network "public_network"
 
   # Standard minimal Ubuntu box
   config.vm.box = "precise32"

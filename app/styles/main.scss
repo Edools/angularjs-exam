@@ -51,10 +51,33 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+}
 
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.user-info {
+  .avatar {
+    display: inline-block;
+    zoom: 1;
+    height: 78px;
+    padding: 2px;
+
+    img {
+      display: block;
+      width: 75px;
+      height: 75px;
+      border: 0;
+      border-radius: 3px;
+    }
+  }
+
+  .name {
+    display: inline-block;
+  }
+}
+
+.repo {
+  .info {
+    font-weight: bold;
+    margin-right: 50px;
   }
 }
 

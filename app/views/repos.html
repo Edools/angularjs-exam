@@ -1,0 +1,8 @@
+<div class="repo" ng-repeat="repo in repositories">
+  <h1>{{repo.name}}</h1>
+  <div>
+    <span class="info">Issues: </span>{{repo.open_issues_count}}
+    <span class="info">Watchers: </span>{{repo.watchers_count}}
+    <span class="info">Linguagem: </span>{{repo.language}}
+  </div>
+</div>

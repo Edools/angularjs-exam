@@ -2,20 +2,19 @@
 
 /**
  * @ngdoc function
- * @name queroTrabalharNoEdoolsFrontendApp.controller:MainCtrl
+ * @name queroTrabalharNoEdoolsFrontendApp.controller:AboutCtrl
  * @description
- * # MainCtrl
+ * # AboutCtrl
  * Controller of the queroTrabalharNoEdoolsFrontendApp
  */
 angular.module('queroTrabalharNoEdoolsFrontendApp')
-.controller('MainCtrl', function (User, $scope) {
-  $scope.takeUser = function (user) {
-    User.info(user)
+  .controller('RepositoriesCtrl', function ($routeParams, User, $scope) {
+
+    User.repositories($routeParams.login)
       .success(function (response) {
-        $scope.userInfo = response;
+        $scope.repositories = response;
       })
       .error(function (error) {
         $scope.error = error
       });
-  };
-});
+  });

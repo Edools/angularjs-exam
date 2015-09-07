@@ -2,3 +2,15 @@
 <hr/>
 <p>{{repo.description}}</p>
 <a href="#/repos">back</a>
+<table>
+  <thead>
+      <tr><th colspan="2">Issues</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="issue in issuesList">
+        <td><img src="{{issue.user.avatar_url}}" width="40" height="40" /></td>
+        <td>{{issue.title}}</td>
+        <td>{{issue.body}}</td>
+      </tr>
+    </tbody>
+</table>

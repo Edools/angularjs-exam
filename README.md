@@ -1,23 +1,12 @@
-AngularJS Exam
-==============
+# quero-trabalhar-no-edools-frontend
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.12.1.
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+## Build & development
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+Run `grunt` for building and `grunt serve` for preview.
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
+## Testing
 
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
-
-Besides things mentioned above, there are a few things that would be a big plus to see:
-
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
-
-We wish you good luck, and may the Quality be with you!
+Running `grunt test` will run the unit tests with karma.

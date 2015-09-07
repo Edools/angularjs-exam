@@ -5,7 +5,7 @@
     <tbody>
       <tr ng-repeat="repo in reposList">
         <td><img src="{{repo.owner.avatar_url}}" width="40" height="40" /></td>
-        <td>{{repo.full_name}}</td>
+        <td><a href="#/repo/{{repo.full_name}}">{{repo.full_name}}</a></td>
         <td>{{repo.description}}</td>
       </tr>
     </tbody>

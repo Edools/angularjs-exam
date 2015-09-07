@@ -3,7 +3,7 @@
 angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
+  $routeProvider.when('/repos', {
     templateUrl: 'view1/view1.html',
     controller: 'View1Ctrl'
   });
@@ -11,11 +11,11 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .factory('View1Srv', function($http) {
   var githubAPI = {};
-  githubAPI.getRepos = function() {
+  githubAPI.getRepos = function($query) {
     return $http({
       url: "https://api.github.com/search/repositories?q=angular"
     });
-  }
+  };
   return githubAPI;
 })
 

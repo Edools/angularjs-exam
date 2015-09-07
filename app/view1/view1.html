@@ -1,1 +1,12 @@
-<p>This is the partial for view 1.</p>
+<table>
+  <thead>
+      <tr><th colspan="2">Repos</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in reposList">
+        <td><img src="{{repo.owner.avatar_url}}" width="40" height="40" /></td>
+        <td>{{repo.full_name}}</td>
+        <td>{{repo.description}}</td>
+      </tr>
+    </tbody>
+</table>

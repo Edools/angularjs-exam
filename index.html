@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edools Github</title>
+    <link rel="stylesheet" href="src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="src/assets/css/modal.css">
+</head>
+
+<body ng-app="edoolsGithub">
+<div class="container"  ng-controller="userCtrl as u" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Edools Github</h1>
+        </div>
+    </div> <!-- /End Title -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Github User</label>
+        </div>
+    </div>  <!-- /End Github User -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <input type="text" class="form-control"  ng-model="u.userName">
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="u.requestUsers()" ng-submit="" type="submit">Search</button>
+            </span>
+            </div>
+        </div>
+    </div> <!-- /End Search User -->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="text-left col-md-2">
+            <image class="img-thumbnail" style="height:130px" src="{{u.users.avatar_url}}"></image>
+        </div>
+        <div class="text-left col-md-4">
+            <h3>Github User: {{u.users.login}}</h3>
+            <h3><small>Real Name: {{u.users.name}}</small></h3>
+        </div>
+        <div class="text-right col-md-6 ">
+            <h3>Public repositories: {{u.users.public_repos}}</h3>
+            <h3><small> <a href="{{u.users.html_url}}">View on GitHub</a></small></h3>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="text-center col-md-4">
+                <input type="text" placeholder="Filter" class="form-control"  ng-model="repo">
+        </div>
+    </div> <!-- /End Search User -->
+
+    <div class="row">
+        <table class="table table-condensed col-md-12">
+
+            <thead>
+            <tr>
+                <th>Repository Name</th>
+                <th>Language</th>
+                <th>Stargazers</th>
+                <th>Forks</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="repos in u.repos | orderBy:'-stargazers_count' | filter: repo ">
+                <td class="text-left"><a href=""></a>{{repos.name}}</td>
+                <td class="text-left">{{repos.language}}</td>
+                <td class="text-left">{{repos.stargazers_count}}</td>
+                <td class="text-left">{{repos.forks}}</td>
+                <td class="text-left">
+
+                    <a ng-click="u.requestContributors(u.users.login,repos.name)" href="#{{repos.name}}">+Detail Repository</a>
+
+                    <div id="{{repos.name}}" class="modalDialog">
+                        <div>
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>{{repos.name}}</h2>
+                            <h2><small>Description</small></h2>
+                            <p>{{repos.description}}</p>
+
+                            <h2><small>Open Issues</small></h2>
+                            <h3>{{repos.open_issues}}</h3>
+
+                            <h2><small>Contributors</small></h2>
+                            <div class="media">
+                                <ul class="list-inline">
+                                    <li ng-repeat="contrib in u.contrib">
+                                        <a target="_blank" href="{{contrib.html_url}}">
+                                            <img class="media-object" style="height:50px" src="{{contrib.avatar_url}}" title="{{contrib.login}}">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+	<!--</div>-->
+</div>
+
+</body>
+
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
+
+
+<script>
+    System.import('./src/app/app');
+</script>
+
+
+
+</html>

@@ -1,0 +1,37 @@
+{
+  "jspm": {
+    "directories": {
+      "lib": "."
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.3.14"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.22",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "core-js": "npm:core-js@^1.1.0"
+    }
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.5",
+    "bower": "*",
+    "gulp": "^3.8.11",
+    "gulp-concat": "*",
+    "gulp-connect": "^2.2.0",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
+  },
+  "name": "EdoolsGithub",
+  "description": "",
+  "version": "1.0.0",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tiago Cedrim",
+  "license": "ISC"
+}

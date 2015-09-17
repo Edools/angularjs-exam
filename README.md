@@ -1,23 +1,22 @@
 AngularJS Exam
 ==============
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
+Neste trabalho extraiu-se, da api do github, os projetos do Mojombo. Nele é possível observar o numero de forks e watchers de seus projetos e visitar a página cada um deles. A página desenvolvida possui um campo de busca onde é possível filtrar os projetos conforme vai se digitando no campo de busca.
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+Para desenvolver o trabalho foram utilizados:
+- bootstrap: para estilizar a página mais rapidamente e faze-la responsiva
+- Grunt: para automação de tarefas. Foram utilizados os seguintes plugins:
+    - SASS: para desenvolver o estilo complementar da página: "efeitos.css" 
+    - Watch: 
+        - para compilar automaticamente o sass cada vez que ele fosse salvo 
+        - recarregar a página a cada modificação salva 
+    - browserSync: sincronizar diversos dispositivos para teste e tornar seu
+    acesso por dispositivos móveis mais fácil.
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+Como rodar o Projeto
+=====================
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
+- instale os pacote necessários digitando, no diretório do projeto: npm install
+- para rodar o servidor de ver as ferramentas utilizadas funcionando, basta digitar no diretório do projeto: grunt server
 
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
 
-Besides things mentioned above, there are a few things that would be a big plus to see:
-
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
-
-We wish you good luck, and may the Quality be with you!

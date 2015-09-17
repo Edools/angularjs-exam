@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="AngularJsExam">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Angular Js Exam</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/efeitos.css">
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-animate.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/controllers/githubdata-controller.js"></script>
+        <script src="js/directives/minhas-diretivas.js"></script>
+        <!--
+            se alguma das diretivas que uso e declaro na main.js não teve seu script importado pela tag <script> teremos um esso no angular.
+        -->
+    </head>
+
+    <body>
+
+            <div class="container" ng-controller="GitHubDataController">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="figuraDoProjeto" src="img/student-developer-pack-726x282.png">
+                    </div>
+                </div>
+
+               <div class="row">
+                   <div class="col-md-12">
+                       <form>
+                           <input class="form-control" ng-model="filtro" placeholder="Procure pelos projetos publicados pelo Mojombo">
+                       </form>
+                   </div>
+               </div>
+
+
+                <div class="row">
+
+                    <meu-painel class="col-md-12 painel-animado" ng-repeat="dado in gitHubData | filter: filtro" titulo="{{dado.name}}">
+                    <p>{{dado.description}}</p>
+
+
+                    <ul class="dadosDoProjeto">
+                        <li>
+                            <span class="glyphicon glyphicon-heart"></span>
+                            forks:
+                            <span class="badge">{{dado.forks}}</span>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            watchers:
+                            <span class="badge">{{dado.watchers}}</span>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="btn btn-success" aria-label="Left Align">
+                        <a  href="{{dado.html_url}}">
+                         ir para o projeto
+                        </a>
+                    </button>
+
+                    </meu-painel>
+
+                </div>
+
+        </div> <!-- fim container -->
+
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
+<!--
+
+    ng-app e ng-controller
+    não sao atributos  - não estão definidos nos padrões da w3c, eles são diretivas do angular, que ensinam novos truques ao navegador.
+
+-->

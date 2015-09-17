@@ -1,0 +1,8 @@
+.tmp
+.DS_Store
+.DS_Store?
+node_modules/
+.dpl/
+/caminhoPrompt.txt
+/public/css/*.map
+/.sass-cache/

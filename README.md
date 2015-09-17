@@ -21,3 +21,20 @@ Besides things mentioned above, there are a few things that would be a big plus 
 - usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
 
 We wish you good luck, and may the Quality be with you!
+
+Edools Github
+==============
+
+1 - install global module: npm install jspm gulp -g
+
+2 - npm install
+
+3 - jspm install
+
+4 - bower install bootstrap-sass
+
+5 - launch the server: gulp
+
+6 - navigate to http://localhost:8080
+
+\o/

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Git hub api</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="section">
+      <div class="container" ng-controller="GitCtrl">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{user.avatar_url}}" class="center-block img-circle img-responsive">
+            <h3 class="text-center">{{user.name}}</h3>
+          </div>
+          <div class="col-md-8">
+              <h2><a ng-href={{user.blog}} >{{user.blog}}</a><br></h2>
+              <span class="badge badge-success">Repos publicos: {{user.public_repos}}</span><br>
+              <span class="badge badge-success">Gists publicos: {{user.public_gists}}</span><br>
+              <span class="badge badge-success">Seguidores: {{user.followers}}</span><br>
+          </div>
+          <div>
+            <h2>Repositorios</h2>
+            <span ng-repeat="rep in repo" class="label label-info"><a ng-href="{{rep.html_url}}" target="_blank" title="{{rep.description}}">{{rep.name}}</a><span class="badge" title="nº de forks">{{rep.forks}}</span><span class="badge glyphicon" title="nº de estrelas">{{rep.stargazers_count}}</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

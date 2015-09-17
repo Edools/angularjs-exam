@@ -1,0 +1,9 @@
+.label {
+	display: inline-block;
+	margin: 5px;
+	font-size: 1em;
+}
+
+.badge {
+	margin: 2px;
+}

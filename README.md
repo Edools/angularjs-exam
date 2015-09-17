@@ -13,4 +13,10 @@ Para desenvolver o trabalho foram utilizados:
     - browserSync: sincronizar diversos dispositivos para teste e tornar seu
     acesso por dispositivos móveis mais fácil.
 
+Como rodar o Projeto
+=====================
+
+- instale os pacote necessários digitando, no diretório do projeto: npm install
+- para rodar o servidor de ver as ferramentas utilizadas funcionando, basta digitar no diretório do projeto: grunt server
+
 

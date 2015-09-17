@@ -55,7 +55,9 @@ $larguraMaxima: 750px;
     }
 
 }
-
+.figuraDoProjeto {
+    max-width: 100%;
+}
 .container{
     max-width: $larguraMaxima;
 }

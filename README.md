@@ -6,10 +6,10 @@ Neste trabalho extraiu-se, da api do github, os projetos do Mojombo. Nele é pos
 Para desenvolver o trabalho foram utilizados:
 - bootstrap: para estilizar a página mais rapidamente e faze-la responsiva
 - Grunt: para automação de tarefas. Foram utilizados os seguintes plugins:
-    - SASS: para desenvolver o estilo complementar da página
-    - Watch: para compilar automaticamente o sass cada vez que ele fosse salvo e 
-    recarregar a página a cada modificação salva no trabalho agilizando o
-    desenvolvimento
+    - SASS: para desenvolver o estilo complementar da página: "efeitos.css" 
+    - Watch: 
+        - para compilar automaticamente o sass cada vez que ele fosse salvo 
+        - recarregar a página a cada modificação salva 
     - browserSync: sincronizar diversos dispositivos para teste e tornar seu
     acesso por dispositivos móveis mais fácil.
 

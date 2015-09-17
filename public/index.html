@@ -21,10 +21,12 @@
 
             <div class="container" ng-controller="GitHubDataController">
 
-                <div class="jumbotron">
-                    <h1 class="text-center">
-                        Repositórios do Mojombo
-                    </h1>
+                <div class="row">
+                    <div class="col-md-12 jumbotron">
+                        <h1 class="text-center">
+                                Lista de projetos Mojombo
+                        </h1>
+                    </div>
                 </div>
 
                <div class="row">
@@ -36,25 +38,35 @@
                </div>
 
                 <div class="row">
-                    <meu-painel class="col-md-6 painel-animado" ng-repeat="dado in gitHubData | filter: filtro" titulo="{{dado.name}}">
-                        <a href="{{dado.html_url}}">ir para o projeto</a>
-                        <p>{{dado.description}}</p>
-                        <p>{{dado.forks}}</p>
-                        <p>{{dado.watchers}}</p>
-                        <p>{{dado.owner.login}}</p>
-                    </meu-painel>
-                </div>
+                    <meu-painel class="col-md-12 painel-animado" ng-repeat="dado in gitHubData | filter: filtro" titulo="{{dado.name}}">
+                    <p>{{dado.description}}</p>
 
-            <!--
-                <div class="row">
-                    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-                        <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}" />
+
+                    <ul class="dadosDoProjeto">
+                        <li>
+                            <span class="glyphicon glyphicon-heart"></span>
+                            forks:
+                            <span class="badge">{{dado.forks}}</span>
+                        </li>
+                        <li>
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            watchers:
+                            <span class="badge">{{dado.watchers}}</span>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="btn btn-success" aria-label="Left Align">
+                        <a  href="{{dado.html_url}}">
+                         ir para o projeto
+                        </a>
+                    </button>
+
                     </meu-painel>
                 </div>
-            -->
 
         </div> <!-- fim container -->
 
+    <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
 <!--

@@ -1,14 +1,18 @@
-nav.navbar.navbar-static-top.navbar-default
+.nav.navbar.navbar-default
   .container
     .navbar-header
-      a.navbar-brand(href='https://github.com/Swiip/generator-gulp-angular')
-        span.glyphicon.glyphicon-home
-        |  GitDools
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li.active
-          a(ng-href='#') Home
-        li
-          a(ng-href='#') About
-        li
-          a(ng-href='#') Contact
+      a.navbar-left.navbar-brand(href='/')
+        i.icon-social-github
+        |  Git
+        b Dools
+
+    .navbar-nav.navbar-right
+      .input-group.navbar-search
+        input.form-control(
+        type='text',
+        placeholder='Pesquisar Repositórios',
+        name='search',
+        ng-model='search')
+        span.input-group-btn
+          button.btn.btn-default(ng-click='vm.search(search)')
+            i.icon-magnifier

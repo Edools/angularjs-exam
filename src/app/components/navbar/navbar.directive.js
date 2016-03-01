@@ -16,7 +16,13 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor () {
+  constructor ($rootScope) {
     'ngInject';
+
+    this.$rootScope = $rootScope;
+  }
+
+  search(name) {
+    this.$rootScope.$broadcast('search', name);
   }
 }

@@ -1,32 +1,39 @@
+import getReposByNameMock from '../mocks/github.http.getReposByName.mock.js';
+
 describe('controllers', () => {
-  let vm;
+  let scope, vm, $httpBackend, config;
 
   beforeEach(angular.mock.module('gitDools'));
 
-  beforeEach(inject(($controller, webDevTec, toastr) => {
-    spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-    spyOn(toastr, 'info').and.callThrough();
-
+  beforeEach(inject(($rootScope, $controller, _$httpBackend_, _config_) => {
+    scope = $rootScope.$new();
     vm = $controller('MainController');
+    $httpBackend = _$httpBackend_;
+    config = _config_;
   }));
 
-  it('should have a timestamp creation date', () => {
-    expect(vm.creationDate).toEqual(jasmine.any(Number));
+  afterEach(function () {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should define animate class after delaying timeout', inject($timeout => {
-    $timeout.flush();
-    expect(vm.classAnimation).toEqual('rubberBand');
-  }));
+  it('should start with empty repositories array', () => {
+    expect(vm.repositories).toEqual([]);
+  });
 
-  it('should show a Toastr info and stop animation when invoke showToastr()', inject(toastr => {
-    vm.showToastr();
-    expect(toastr.info).toHaveBeenCalled();
-    expect(vm.classAnimation).toEqual('');
-  }));
+  it('should make a search matching "bootstrap"', () => {
+    $httpBackend
+      .when('GET', config.GITHUB_API_URL + '/search/repositories?q=bootstrap')
+      .respond(200, getReposByNameMock);
 
-  it('should define more than 5 awesome things', () => {
-    expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-    expect(vm.awesomeThings.length === 5).toBeTruthy();
+    scope.$apply(() => {
+      vm.search('bootstrap');
+    });
+
+    $httpBackend.flush();
+
+    expect(vm.repositories).toBeTruthy();
+    expect(vm.repositories.length).toBeGreaterThan(0);
+
   });
 });

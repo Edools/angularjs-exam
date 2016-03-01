@@ -115,7 +115,6 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  max-width: 420px;
   height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   padding: 5px $padding-base-horizontal;
   font-size: $font-size-base;
@@ -214,8 +213,6 @@ input[type="search"] {
 }
 
 .input-group {
-  max-width: 420px;
-
   .form-control {
     max-width: 100%;
   }

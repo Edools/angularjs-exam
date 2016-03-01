@@ -1,0 +1,9 @@
+footer {
+  $footer-bg: #3E3C3C;
+  $footer-color: darken($light, 45%);
+  margin-top: 30px;
+  padding-top: 30px;
+  background-color: $footer-bg;
+  color: $footer-color;
+  text-align: center;
+}

@@ -39,9 +39,10 @@ Você precisa instalar o gulp
 $ npm install -g gulp
 ```
 
-Depois de instalado o gulp e o bower é preciso rodar um npm install para instalar
+Depois de instalado o gulp e o bower é preciso rodar um npm install dentro da pasta master 
 
 ```sh
+$ cd master
 $ npm install
 ```
 E depois o bower install dentro da pasta master

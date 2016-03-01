@@ -1,6 +1,3 @@
-AngularJS Exam
-==============
-
 # Ederson - AngularJS Exam Edools
 ## Objetivo da applicação
 A aplicação se conecta com uma api do git hub e faz uma busca de todos os repositorios pelo nome e retorna em uma lista contendo informações sobre o repositorio.
@@ -37,15 +34,17 @@ Você precisa instalar o gulp
 $ npm install -g gulp
 ```
 ### Debug e Edição
-Você precisa rodar o gulp
+Você precisa rodar o gulp dentro do diretorio master
 ```sh
+$ cd master
 $ gulp
 ```
 Com isso você pode editar os arquivos less e js que o gulp vai atualizar os arquivos js e css automaticamente na pasta app, onde o index.html está apontando.
 
 ### Distribuição
-Você precisa rodar o gulp build para compactar e huglify os arquivos
+Você precisa rodar o gulp build dentro do diretorio master para compactar e huglify os arquivos 
 ```sh
+$ cd master
 $ gulp build
 ```
 Para distribuir vc deve copiar somente a pasta app e o index.

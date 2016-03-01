@@ -2,9 +2,40 @@
   navbar
   .row
     .container
-      .col-sm-4(ng-repeat='repo in main.repositories')
-        .thumbnail
-          h3.text-center
-            b {{::repo.name}}
-            | /
-            span {{::repo.owner.login}}
+      .list
+        .col-sm-6.col-md-4(ng-repeat='repo in main.repositories')
+          .list-item.clearfix
+            p.title
+              b {{::repo.name}}
+            p.owner.clearfix
+              img.avatar.img-responsive(ng-src='{{repo.owner.avatar_url}}')
+              span {{::repo.owner.login}}
+            .list-item-footer
+              .btn-group.btn-group-sm
+                button.btn.btn-primary
+                  i.icon-info
+                  span Visualizar
+                a.btn.btn-default(
+                href='{{repo.html_url}}',
+                target='_blank'
+                )
+                  i.icon-social-github
+                  span.hidden-xs Ver no Github
+
+        .col-sm-12.text-center(ng-show='main.count > 0')
+          .btn-group.pagination
+            button.btn.btn-default(
+            ng-click='main.prevPage()',
+            uib-tooltip='Página Anterior',
+            tooltip-placement='top',
+            ng-disabled='!main.hasPrevPage()'
+            )
+              i.icon-arrow-left
+            button.btn.btn-default(
+            ng-click='main.nextPage()',
+            uib-tooltip='Próxima Página',
+            tooltip-placement='top',
+            ng-disabled='!main.hasNextPage()'
+            )
+              i.icon-arrow-right
+          p.pagination-caption Exibindo página {{main.page}} de {{main.pageCount}}

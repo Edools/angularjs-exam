@@ -23,7 +23,7 @@ describe('controllers', () => {
 
   it('should make a search matching "bootstrap"', () => {
     $httpBackend
-      .when('GET', config.GITHUB_API_URL + '/search/repositories?q=bootstrap')
+      .when('GET', config.GITHUB_API_URL + '/search/repositories?page=1&per_page=15&q=bootstrap')
       .respond(200, getReposByNameMock);
 
     scope.$apply(() => {

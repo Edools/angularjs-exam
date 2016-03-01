@@ -1,12 +1,16 @@
 /* global moment:false */
 
-import { config } from './index.config';
 import constants  from './index.constants';
+import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
+
 import { GithubService } from './components/github/github.service';
 import { MainController } from './main/main.controller';
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+
+import { NavbarDirective } from './components/navbar/navbar.directive';
+import { LoaderDirective } from './components/loader/loader.directive';
+import { LoadedDirective } from './components/loader/loaded.directive.js';
 
 angular.module('gitDools',
   [
@@ -28,4 +32,6 @@ angular.module('gitDools',
   .run(runBlock)
   .service('GithubService', GithubService)
   .controller('MainController', MainController)
-  .directive('navbar', NavbarDirective);
+  .directive('navbar', NavbarDirective)
+  .directive('loader', LoaderDirective)
+  .directive('loaded', LoadedDirective);

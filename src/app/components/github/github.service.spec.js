@@ -23,7 +23,7 @@ describe('service github', function () {
 
   it('should get repos that match "bootstrap"', () => {
     $httpBackend
-      .when('GET', baseUrl + '/search/repositories?q=bootstrap')
+      .when('GET', baseUrl + '/search/repositories?page=1&per_page=15&q=bootstrap')
       .respond(200, getReposByNameMock);
 
     GithubService.getReposByName('bootstrap')

@@ -1,5 +1,40 @@
 .main-page {
-  .search {
-    margin-bottom: $padding-large-vertical * 4;
+
+  .list {
+    @include breakpoint(sm) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .list-item {
+      margin-bottom: $padding-large-vertical;
+      padding: $padding-base-horizontal;
+      background-color: $light;
+      border: 1px solid $border-color-base;
+      border-radius: $border-radius-base;
+
+      .avatar, .owner {
+        float: left;
+      }
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      .list-item-footer {
+        float: left;
+        width: 100%;
+
+        .btn-group {
+          float: right;
+        }
+      }
+    }
+
+    .pagination-caption {
+      font-size: $font-size-small;
+    }
   }
 }

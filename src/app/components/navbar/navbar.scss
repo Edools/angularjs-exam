@@ -1,6 +1,49 @@
 .nav {
+
+  .navbar-header {
+    .navbar-brand {
+      width: 112px;
+      margin: 0 auto;
+      float: none;
+
+      @include breakpoint($grid-float-breakpoint) {
+        margin: 0;
+        float: left;
+      }
+    }
+  }
+
+  .navbar-brand {
+    height: 76px;
+    line-height: 45px;
+    display: block;
+  }
+
+  .navbar-nav {
+    margin: 8.75px 0;
+  }
+
   .navbar-search {
     max-width: 320px;
+    margin: 0 auto;
     padding: 8px 0;
+
+    @include breakpoint($grid-float-breakpoint) {
+      margin: 0;
+    }
+
+    .btn {
+      border-left: none;
+    }
+
+    .form-control {
+      @include box-shadow(none !important);
+    }
+
+    .form-control:focus ~ .input-group-btn {
+      .btn {
+        border-color: $input-border-focus;
+      }
+    }
   }
 }

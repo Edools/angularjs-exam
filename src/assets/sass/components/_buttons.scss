@@ -21,6 +21,10 @@
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
 
+  span {
+    margin-left: 5px;
+  }
+
   &,
   &:active,
   &.active {

@@ -22,7 +22,8 @@ angular.module('edoolsApp')
 
         function _filesResolve($ocLazyLoad) {
             return $ocLazyLoad.load([
-                'scripts/controllers/main.js'
+                'scripts/controllers/main.js',
+                'scripts/filters/searchfor.js'
             ]);
         }
 

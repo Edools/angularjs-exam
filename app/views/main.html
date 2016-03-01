@@ -15,9 +15,10 @@
         </div>
     </div>
 
+    <input type="text" class="filter" ng-model="filterString" placeholder="Enter your filter terms" />
 
     <div class="row main_content">
-        <div class="col-sm-6 col-md-4 repos_blocks" ng-repeat="repos in main.repos">
+        <div class="col-sm-6 col-md-4 repos_blocks" ng-repeat="repos in main.repos | searchFor: filterString">
             <div class="repos_inner">
                 <h3>{{repos.name}}</h3>
                 <p>{{repos.description ? repos.description : 'No description :('}}</p>

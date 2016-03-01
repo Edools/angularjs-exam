@@ -8,7 +8,8 @@
             p.title
               b {{::repo.name}}
             p.owner.clearfix
-              img.avatar.img-responsive(ng-src='{{repo.owner.avatar_url}}')
+              .avatar
+                lazy-img(src='repo.owner.avatar_url')
               span {{::repo.owner.login}}
             .list-item-footer
               .btn-group.btn-group-sm

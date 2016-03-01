@@ -10,7 +10,7 @@ import { MainController } from './main/main.controller';
 
 import { NavbarDirective } from './components/navbar/navbar.directive';
 import { LoaderDirective } from './components/loader/loader.directive';
-import { LoadedDirective } from './components/loader/loaded.directive.js';
+import { LazyImageDirective } from './components/util/lazyImage.directive.js';
 
 angular.module('gitDools',
   [
@@ -34,4 +34,4 @@ angular.module('gitDools',
   .controller('MainController', MainController)
   .directive('navbar', NavbarDirective)
   .directive('loader', LoaderDirective)
-  .directive('loaded', LoadedDirective);
+  .directive('lazyImg', LazyImageDirective);

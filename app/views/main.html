@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+    <div class="row user_info navbar navbar-fixed-top">
+        <div class="col-sm-8">
+            <img ng-src="{{main.user.avatar_url}}" /><p>{{main.user.name}}</p>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+
+                <input type="text" class="form-control" placeholder="Github username" ng-model="main.user_search">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="main.search()">Search</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row main_content">
+        <div class="col-sm-6 col-md-4 repos_blocks" ng-repeat="repos in main.repos">
+            <div class="repos_inner">
+                <h3>{{repos.name}}</h3>
+                <p>{{repos.description ? repos.description : 'No description :('}}</p>
+                <p class="repos_buttons"><a href="#" class="btn btn-primary" role="button">Open</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,64 @@
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+.main_content {
+    margin-top: 50px;
+}
+
+.user_info {
+    background-color: #337ab7;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+
+    div img {
+        width: 30px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    p {
+        margin: 0;
+        margin-top: 4px;
+    }
+
+    .input-group input {
+        height: 30px;
+    }
+
+    span button {
+        height: 30px;
+        font-size: 14px;
+        padding-top: 5px;
+    }
+}
+
+.repos_blocks {
+    margin-top: 30px;
+
+    .repos_inner {
+        background-color: #eee;
+        padding: 15px;
+        min-height: 230px;
+        font-family: verdana, arial;
+
+        h3 {
+            color: #337ab7;
+            text-align: right;
+            margin-top: 0;
+            border-bottom: 2px solid;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-top: 30px;
+            color: #777;
+            font-size: 13px;
+            text-align: justify;
+        }
+
+        .repos_buttons {
+            position: absolute;
+            bottom: 0;
+            right: 25px;
+        }
+    }
+}

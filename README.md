@@ -1,23 +1,51 @@
 AngularJS Exam
 ==============
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
+# Ederson - AngularJS Exam Edools
+## Objetivo da applicação
+A aplicação se conecta com uma api do git hub e faz uma busca de todos os repositorios pelo nome e retorna em uma lista contendo informações sobre o repositorio.
+É preciso digitar pelo menos 5 letrar para o sistema iniciar a busca.
+Se o usuario clicar na linha daquele repositorio o sistema abrirá uma nova aba diretamente naquele repositorio do github
+**a aplicação está disponivel [edersonangular.azurewebsites.net](http://edersonangular.azurewebsites.net/)**
+## Arquitetura
+A aplicação web foi desenvolvida com angularJS, com o bower como gestor de dependencia e o gulp para automatizar as tarefas. O gulp também realiza alguns testes para ver se tem arquivos faltantes.
+## Estrutura de diretorios
+O sistema está dividido nos seguintes diretórios:
+- app
+  * css
+  * js
+  * views
+- master
+  * js
+    * components
+      * search
+  * less
+- vendor
+### app
+A pasta app contem os arquivos de distribuição css, js (compactados e uglifyed) e views (html)
+### master
+A pasta master contem os arquivos "fontes" js e less.
+Na pasta js tem os arquivos de inicialização e de roteamento e a aplicação foi modularizada na pasta components e depois na pasta search que contem o controller e o services em angularjs.
+### vendor
+A pasta vendor contem arquivos externos como fontes awesome entre outros.
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+### Instalação
+Você precisa ter o NodeJs e NPM instalados
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+Você precisa instalar o gulp
+```sh
+$ npm install -g gulp
+```
+### Debug e Edição
+Você precisa rodar o gulp
+```sh
+$ gulp
+```
+Com isso você pode editar os arquivos less e js que o gulp vai atualizar os arquivos js e css automaticamente na pasta app, onde o index.html está apontando.
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
-
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
-
-Besides things mentioned above, there are a few things that would be a big plus to see:
-
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
-
-We wish you good luck, and may the Quality be with you!
+### Distribuição
+Você precisa rodar o gulp build para compactar e huglify os arquivos
+```sh
+$ gulp build
+```
+Para distribuir vc deve copiar somente a pasta app e o index.

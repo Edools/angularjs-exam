@@ -61,15 +61,11 @@
           .btn-group.pagination
             button.btn.btn-default(
             ng-click='main.prevPage()',
-            uib-tooltip='Página Anterior',
-            tooltip-placement='top',
             ng-disabled='!main.hasPrevPage()'
             )
               i.icon-arrow-left
             button.btn.btn-default(
             ng-click='main.nextPage()',
-            uib-tooltip='Próxima Página',
-            tooltip-placement='top',
             ng-disabled='!main.hasNextPage()'
             )
               i.icon-arrow-right

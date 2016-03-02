@@ -25,8 +25,14 @@
           uib-tab(heading='Issues', index='1')
             .issues
               .list-group
-                .list-group-item(ng-repeat='issue in repo.issues')
+                a.list-group-item(
+                  ng-repeat='issue in repo.issues',
+                  href='#',
+                  ng-class='{empty: issue.comments <= 0}')
+                  span.badge(class='state-{{::issue.state}}')
+                    i.icon-info(ng-if='issue.state == "open"')
+                    i.icon-check(ng-if='issue.state == "closed"')
                   span.title {{::issue.title}}
-                  span.comment-count(ng-class='{empty: issue.comments <= 0}')
+                  span.comment-count
                     i.icon-speech
                     span {{::issue.comments}}

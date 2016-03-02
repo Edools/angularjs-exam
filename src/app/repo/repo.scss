@@ -36,7 +36,7 @@
   .issues {
     .list-group {
       margin: 0;
-      
+
       .list-group-item {
         border-left: none;
         border-right: none;
@@ -51,27 +51,48 @@
           border-bottom: none;
           border-radius: 0;
         }
-      }
-    }
 
-    .title {
+        &.empty {
+          .comment-count {
+            opacity: .4;
+          }
+        }
 
-    }
-    .comment-count {
-      float: right;
+        .badge {
+          float: none;
+          display: inline;
+          margin-right: $padding-base-horizontal;
+          background-color: transparent;
+          font-size: 16px;
 
-      &.empty {
-        opacity: .4;
-      }
+          &.state-open {
+            color: $brand-success;
+          }
 
-      i {
-        margin-right: 8px
-      }
+          &.state-closed {
+            color: $brand-danger;
+          }
+        }
 
-      span {
-        display: inline-block;
-        width: 10px;
-        text-align: right;
+        .title {
+          display: inline;
+        }
+
+        .comment-count {
+          text-align: right;
+          display: inline;
+          float: right;
+
+          i {
+            margin-right: 8px
+          }
+
+          span {
+            display: inline-block;
+            width: 10px;
+            text-align: right;
+          }
+        }
       }
     }
   }

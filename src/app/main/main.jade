@@ -3,17 +3,49 @@
   .row
     .container
       .list
+        .col-sm-12
+          .hero(ng-show='!isBusy && !main.searchText && main.count == 0')
+            h1 Seja Bem-Vindo ao &nbsp;
+              i.icon-social-github
+                | Git
+                b Dools
+            button.btn.btn-primary(
+            event-focus='click',
+            event-focus-id='search-input',
+            event-class-focus-id='navbar-search'
+            )
+              i.icon-magnifier
+              span Pesquisar Repositório
+
+        .col-sm-12(ng-show='!isBusy && main.searchText && main.count == 0')
+          .no-result
+            i.icon-magnifier
+            span Nenhum resultado {{main.searchText ? 'para ' : ''}}
+              b {{main.searchText}}
         .col-sm-6.col-md-4(ng-repeat='repo in main.repositories')
           .list-item.clearfix
-            p.title
-              b {{::repo.name}}
-            p.owner.clearfix
-              .avatar
-                lazy-img(src='repo.owner.avatar_url')
-              span {{::repo.owner.login}}
+            .list-item-header.clearfix
+              .title.clearfix
+                .owner
+                  .avatar
+                    lazy-img(src='repo.owner.avatar_url')
+                  span {{::repo.owner.login}}
+                | /
+                b {{::repo.name}}
+            .info-panel
+              .info.stars
+                b
+                  i.icon-star
+                  span Stars:
+                span {{::repo.stargazers_count}}
+              .info.forks
+                b
+                  i.icon-graph
+                  span Forks:
+                span {{::repo.forks}}
             .list-item-footer
               .btn-group.btn-group-sm
-                button.btn.btn-primary
+                a.btn.btn-primary(ui-sref='repo({owner: repo.owner.login, id: repo.name})')
                   i.icon-info
                   span Visualizar
                 a.btn.btn-default(
@@ -21,7 +53,9 @@
                 target='_blank'
                 )
                   i.icon-social-github
-                  span.hidden-xs Ver no Github
+                  span.hidden-xs Abrir no Github
+
+
 
         .col-sm-12.text-center(ng-show='main.count > 0')
           .btn-group.pagination

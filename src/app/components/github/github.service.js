@@ -3,6 +3,7 @@ export class GithubService {
     'ngInject';
 
     this.baseUrl = config.GITHUB_API_URL;
+    this.rawBaseUrl = config.GITHUB_RAW_URL;
     this.$http = $http;
   }
 
@@ -18,5 +19,13 @@ export class GithubService {
         per_page: per_page
       }
     })
+  }
+
+  findRepoByName(owner, repo) {
+    return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo);
+  }
+
+  getReadme(owner, repo) {
+    return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/readme');
   }
 }

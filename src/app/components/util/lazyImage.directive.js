@@ -11,16 +11,16 @@ export function LazyImageDirective() {
   };
 
   return directive;
-}
 
-function link(scope) {
-  'ngInject';
+  function link(scope) {
+    'ngInject';
 
-  let i = new Image();
-  i.src = scope.src;
-  i.onload = function() {
-    scope.$apply(()=> {
-      scope.loaded = true;
-    })
+    let i = new Image();
+    i.src = scope.src;
+    i.onload = function() {
+      scope.$apply(()=> {
+        scope.loaded = true;
+      })
+    }
   }
 }

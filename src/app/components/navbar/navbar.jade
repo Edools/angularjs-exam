@@ -7,14 +7,14 @@
         b Dools
 
     .navbar-nav.navbar-right
-      form(no-validate, ng-submit='vm.search(search)')
-        .input-group.navbar-search
-          input.form-control(
-          ng-required,
+      form(no-validate, ng-submit='vm.search()')
+        #navbar-search.input-group.navbar-search
+          input#search-input.form-control(
           type='text',
-          placeholder='Pesquisar Repositórios',
+          ng-model='vm.searchText'
+          placeholder='Pesquisar Repositório',
           name='search',
-          ng-model='search')
+          ng-required)
           span.input-group-btn
             button.btn.btn-default(type='submit')
               i.icon-magnifier

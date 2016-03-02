@@ -1,4 +1,5 @@
 import getReposByNameMock from '../../mocks/github.http.getReposByName.mock.js';
+import findRepoByNameMock from '../../mocks/github.http.fingRepoByName.mock';
 
 describe('service github', function () {
 
@@ -32,6 +33,22 @@ describe('service github', function () {
         expect(data).toBeTruthy();
         expect(data.items.length).toBeGreaterThan(1);
         expect(data.total_count).toBe(54503);
+      });
+
+    $httpBackend.flush();
+  });
+
+  it('should get bootstrap repo', () => {
+    $httpBackend
+      .when('GET', baseUrl + '/repos/twbs/bootstrap')
+      .respond(200, findRepoByNameMock);
+
+    GithubService.findRepoByName('twbs', 'bootstrap')
+      .then((res) => {
+        let data = res.data;
+        expect(data).toBeTruthy();
+        expect(data.name).toBe('bootstrap');
+        expect(data.full_name).toBe('twbs/bootstrap');
       });
 
     $httpBackend.flush();

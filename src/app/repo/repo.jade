@@ -1,0 +1,26 @@
+.repo-page
+  navbar
+  .container
+    .repo-page-header.row
+      .col-sm-8
+        h2.title {{repo.repository.owner.login}}/
+          b {{repo.repository.name}}
+      .col-sm-4
+        .input-group.input-group-sm
+          input.form-control(type='text', value='{{repo.repository.clone_url}}')
+          span.input-group-btn
+            button.btn.btn-default(
+            uib-tooltip='Copiar',
+            clipboard,
+            text='repo.repository.clone_url',
+            on-copied='repo.urlCopied()'
+            )
+              i.icon-docs
+
+    .row
+      .col-sm-12
+        uib-tabset
+          uib-tab.readme-tab(heading='Readme')
+            .readme.text(btf-markdown="repo.readme")
+          uib-tab(heading='Issues')
+            .issues

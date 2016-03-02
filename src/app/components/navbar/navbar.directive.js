@@ -4,9 +4,7 @@ export function NavbarDirective() {
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/navbar/navbar.html',
-    scope: {
-
-    },
+    scope: {},
     controller: NavbarController,
     controllerAs: 'vm',
     bindToController: true
@@ -16,13 +14,22 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor ($rootScope) {
+  constructor($rootScope, $state) {
     'ngInject';
 
     this.$rootScope = $rootScope;
+    this.$state = $state;
+
+    if ($state.params.text)
+      this.searchText = $state.params.text;
   }
 
-  search(name) {
-    this.$rootScope.$broadcast('search', name);
+  search() {
+    let self = this;
+    self.$rootScope.$broadcast('search', self.searchText);
+    self.$state.go('home', {
+      text: self.searchText,
+      page: 1
+    })
   }
 }

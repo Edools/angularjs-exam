@@ -27,7 +27,8 @@ describe('controllers', () => {
       .respond(200, getReposByNameMock);
 
     scope.$apply(() => {
-      vm.search('bootstrap');
+      vm.searchText = 'bootstrap';
+      vm.search();
     });
 
     $httpBackend.flush();

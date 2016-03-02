@@ -1,18 +1,23 @@
 export class MainController {
-  constructor($rootScope, toastr, GithubService) {
+  constructor($rootScope, $state, toastr, GithubService) {
     'ngInject';
 
     let self = this;
 
     self.$rootScope = $rootScope;
+    self.$state = $state;
     self.toastr = toastr;
     self.GithubService = GithubService;
 
     self.reset();
 
-    self.$rootScope.$on('search', (e, name) => {
-      self.search(name);
-    });
+    if (self.$state.params.text)
+      self.searchText = self.$state.params.text;
+
+    if (self.$state.params.page)
+      self.page = parseInt(self.$state.params.page);
+
+    self.search();
   }
 
   reset() {
@@ -35,29 +40,32 @@ export class MainController {
   nextPage() {
     let self = this;
     if (!self.hasNextPage()) return;
-    self.page += 1;
-    self.search(self.searchText);
+    self.$state.go('home', {
+      text: self.searchText,
+      page: self.page + 1
+    });
   }
 
   prevPage() {
     let self = this;
     if (!self.hasPrevPage()) return;
-    self.page -= 1;
-    self.search(self.searchText);
+    self.$state.go('home', {
+      text: self.searchText,
+      page: self.page - 1
+    });
   }
 
-  search(name) {
+  search() {
     let self = this;
 
-    if(!name) {
+    if (!self.searchText) {
       self.reset();
       return;
     }
 
     self.GithubService
-      .getReposByName(name, null, null, self.page, self.perPage)
+      .getReposByName(self.searchText, null, null, self.page, self.perPage)
       .then((res) => {
-        self.searchText = name;
         self.count = res.data.total_count;
         self.pageCount = Math.ceil(self.count / self.perPage);
         self.repositories = res.data.items;

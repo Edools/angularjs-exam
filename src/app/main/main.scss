@@ -6,6 +6,15 @@
       margin-right: -15px;
     }
 
+    .hero {
+      text-align: center;
+      margin-top: $padding-large-vertical * 4;
+
+      @include breakpoint(sm) {
+        margin-top: $padding-large-vertical * 8;
+      }
+    }
+
     .list-item {
       margin-bottom: $padding-large-vertical;
       padding: $padding-base-horizontal;
@@ -13,19 +22,50 @@
       border: 1px solid $border-color-base;
       border-radius: $border-radius-base;
 
+      .list-item-header {
+        height: 60px;
+
+        .title {
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+      }
+
+      .info-panel {
+        margin-top: $padding-large-vertical + 5;
+        margin-bottom: $padding-large-vertical;
+        text-align: left;
+
+        .info {
+          display: inline-block;
+          margin-right: 15px;
+          font-size: $font-size-small;
+
+          i {
+            margin-right: 2px;
+          }
+
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
+
       .avatar, .owner {
         float: left;
       }
 
       .avatar {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
         margin-right: 10px;
       }
 
       .list-item-footer {
         float: left;
         width: 100%;
+        margin-top: $padding-large-vertical;
 
         .btn-group {
           float: right;
@@ -35,6 +75,16 @@
 
     .pagination-caption {
       font-size: $font-size-small;
+    }
+
+    .no-result {
+      text-align: center;
+      font-size: 28px;
+      margin-top: $padding-large-vertical * 10;
+
+      i {
+        margin-right: 10px;
+      }
     }
   }
 }

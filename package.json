@@ -2,15 +2,15 @@
   "name": "gitDools",
   "version": "0.0.0",
   "dependencies": {
+    "bower": "*",
     "express": "^4.13.4",
     "gzippo": "^0.2.0"
   },
   "scripts": {
     "test": "gulp test",
-    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp build"
+    "postinstall": "bower cache clean && bower install && gulp build"
   },
   "devDependencies": {
-    "bower": "*",
     "estraverse": "~4.1.0",
     "gulp": "~3.9.0",
     "gulp-autoprefixer": "~3.0.2",

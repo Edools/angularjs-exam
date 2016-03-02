@@ -28,13 +28,24 @@
     }
 }
 
+.alert {
+    margin-top: 70px;
+    margin-bottom: 0;
+    right: 15px;
+}
+
 .filter {
     margin-top: 80px;
     padding: 2px 10px;
+    margin-left: 15px;
 }
 
 .blocks {
     margin-top: 30px;
+
+    .blocks_inner.no_repositorie {
+        min-height: auto;
+    }
 
     .blocks_inner {
         background-color: #eee;

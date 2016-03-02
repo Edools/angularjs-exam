@@ -15,9 +15,26 @@
         </div>
     </div>
 
-    <input type="text" class="filter" ng-model="filterString" placeholder="Enter your filter terms" />
+    <div class="row">
+        <div class="col-sm-6">
+            <input type="text" class="filter" ng-model="filterString" placeholder="Enter your filter terms" />
+        </div>
+
+        <div class="col-sm-6">
+            <div ng-if="main.errors" class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{main.errors}}
+            </div>
+        </div>
+    </div>
 
     <div class="row">
+        <div class="col-sm-12 blocks" ng-if="!main.repos.length">
+            <div class="blocks_inner no_repositorie">
+                No repositorie to show :(
+            </div>
+        </div>
+
         <div class="col-sm-6 col-md-4 blocks" ng-repeat="repos in main.repos | searchFor: filterString">
             <div class="blocks_inner">
                 <h3>{{repos.name}}</h3>

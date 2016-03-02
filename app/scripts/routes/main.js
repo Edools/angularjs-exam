@@ -19,7 +19,6 @@ angular.module('edoolsApp')
           redirectTo: '/'
         });
 
-
         function _filesResolve($ocLazyLoad) {
             return $ocLazyLoad.load([
                 'scripts/controllers/main.js',

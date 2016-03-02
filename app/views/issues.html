@@ -1,0 +1,17 @@
+<div class="container-fluid">
+
+    <div ng-repeat="issue in issues.issues">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 blocks" >
+                <div class="blocks_inner issues">
+                    <img ng-src="{{issue.user.avatar_url}}" title="{{issue.user.login}}" />
+                    <h3>{{issue.title}}</h3>
+                    <p>{{issue.body}}</p>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+</div>

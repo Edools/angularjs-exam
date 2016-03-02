@@ -1,9 +1,5 @@
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
-.main_content {
-    // margin-top: 50px;
-}
-
 .user_info {
     background-color: #337ab7;
     font-size: 16px;
@@ -37,10 +33,10 @@
     padding: 2px 10px;
 }
 
-.repos_blocks {
+.blocks {
     margin-top: 30px;
 
-    .repos_inner {
+    .blocks_inner {
         background-color: #eee;
         padding: 15px;
         min-height: 250px;
@@ -61,10 +57,24 @@
             text-align: justify;
         }
 
-        .repos_buttons {
+        .blocks_buttons {
             position: absolute;
             bottom: 0;
             right: 25px;
+        }
+    }
+
+    .issues {
+        min-height: auto;
+
+        img {
+            width: 30px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        p {
+            text-align: left;
         }
     }
 }

@@ -11,7 +11,7 @@ angular.module('edoolsApp')
   .controller('MainCtrl', MainCtrl);
 
   function MainCtrl($http, user, repos) {
-      
+
       this.user = user;
       this.repos = repos;
       this.search = _search;
@@ -32,6 +32,7 @@ angular.module('edoolsApp')
           vm.user = data.data;
           return $http.get('https://api.github.com/users/' + data.data.login + '/repos')
               .then( function(data) { vm.repos = data.data } )
-              .catch( function(err) { return err } );
+              .catch( function(err) { console.error('erro', err) } );
       }
+
   }

@@ -6,7 +6,8 @@
     "gzippo": "^0.2.0"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "bower install && gulp build"
   },
   "devDependencies": {
     "estraverse": "~4.1.0",

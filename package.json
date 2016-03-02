@@ -3,16 +3,10 @@
   "version": "0.0.0",
   "dependencies": {
     "bower": "*",
-    "express": "^4.13.4",
-    "gzippo": "^0.2.0"
-  },
-  "scripts": {
-    "test": "gulp test",
-    "postinstall": "bower cache clean && bower install && gulp build"
-  },
-  "devDependencies": {
-    "estraverse": "~4.1.0",
     "gulp": "~3.9.0",
+    "express": "^4.13.4",
+    "gzippo": "^0.2.0",
+    "estraverse": "~4.1.0",
     "gulp-autoprefixer": "~3.0.2",
     "gulp-angular-templatecache": "~1.8.0",
     "del": "~2.0.2",
@@ -57,6 +51,10 @@
     "chalk": "~1.1.1",
     "uglify-save-license": "~0.4.1",
     "wrench": "~1.5.8"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "postinstall": "bower cache clean && bower install && gulp build"
   },
   "engines": {
     "node": ">=0.10.0"

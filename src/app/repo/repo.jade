@@ -20,7 +20,7 @@
     .row
       .col-sm-12
         uib-tabset
-          uib-tab.readme-tab(heading='Readme')
-            .readme.text(btf-markdown="repo.readme")
-          uib-tab(heading='Issues')
+          uib-tab.readme-tab(heading='Readme', index='0', ng-if='repo.readme')
+            .readme.text(btf-markdown="repo.readme", ng-show='repo.readme')
+          uib-tab(heading='Issues', index='1')
             .issues

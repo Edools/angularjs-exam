@@ -25,13 +25,13 @@
         .col-sm-6.col-md-4(ng-repeat='repo in main.repositories')
           .list-item.clearfix
             .list-item-header.clearfix
-              .title.clearfix
+              .clearfix
                 .owner
                   .avatar
                     lazy-img(src='repo.owner.avatar_url')
-                  span {{::repo.owner.login}}
-                | /
-                b {{::repo.name}}
+                .title
+                  b {{::repo.name}}
+                  p {{::repo.owner.login}}
             .info-panel
               .info.stars
                 b

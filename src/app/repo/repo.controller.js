@@ -1,17 +1,22 @@
 export class RepoController {
-  constructor($rootScope, $state, base64, toastr, GithubService, repository, readme) {
+  constructor($rootScope, $state, $stateParams, base64, toastr, GithubService, repository) {
     'ngInject';
 
     let self = this;
 
-    let readmeHtml = base64.decode(readme.data.content)
-      .replace(/\.\//g, repository.data.html_url + '/blob/master/');
+    GithubService
+      .getReadme($stateParams.owner, $stateParams.id)
+      .then((res) => {
+        self.readme = base64.decode(res.data.content)
+          .replace(/\.\//g, repository.data.html_url + '/blob/master/');
+      });
+
 
     self.$rootScope = $rootScope;
     self.$state = $state;
     self.toastr = toastr;
     self.repository = repository.data;
-    self.readme = readmeHtml;
+
     self.GithubService = GithubService;
   }
 

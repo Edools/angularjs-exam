@@ -25,9 +25,19 @@
       .list-item-header {
         height: 60px;
 
+        .avatar, .owner, .title {
+          float: left;
+        }
+
         .title {
-          font-weight: 600;
-          font-size: 18px;
+          b {
+            font-weight: 600;
+            font-size: 18px;
+          }
+
+          p {
+            margin: 0;
+          }
         }
 
       }
@@ -50,10 +60,6 @@
             margin-right: 5px;
           }
         }
-      }
-
-      .avatar, .owner {
-        float: left;
       }
 
       .avatar {

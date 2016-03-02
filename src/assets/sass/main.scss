@@ -7,7 +7,6 @@
 @import "base/animations";
 
 @import "components/carousel";
-@import "components/loader";
 
 // Reset and dependencies
 @import "components/normalize";
@@ -45,6 +44,7 @@
 @import "components/responsive-embed";
 @import "components/wells";
 @import "components/close";
+@import "components/loader";
 @import "components/toast";
 
 // Components w/ JavaScript

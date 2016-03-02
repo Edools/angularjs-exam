@@ -32,4 +32,8 @@ export class GithubService {
   getRepoIssues(owner, repo) {
     return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/issues');
   }
+
+  getRepoIssueComments(owner, repo, issue) {
+    return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/issues/' + issue + '/comments');
+  }
 }

@@ -28,7 +28,8 @@ angular.module('gitDools',
     'toastr',
     'angular-clipboard',
     'ab-base64',
-    'btford.markdown'
+    'btford.markdown',
+    'LocalStorageModule'
   ])
   .constant('moment', moment)
   .constant('FastClick', FastClick)

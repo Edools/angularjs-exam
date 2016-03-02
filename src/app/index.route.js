@@ -8,7 +8,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'main'
     })
     .state('repo', {
-      url: '/repo/:owner/:id',
+      url: '/repo/:owner/:repository/:issue',
       templateUrl: 'app/repo/repo.html',
       controller: 'RepoController',
       controllerAs: 'repo',
@@ -16,7 +16,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         repository: ['$stateParams', 'GithubService',
           ($stateParams, GithubService) => {
             return GithubService
-              .findRepoByName($stateParams.owner, $stateParams.id)
+              .findRepoByName($stateParams.owner, $stateParams.repository)
               .then((res) => {
                 return res.data;
               })
@@ -27,7 +27,23 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         issues: ['$stateParams', 'GithubService',
           ($stateParams, GithubService) => {
             return GithubService
-              .getRepoIssues($stateParams.owner, $stateParams.id)
+              .getRepoIssues($stateParams.owner, $stateParams.repository)
+              .then((res) => {
+                return res.data;
+              })
+              .catch(() => {
+                return null;
+              });
+          }],
+        comments: ['$stateParams', 'GithubService',
+          ($stateParams, GithubService) => {
+
+            if(!$stateParams.issue) {
+              return null;
+            }
+
+            return GithubService
+              .getRepoIssueComments($stateParams.owner, $stateParams.repository, $stateParams.issue)
               .then((res) => {
                 return res.data;
               })
@@ -38,15 +54,15 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         readme: ['$stateParams', 'GithubService', 'base64',
           ($stateParams, GithubService, base64) => {
             return GithubService
-              .getReadme($stateParams.owner, $stateParams.id)
+              .getReadme($stateParams.owner, $stateParams.repository)
               .then((res) => {
                 return base64.decode(res.data.content)
-                  .replace(/\.\//g, 'https://github.com/' + $stateParams.owner +  $stateParams.id + '/blob/master/');
+                  .replace(/\.\//g, 'https://github.com/' + $stateParams.owner +  $stateParams.repository + '/blob/master/');
               })
               .catch(() => {
                 return '';
               });
-          }],
+          }]
       }
     });
 

@@ -32,4 +32,9 @@ class NavbarController {
       page: 1
     })
   }
+
+  login() {
+    let self = this;
+    self.$rootScope.$broadcast('login');
+  }
 }

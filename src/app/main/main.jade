@@ -46,7 +46,7 @@
                 span {{::repo.forks}}
             .list-item-footer
               .btn-group.btn-group-sm
-                a.btn.btn-primary(ui-sref='repo({owner: repo.owner.login, id: repo.name})')
+                a.btn.btn-primary(ui-sref='repo({owner: repo.owner.login, repository: repo.name})')
                   i.icon-info
                   span Visualizar
                 a.btn.btn-default(

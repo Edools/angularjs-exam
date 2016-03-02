@@ -23,11 +23,12 @@
           uib-tab.readme-tab(heading='Readme', index='0', ng-if='repo.readme')
             .readme.text(btf-markdown="repo.readme", ng-show='repo.readme')
           uib-tab(heading='Issues', index='1')
-            .issues
+            .issues(ng-show='repo.issues')
               .list-group
                 a.list-group-item(
-                  ng-repeat='issue in repo.issues',
-                  href='#',
+                  ng-repeat='issue in repo.issues',                
+                  ui-sref='repo({owner: repo.repository.owner.login, repository: repo.repository.name, issue: issue.number})'
+                  ui-sref-opts="{reload: false}",
                   ng-class='{empty: issue.comments <= 0}')
                   span.badge(class='state-{{::issue.state}}')
                     i.icon-info(ng-if='issue.state == "open"')

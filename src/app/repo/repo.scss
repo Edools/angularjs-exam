@@ -10,7 +10,7 @@
     }
   }
 
-  .readme-tab {
+  .nav-item {
     &.active {
       .nav-link {
         background-color: $light;
@@ -31,5 +31,48 @@
   .readme {
     background-color: $light;
     padding: 25px 50px $padding-large-vertical * 4;
+  }
+
+  .issues {
+    .list-group {
+      margin: 0;
+      
+      .list-group-item {
+        border-left: none;
+        border-right: none;
+        padding-top: $padding-large-vertical + 5;
+        padding-bottom: $padding-large-vertical + 5;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:last-child {
+          border-bottom: none;
+          border-radius: 0;
+        }
+      }
+    }
+
+    .title {
+
+    }
+    .comment-count {
+      float: right;
+
+      &.empty {
+        opacity: .4;
+      }
+
+      i {
+        margin-right: 8px
+      }
+
+      span {
+        display: inline-block;
+        width: 10px;
+        text-align: right;
+      }
+    }
   }
 }

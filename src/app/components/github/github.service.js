@@ -28,4 +28,8 @@ export class GithubService {
   getReadme(owner, repo) {
     return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/readme');
   }
+
+  getRepoIssues(owner, repo) {
+    return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/issues');
+  }
 }

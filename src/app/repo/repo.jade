@@ -24,3 +24,9 @@
             .readme.text(btf-markdown="repo.readme", ng-show='repo.readme')
           uib-tab(heading='Issues', index='1')
             .issues
+              .list-group
+                .list-group-item(ng-repeat='issue in repo.issues')
+                  span.title {{::issue.title}}
+                  span.comment-count(ng-class='{empty: issue.comments <= 0}')
+                    i.icon-speech
+                    span {{::issue.comments}}

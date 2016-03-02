@@ -16,8 +16,37 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         repository: ['$stateParams', 'GithubService',
           ($stateParams, GithubService) => {
             return GithubService
-              .findRepoByName($stateParams.owner, $stateParams.id);
-          }]
+              .findRepoByName($stateParams.owner, $stateParams.id)
+              .then((res) => {
+                return res.data;
+              })
+              .catch(() => {
+                return null;
+              });
+          }],
+        issues: ['$stateParams', 'GithubService',
+          ($stateParams, GithubService) => {
+            return GithubService
+              .getRepoIssues($stateParams.owner, $stateParams.id)
+              .then((res) => {
+                return res.data;
+              })
+              .catch(() => {
+                return null;
+              });
+          }],
+        readme: ['$stateParams', 'GithubService', 'base64',
+          ($stateParams, GithubService, base64) => {
+            return GithubService
+              .getReadme($stateParams.owner, $stateParams.id)
+              .then((res) => {
+                return base64.decode(res.data.content)
+                  .replace(/\.\//g, 'https://github.com/' + $stateParams.owner +  $stateParams.id + '/blob/master/');
+              })
+              .catch(() => {
+                return '';
+              });
+          }],
       }
     });
 

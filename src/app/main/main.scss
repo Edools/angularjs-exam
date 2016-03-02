@@ -13,6 +13,14 @@
       @include breakpoint(sm) {
         margin-top: $padding-large-vertical * 15;
       }
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-bottom: $padding-large-vertical * 4;
+      }
     }
 
     .list-item {

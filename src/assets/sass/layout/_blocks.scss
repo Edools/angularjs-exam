@@ -1,0 +1,18 @@
+.block {
+  padding: $padding-large-horizontal * 2;
+  background-color: $light;
+  border-radius: $border-radius-base;
+  border: 1px solid darken($gray-lighter, 5%);
+  border-bottom: 2px solid darken($gray-lighter, 5%);
+  max-width: 512px;
+  margin: $padding-base-vertical * 3 0;
+
+  @include breakpoint(md) {
+    margin: $padding-base-vertical * 8 0;
+  }
+
+  &.block-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

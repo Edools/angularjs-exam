@@ -26,7 +26,7 @@ GitDools was made with `AngularJs` using the `ES6` version of ECMAScript. The ap
 
 ## Styles
 
-GitDools style is based on `bootstrap-sass`. It have a custom version of `bootstrap-sass` made especially for him.
+GitDools style is based on `bootstrap-sass`. It is reponsive and have a custom version of `bootstrap-sass` made especially for him.
 All o `scss` source can be found at `src/assets/sass`.
 
 ## TODO

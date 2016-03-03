@@ -3,7 +3,6 @@ export class GithubService {
     'ngInject';
 
     this.baseUrl = config.GITHUB_API_URL;
-    this.rawBaseUrl = config.GITHUB_RAW_URL;
     this.$http = $http;
   }
 
@@ -35,5 +34,12 @@ export class GithubService {
 
   getRepoIssueComments(owner, repo, issue) {
     return this.$http.get(this.baseUrl + '/repos/' + owner + '/' + repo + '/issues/' + issue + '/comments');
+  }
+
+  commentIssue(owner, repo, issue, body) {
+    return this.$http.post(this.baseUrl + '/repos/' + owner + '/' + repo + '/issues/' + issue + '/comments',
+      {
+        body: body
+      });
   }
 }

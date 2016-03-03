@@ -1,7 +1,10 @@
 .repo-page {
   .repo-page-header {
+    margin-bottom: $padding-large-vertical * 4;
+
     .title {
       margin-top: 0;
+      margin-bottom: $padding-large-vertical;
       font-size: 24px;
     }
 
@@ -34,6 +37,8 @@
   }
 
   .issues {
+    position: relative;
+
     .list-group {
       margin: 0;
 
@@ -91,6 +96,84 @@
             display: inline-block;
             width: 10px;
             text-align: right;
+          }
+        }
+      }
+    }
+
+    .comments {
+      position: absolute;
+      width: 80%;
+      height: 100%;
+      left: 20%;
+      top: 0;
+      padding: $padding-large-horizontal + 10;
+      background-color: $gray-lighter;
+      @include box-shadow(-2px 0 5px rgba(0, 0, 0, 0.15));
+      @include transition(.3s ease);
+      @include translate(110%, 0);
+
+      @include breakpoint(md) {
+        width: 50%;
+        left: 50%;
+      }
+
+      &.active {
+        @include translate(0, 0);
+      }
+    }
+
+    .repo-issue {
+      .title {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: $padding-large-vertical * 6;
+        font-weight: 600;
+        text-align: center;
+
+        span {
+          color: $text-muted;
+          margin-left: 10px;
+        }
+      }
+
+      .repo-issue-comments {
+        .comment {
+          margin-bottom: $padding-large-vertical * 4;
+
+          .avatar {
+            width: 64px;
+            height: 64px;
+
+            img {
+              border-radius: 50%;
+              border: 3px solid $border-color-base;
+            }
+          }
+
+          .body {
+            font-size: $font-size-small;
+            padding-top: $padding-large-vertical;
+
+            pre {
+              font-size: $font-size-small;
+            }
+          }
+        }
+
+        .repo-issue-comment-form {
+          margin-top: $padding-large-vertical * 2;
+
+          .form-control {
+            background-color: darken($gray-lighter, 3%);
+
+            &:focus {
+              background-color: $light;
+            }
+          }
+
+          .btn {
+            float: right;
           }
         }
       }

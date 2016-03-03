@@ -38,6 +38,12 @@
         }
 
         .title {
+          max-width: 220px;
+          float: left;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
           b {
             font-weight: 600;
             font-size: 18px;

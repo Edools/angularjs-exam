@@ -18,7 +18,6 @@ export function config($logProvider, toastrConfig, $httpProvider, localStorageSe
   function httpInterceptor($q, $rootScope, localStorageService) {
     'ngInject';
 
-    let accessToken = localStorageService.get('access_token');
 
     var numLoadings = 0;
 
@@ -26,10 +25,11 @@ export function config($logProvider, toastrConfig, $httpProvider, localStorageSe
       request: function (config) {
 
         // Add access_token to github requests
-        if(accessToken && config.url.indexOf('github') > -1) {
-          if(!config.params)
-            config.params = {};
-          config.params.access_token = accessToken;
+        let accessToken = localStorageService.get('token');
+        if (accessToken && config.url.indexOf('github') > -1) {
+          if (!config.headers)
+            config.headers = {};
+          config.headers.Authorization = 'token ' + accessToken;
         }
 
         numLoadings++;

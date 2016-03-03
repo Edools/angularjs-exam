@@ -8,7 +8,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'main'
     })
     .state('repo', {
-      url: '/repo/:owner/:repository/:issue',
+      url: '/repo/:owner/:repository',
       templateUrl: 'app/repo/repo.html',
       controller: 'RepoController',
       controllerAs: 'repo',
@@ -35,34 +35,26 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
                 return null;
               });
           }],
-        comments: ['$stateParams', 'GithubService',
-          ($stateParams, GithubService) => {
-
-            if(!$stateParams.issue) {
-              return null;
-            }
-
-            return GithubService
-              .getRepoIssueComments($stateParams.owner, $stateParams.repository, $stateParams.issue)
-              .then((res) => {
-                return res.data;
-              })
-              .catch(() => {
-                return null;
-              });
-          }],
         readme: ['$stateParams', 'GithubService', 'base64',
           ($stateParams, GithubService, base64) => {
             return GithubService
               .getReadme($stateParams.owner, $stateParams.repository)
               .then((res) => {
                 return base64.decode(res.data.content)
-                  .replace(/\.\//g, 'https://github.com/' + $stateParams.owner +  $stateParams.repository + '/blob/master/');
+                  .replace(/\.\//g, 'https://github.com/' + $stateParams.owner + $stateParams.repository + '/blob/master/');
               })
               .catch(() => {
                 return '';
               });
           }]
+      }
+    })
+    .state('repo.issue', {
+      url: '/issue/:number',
+      views: {
+        comments: {
+          templateUrl: 'app/repo/repo.issue.html'
+        }
       }
     });
 

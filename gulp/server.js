@@ -6,6 +6,7 @@ var conf = require('./conf');
 
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
+var exec = require('child_process').exec;
 
 var util = require('util');
 
@@ -13,18 +14,6 @@ var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
-
-  var routes = null;
-  if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
-    routes = {
-      '/bower_components': 'bower_components'
-    };
-  }
-
-  var server = {
-    baseDir: baseDir,
-    routes: routes
-  };
 
   /*
    * You can add a proxy to your backend by uncommenting the line below.
@@ -37,8 +26,13 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
-    server: server,
+    proxy: 'http://127.0.0.1:5000',
     browser: browser
+  });
+
+  exec('node web.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
   });
 }
 

@@ -5,9 +5,7 @@ describe('directive loader', function () {
   beforeEach(angular.mock.module('gitDools'));
 
   beforeEach(inject(($compile, $rootScope) => {
-    element = angular.element(`
-      <loader></loader>
-    `);
+    element = angular.element('<loader></loader>');
 
     $compile(element)($rootScope.$new());
     $rootScope.$digest();

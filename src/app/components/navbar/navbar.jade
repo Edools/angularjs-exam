@@ -18,4 +18,12 @@
           span.input-group-btn
             button.btn.btn-default(type='submit')
               i.icon-magnifier
-      button.btn.btn-primary.btn-login(ng-click='vm.login()') Login
+      .nav-auth
+        a.btn.btn-primary.btn-login(href='{{vm.loginUrl}}', ng-show='!vm.isAuthenticated') Login
+        .nav-auth-user(uib-dropdown, ng-show='vm.isAuthenticated')
+          #avatar.avatar(uib-dropdown-toggle)
+            lazy-img(src='vm.me.avatar_url')
+          ul(uib-dropdown-menu, role='menu', aria-labelledby='avatar')
+            li.dropdown-header(role="menuitem") {{vm.me.name}}
+            li(role="menuitem")
+              a(href='#', ng-click='vm.logout()') Sair

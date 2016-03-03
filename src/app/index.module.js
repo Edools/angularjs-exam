@@ -1,4 +1,4 @@
-/* global moment:false, FastClick:false */
+/* global moment:false, FastClick:false, _ */
 
 import constants  from './index.constants';
 import { config } from './index.config';
@@ -6,6 +6,7 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 
 import { GithubService } from './components/github/github.service';
+import { AuthService } from './components/auth/auth.service';
 import { MainController } from './main/main.controller';
 import { RepoController } from './repo/repo.controller';
 
@@ -31,12 +32,14 @@ angular.module('gitDools',
     'btford.markdown',
     'LocalStorageModule'
   ])
+  .constant('_', _)
   .constant('moment', moment)
   .constant('FastClick', FastClick)
   .constant('config', constants)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
+  .service('AuthService', AuthService)
   .service('GithubService', GithubService)
   .controller('MainController', MainController)
   .controller('RepoController', RepoController)

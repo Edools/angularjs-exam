@@ -15,12 +15,18 @@ export function LazyImageDirective() {
   function link(scope) {
     'ngInject';
 
-    let i = new Image();
-    i.src = scope.src;
-    i.onload = function() {
-      scope.$apply(()=> {
-        scope.loaded = true;
-      })
+    scope.$watch('src', () => {
+      update();
+    });
+
+    function update() {
+      let i = new Image();
+      i.src = scope.src;
+      i.onload = function() {
+        scope.$apply(()=> {
+          scope.loaded = true;
+        })
+      }
     }
   }
 }

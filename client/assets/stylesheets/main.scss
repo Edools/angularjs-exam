@@ -1,0 +1,13 @@
+/*===========================*
+ * Main file scss
+ ===========================*/
+
+
+@import 'core/base_settings';
+@import 'core/typography';
+@import 'components/search-bar';
+@import 'components/repository';
+@import 'components/icons';
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';

@@ -1,0 +1,129 @@
+/**
+ * Component Repository
+ */
+
+.repositoryes {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.repository {
+  position: relative;
+  flex-grow: 1;
+  width: 22%;
+  height: 200px;
+  margin: .8em 2.5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  border-radius: 3px;
+  transition: box-shadow .5s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+}
+
+.repository-org {
+  display: inline-block;
+  width: 90%;
+  padding: .3em .5em;
+  margin: 0 0 10px 1%;
+}
+
+.repository-org__icon {
+  float: left;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.repository-org__title {
+  display: inline-block;
+  margin: 5px 0 0 16px;
+  font-weight: normal;
+  font-size: .8em;
+  font-family: $base_typography;
+  color: #7D7D92;
+  text-transform: uppercase;
+
+  span {
+    font-weight: bold;
+    font-size: .6em;
+    color: #CCCCD3;
+  }
+}
+
+.repository-github {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: .3em .5em;
+  font-family: $base_typography;
+  font-size: .5em;
+  font-weight: 700;
+  text-decoration: none;
+  background: #B7E8BE;
+  color: #7D7D92;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.repository-commit {
+  float: left;
+  width: 60%;
+  height: 130px;
+  margin: 5px 5%;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+}
+
+.repository-commit p {
+  padding: 0 5px;
+  font: normal .7em $base_typography;
+  color: #57637B;
+}
+
+.repository-commit__title {
+  display: block;
+  margin: 5px;
+  font: normal .5em $base_typography;
+  color: #ADB5C2;
+}
+
+.repository-footer {
+  display: inline-block;
+  width: 25%;
+  height: 130px;
+  margin-top: 5px;
+  background-color: #FAFBFD;
+  border-radius: 3px;
+  list-style: none;
+}
+
+.repository-footer li {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+//.repository-footer__label {
+//  display: block;
+//  margin: 2px 0 0  0;
+//  font: normal .5em $base_typography;
+//  color: #999999;
+//}
+
+.repository-footer__data {
+  display: inline-block;
+  font: 700 .55em $base_typography;
+  color: #B7E8BE;
+}

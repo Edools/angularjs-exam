@@ -1,0 +1,26 @@
+{
+  "name": "Angular Github",
+  "version": "0.0.1",
+  "authors": [
+    "Leandro Vitor <vitoleandro@gmail.com>"
+  ],
+  "description": "Simple app using github api",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "git",
+    "github"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5"
+  }
+}

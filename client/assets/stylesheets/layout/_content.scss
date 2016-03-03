@@ -1,0 +1,32 @@
+.content {
+  float: left;
+  width: 100%;
+  height: calc(100% - 90px);
+  height: -moz-calc(100% - 90px);
+  height: -webkit-calc(100% - 90px);
+  overflow: auto;
+}
+
+.content-top {
+  display: inline-block;
+  width: 100%;
+  padding: .8em 0;
+  border-bottom: 1px dashed #CCCCD3;
+
+  form {
+    float: left;
+    width: 80%;
+  }
+
+  .total_repositoryes {
+    float: right;
+    margin: 17px 0 0 0;
+    padding: 0;
+    font-family: $base_typography;
+    font-weight: 700;
+    font-size: .6em;
+    text-transform: uppercase;
+    color: #CCCCD3;
+  
+  }
+}

@@ -1,4 +1,5 @@
 <ul id="repo_list">
 	<h1>Repositories</h1>
+	{{home.testElasticApi}}
 	<li ng-repeat="repo in home.repos | orderBy:'-stargazers_count'">{{repo.name}}</li>
 </ul>

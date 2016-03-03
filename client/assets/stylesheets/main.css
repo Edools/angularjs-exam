@@ -1,0 +1,240 @@
+/*===========================*
+ * Main file scss
+ ===========================*/
+/*===========================*
+ *  Application base settings
+ ===========================*/
+* {
+  margin: 0;
+  padding: 0; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #EEF2F5; }
+
+.wrap {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto; }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px; }
+
+/*============================*
+ * Typography for application
+ ============================*/
+/*========================*
+ * Component of research
+ ========================*/
+.search-bar__input {
+  float: left;
+  width: 60%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  text-indent: 10px;
+  color: #777777;
+  border: none;
+  border-radius: 3px 0 0px 3px;
+  background-color: #ffffff; }
+
+.search-bar__button {
+  display: inline-block;
+  height: 40px;
+  color: #ffffff;
+  background-color: #CCCCD3;
+  border: none;
+  border-radius: 0 3px 3px 0px; }
+  .search-bar__button svg {
+    width: 21px; }
+
+/**
+ * Component Repository
+ */
+.repositoryes {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.repository {
+  position: relative;
+  flex-grow: 1;
+  width: 22%;
+  height: 200px;
+  margin: .8em 2.5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  border-radius: 3px;
+  transition: box-shadow 0.5s ease-in-out; }
+  .repository:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
+.repository-org {
+  display: inline-block;
+  width: 90%;
+  padding: 0.3em 0.5em;
+  margin: 0 0 10px 1%; }
+
+.repository-org__icon {
+  float: left;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; }
+
+.repository-org__title {
+  display: inline-block;
+  margin: 5px 0 0 16px;
+  font-weight: normal;
+  font-size: .8em;
+  font-family: "Open Sans", Arial, Verdana;
+  color: #7D7D92;
+  text-transform: uppercase; }
+  .repository-org__title span {
+    font-weight: bold;
+    font-size: .6em;
+    color: #CCCCD3; }
+
+.repository-github {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3em 0.5em;
+  font-family: "Open Sans", Arial, Verdana;
+  font-size: .5em;
+  font-weight: 700;
+  text-decoration: none;
+  background: #B7E8BE;
+  color: #7D7D92;
+  border-radius: 3px;
+  text-transform: uppercase; }
+
+.repository-commit {
+  float: left;
+  width: 60%;
+  height: 130px;
+  margin: 5px 5%;
+  border: 1px solid #eeeeee;
+  border-radius: 3px; }
+
+.repository-commit p {
+  padding: 0 5px;
+  font: normal 0.7em "Open Sans", Arial, Verdana;
+  color: #57637B; }
+
+.repository-commit__title {
+  display: block;
+  margin: 5px;
+  font: normal 0.5em "Open Sans", Arial, Verdana;
+  color: #ADB5C2; }
+
+.repository-footer {
+  display: inline-block;
+  width: 25%;
+  height: 130px;
+  margin-top: 5px;
+  background-color: #FAFBFD;
+  border-radius: 3px;
+  list-style: none; }
+
+.repository-footer li {
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+
+.repository-footer__data {
+  display: inline-block;
+  font: 700 0.55em "Open Sans", Arial, Verdana;
+  color: #B7E8BE; }
+
+.ic {
+  display: inline-block; }
+  .ic.ic-branch {
+    width: 100%;
+    height: 12px;
+    margin-top: 7px;
+    background: url(../images/branch@18x21.svg) no-repeat center center; }
+  .ic.ic-forks {
+    width: 100%;
+    height: 12px;
+    margin-top: 7px;
+    background: url(../images/forks@18x21.svg) no-repeat center center; }
+  .ic.ic-watchers {
+    width: 100%;
+    height: 8px;
+    margin-top: 7px;
+    background: url(../images/watchers@18x13.svg) no-repeat center center; }
+
+/*==============================
+  Main Header element
+================================*/
+.header {
+  display: inline-block;
+  width: 100%;
+  padding: .5em 0;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+  .header .header-title {
+    font-family: "Open Sans", Arial, Verdana;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: #7D7D92; }
+    .header .header-title span {
+      font-family: "Open Sans", Arial, Verdana;
+      font-weight: 700;
+      font-size: .9em;
+      color: #CCCCD3; }
+
+.content {
+  float: left;
+  width: 100%;
+  height: calc(100% - 90px);
+  height: -moz-calc(100% - 90px);
+  height: -webkit-calc(100% - 90px);
+  overflow: auto; }
+
+.content-top {
+  display: inline-block;
+  width: 100%;
+  padding: .8em 0;
+  border-bottom: 1px dashed #CCCCD3; }
+  .content-top form {
+    float: left;
+    width: 80%; }
+  .content-top .total_repositoryes {
+    float: right;
+    margin: 17px 0 0 0;
+    padding: 0;
+    font-family: "Open Sans", Arial, Verdana;
+    font-weight: 700;
+    font-size: .6em;
+    text-transform: uppercase;
+    color: #CCCCD3; }
+
+.footer {
+  float: left;
+  width: 100%;
+  height: 44px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; }
+  .footer p {
+    margin: 15px 0 0 0;
+    font-family: "Open Sans", Arial, Verdana;
+    font-size: .5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #B7E8BE; }

@@ -1,0 +1,29 @@
+/*========================*
+ * Component of research
+ ========================*/
+
+ .search-bar__input {
+  float: left;
+  width: 60%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  text-indent: 10px;
+  color: #777777;
+  border: none;
+  border-radius: 3px 0 0px 3px;
+  background-color: #ffffff;
+ }
+
+ .search-bar__button {
+  display: inline-block;
+  height: 40px;
+  color: #ffffff;
+  background-color: #CCCCD3;
+  border: none;
+  border-radius:  0 3px 3px 0px;
+
+  svg {
+    width: 21px;
+  }
+ }

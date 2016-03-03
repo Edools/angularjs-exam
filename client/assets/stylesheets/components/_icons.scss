@@ -1,0 +1,24 @@
+.ic {
+  display: inline-block;
+
+ &.ic-branch {
+   width: 100%;
+   height: 12px;
+   margin-top: 7px;
+   background: url(../images/branch@18x21.svg) no-repeat center center;
+ }
+
+ &.ic-forks {
+   width: 100%;
+   height: 12px;
+   margin-top: 7px;
+   background: url(../images/forks@18x21.svg) no-repeat center center;
+ }
+
+ &.ic-watchers {
+   width: 100%;
+   height: 8px;
+   margin-top: 7px;
+   background: url(../images/watchers@18x13.svg) no-repeat center center;
+ }
+}

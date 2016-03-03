@@ -1,0 +1,26 @@
+/*==============================
+  Main Header element
+================================*/
+.header {
+  display: inline-block;
+  width: 100%;
+  padding: .5em 0;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  .header-title {
+    font-family: $base_typography;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: #7D7D92;
+
+    span {
+      font-family: $base_typography;
+      font-weight: 700;
+      font-size: .9em;
+      color: #CCCCD3;
+    }
+  }
+
+}

@@ -7,7 +7,9 @@ export class RepoController {
               repository,
               issues,
               readme,
-              GithubService) {
+              GithubService,
+              AuthService
+) {
     'ngInject';
 
     let self = this;
@@ -23,6 +25,7 @@ export class RepoController {
     self.comments = [];
     self.issue = null;
     self.GithubService = GithubService;
+    self.AuthService = AuthService;
 
     if ($state.params.number)
       self.loadComments($state.params.number);
@@ -88,6 +91,11 @@ export class RepoController {
   comment() {
     let self = this;
     if (!self.commentBody || self.commentBody.length < 1) return;
+
+    if(!self.AuthService.isAuthenticated) {
+      self.toastr.warning('Você precisa fazer login para poder comentar!');
+      return;
+    }
 
     self.GithubService.commentIssue(
       self.repository.owner.login,

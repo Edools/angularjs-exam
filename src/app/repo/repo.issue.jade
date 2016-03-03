@@ -1,0 +1,23 @@
+.repo-issue
+  .close(ng-click='repo.closeComments()') &times;
+
+  h2.title {{::repo.issue.title}}
+    span \#{{::repo.issue.number}}
+
+  .repo-issue-comments
+    .row.comment(ng-repeat='comment in repo.comments')
+      .col-sm-2
+        .avatar
+          lazy-img(src='comment.user.avatar_url')
+      .col-sm-10
+        .body(btf-markdown='comment.body')
+    .row
+      .col-sm-12
+        .repo-issue-comment-form
+          form(novalidate)
+            .form-group
+              textarea(
+              rows='5',
+              placeholder='Faça um comentário..'
+              ng-model='repo.commentBody').form-control
+            button.btn.btn-default(ng-click='repo.comment()') Comentar

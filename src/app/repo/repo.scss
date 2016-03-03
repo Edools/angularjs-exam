@@ -1,0 +1,182 @@
+.repo-page {
+  .repo-page-header {
+    margin-bottom: $padding-large-vertical * 4;
+
+    .title {
+      margin-top: 0;
+      margin-bottom: $padding-large-vertical;
+      font-size: 24px;
+    }
+
+    .form-control {
+      @include box-shadow(none);
+    }
+  }
+
+  .nav-item {
+    &.active {
+      .nav-link {
+        background-color: $light;
+      }
+    }
+  }
+
+  .tab-content {
+    min-height: 50px;
+    border: 1px solid $border-color-base;
+    border-top: none;
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    margin-bottom: $padding-large-vertical * 4;
+    overflow: hidden;
+  }
+
+  .readme {
+    background-color: $light;
+    padding: 25px 50px $padding-large-vertical * 4;
+  }
+
+  .issues {
+    position: relative;
+
+    .list-group {
+      margin: 0;
+
+      .list-group-item {
+        border-left: none;
+        border-right: none;
+        padding-top: $padding-large-vertical + 5;
+        padding-bottom: $padding-large-vertical + 5;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:last-child {
+          border-bottom: none;
+          border-radius: 0;
+        }
+
+        &.empty {
+          .comment-count {
+            opacity: .4;
+          }
+        }
+
+        .badge {
+          float: none;
+          display: inline;
+          margin-right: $padding-base-horizontal;
+          background-color: transparent;
+          font-size: 16px;
+
+          &.state-open {
+            color: $brand-success;
+          }
+
+          &.state-closed {
+            color: $brand-danger;
+          }
+        }
+
+        .title {
+          display: inline;
+        }
+
+        .comment-count {
+          text-align: right;
+          display: inline;
+          float: right;
+
+          i {
+            margin-right: 8px
+          }
+
+          span {
+            display: inline-block;
+            width: 10px;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .comments {
+      position: absolute;
+      width: 80%;
+      height: 100%;
+      left: 20%;
+      top: 0;
+      padding: $padding-large-horizontal + 10;
+      background-color: $gray-lighter;
+      @include box-shadow(-2px 0 5px rgba(0, 0, 0, 0.15));
+      @include transition(.3s ease);
+      @include translate(110%, 0);
+
+      @include breakpoint(md) {
+        width: 50%;
+        left: 50%;
+      }
+
+      &.active {
+        @include translate(0, 0);
+      }
+    }
+
+    .repo-issue {
+      .title {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: $padding-large-vertical * 6;
+        font-weight: 600;
+        text-align: center;
+
+        span {
+          color: $text-muted;
+          margin-left: 10px;
+        }
+      }
+
+      .repo-issue-comments {
+        .comment {
+          margin-bottom: $padding-large-vertical * 4;
+
+          .avatar {
+            width: 64px;
+            height: 64px;
+
+            img {
+              border-radius: 50%;
+              border: 3px solid $border-color-base;
+            }
+          }
+
+          .body {
+            font-size: $font-size-small;
+            padding-top: $padding-large-vertical;
+
+            pre {
+              font-size: $font-size-small;
+            }
+          }
+        }
+
+        .repo-issue-comment-form {
+          margin-top: $padding-large-vertical * 2;
+
+          .form-control {
+            background-color: darken($gray-lighter, 3%);
+
+            &:focus {
+              background-color: $light;
+            }
+          }
+
+          .btn {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

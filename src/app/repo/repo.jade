@@ -1,0 +1,38 @@
+.page.repo-page
+  .container
+    .repo-page-header.row
+      .col-sm-8
+        h2.title {{repo.repository.owner.login}}/
+          b {{repo.repository.name}}
+      .col-sm-4
+        .input-group.input-group-sm
+          input.form-control(type='text', value='{{repo.repository.clone_url}}')
+          span.input-group-btn
+            button.btn.btn-default(
+            uib-tooltip='Copiar',
+            clipboard,
+            text='repo.repository.clone_url',
+            on-copied='repo.urlCopied()'
+            )
+              i.icon-docs
+
+    .row
+      .col-sm-12
+        uib-tabset
+          uib-tab.readme-tab(heading='Readme', index='0', ng-if='repo.readme')
+            .readme.text(btf-markdown="repo.readme", ng-show='repo.readme')
+          uib-tab(heading='Issues', index='1', ng-if='repo.issues.length > 0')
+            .issues(ng-show='repo.issues.length > 0')
+              .list-group
+                a.list-group-item(
+                ng-repeat='issue in repo.issues',
+                ui-sref='repo.issue({number: issue.number})'
+                ng-class='{empty: issue.comments <= 0}')
+                  span.badge(class='state-{{::issue.state}}')
+                    i.icon-info(ng-if='issue.state == "open"')
+                    i.icon-check(ng-if='issue.state == "closed"')
+                  span.title {{::issue.title}}
+                  span.comment-count
+                    i.icon-speech
+                    span {{::issue.comments}}
+              .comments(ui-view='comments', ng-class='{active: repo.issue}')

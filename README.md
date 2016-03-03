@@ -1,23 +1,73 @@
-AngularJS Exam
-==============
+# GitDools
+GitDools is a Github Client made with `AngularJs` and `ES6` for the Edools Front-End Exam.
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
+**Please test the app that was deployed at Heroku because Github needs a real domain to work as expected**
 
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+Deployed App: [https://gitdools.herokuapp.com](https://gitdools.herokuapp.com)
 
-- List repositories
-- Filter repositories
-- List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
+## Features
+* Search for repositories
+* View Readme of a repository
+* View issues of a repository
+* View details like forks and stars of a repository
+* Comment about an issue in a repository
+* Sign in via OAuth on Github
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
+## Architecture
+GitDools was made with `AngularJs` using the `ES6` version of ECMAScript. The app is modularized by features and It run over a `NodeJs Express Server` that have some endpoints for OAuth and it is used to serve static files with GZip compression.
 
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
+## Tools Used in Development
+* `Gulp` to automate tasks
+* `Bower` to manage front-end libs
+* `NodeJs`
+* `BrowserSync` to serve app with support to live reload when detect file changes
+* `Karma & Jasmine` for tests
+* `Yeoman Generator Gulp Angular` for scaffold of project
 
-Besides things mentioned above, there are a few things that would be a big plus to see:
+## Styles
 
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
+GitDools style is based on `bootstrap-sass`. It is reponsive and have a custom version of `bootstrap-sass` made especially for him.
+All o `scss` source can be found at `src/assets/sass`.
 
-We wish you good luck, and may the Quality be with you!
+## TODO
+* Improve test coverage
+* Implement E2E tests
+* Add pagination to Issues List
+* Add scroll to Issue Comments
+
+# Development
+
+### Getting Started
+
+Prepare the development enviroment by running:
+
+```
+$ npm install -g gulp bower
+```
+
+Install app dependencies by running inside app path:
+
+```
+$ npm i
+```
+
+Serve app in development mode by running:
+
+```
+$ gulp serve
+```
+
+Serve app in dist mode by running:
+```
+$ gulp serve:dist
+```
+
+### Tests
+
+You can run tests by running:
+
+```
+$ gulp test
+```
+
+#### Ps: Considering the time that I had to develop, I believe that the result was great :)

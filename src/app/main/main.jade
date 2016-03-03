@@ -1,0 +1,72 @@
+.page.main-page
+  .row
+    .container
+      .list
+        .col-sm-12
+          .hero(ng-show='!isBusy && !main.searchText && main.count == 0')
+            h1 Seja Bem-Vindo ao &nbsp;
+              i.icon-social-github
+              | Git
+              b Dools
+            p Aqui você encontra todos os repositórios públicos do Github
+            button.btn.btn-primary(
+            event-focus='click',
+            event-focus-id='search-input',
+            event-class-focus-id='navbar-search'
+            )
+              i.icon-magnifier
+              span Pesquisar Repositório
+
+        .col-sm-12(ng-show='!isBusy && main.searchText && main.count == 0')
+          .no-result
+            i.icon-magnifier
+            span Nenhum resultado {{main.searchText ? 'para ' : ''}}
+              b {{main.searchText}}
+        .col-sm-6.col-md-4(ng-repeat='repo in main.repositories')
+          .list-item.clearfix
+            .list-item-header.clearfix
+              .clearfix
+                .owner
+                  .avatar
+                    lazy-img(src='repo.owner.avatar_url')
+                .title
+                  b {{::repo.name}}
+                  p {{::repo.owner.login}}
+            .info-panel
+              .info.stars
+                b
+                  i.icon-star
+                  span Stars:
+                span {{::repo.stargazers_count}}
+              .info.forks
+                b
+                  i.icon-graph
+                  span Forks:
+                span {{::repo.forks}}
+            .list-item-footer
+              .btn-group.btn-group-sm
+                a.btn.btn-primary(ui-sref='repo({owner: repo.owner.login, repository: repo.name})')
+                  i.icon-info
+                  span Visualizar
+                a.btn.btn-default(
+                href='{{repo.html_url}}',
+                target='_blank'
+                )
+                  i.icon-social-github
+                  span.hidden-xs Abrir no Github
+
+
+
+        .col-sm-12.text-center(ng-show='main.count > 0')
+          .btn-group.pagination
+            button.btn.btn-default(
+            ng-click='main.prevPage()',
+            ng-disabled='!main.hasPrevPage()'
+            )
+              i.icon-arrow-left
+            button.btn.btn-default(
+            ng-click='main.nextPage()',
+            ng-disabled='!main.hasNextPage()'
+            )
+              i.icon-arrow-right
+          p.pagination-caption Exibindo página {{main.page}} de {{main.pageCount}}

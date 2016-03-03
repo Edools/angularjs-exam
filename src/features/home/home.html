@@ -1,5 +1,50 @@
-<ul id="repo_list">
-	<h1>Repositories</h1>
-	{{home.testElasticApi}}
-	<li ng-repeat="repo in home.repos | orderBy:'-stargazers_count'">{{repo.name}}</li>
-</ul>
+<div class="col-md-4">
+	<ul id="repo_list">
+		<h1>Repositories</h1>
+		<li ng-repeat="repo in home.repos | orderBy:'-stargazers_count'">
+			<a ng-click="home.loadCommit(repo)">
+				{{repo.name}}
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div class="col-md-8 commits-container">
+	
+	<div ng-show="home.commit">
+
+	  <div>
+	    <h2>{{home.name}}</h2>
+	  </div>
+
+	  <div class="icons">
+
+	    <div class="col-md-4">
+	      <i class="fa fa-star"></i>
+	      <span>{{home.stars}}</span>
+	    </div>
+
+	    <div class="col-md-4">
+	      <i class="fa fa-code-fork"></i>
+	      <span>{{home.forks}}</span>
+	    </div>
+	    
+	  </div>
+	  
+	  <ul id="commitsContent">
+	    <li class="commit" ng-repeat="commits in home.commit">
+	      <div class="col-md-1 p0">
+	        <img ng-show="{{commits.author.avatar_url != null }}" class="avatar-image" ng-src="{{commits.author.avatar_url }}">
+	      </div>
+	      <div class="commit-author col-md-9">
+	        <div class="commit-message">
+	          <strong>{{commits.commit.message}}</strong>
+	        </div>
+	        <div>@{{commits.commit.author.name}}</div>
+	      </div>
+	      <div class="pull-right col-md-2 pl0">{{commits.commit.committer.date | date:'d/M/yyyy' }}</div>
+	    </li>
+	  </ul>
+	</div>
+
+</div>

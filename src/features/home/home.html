@@ -44,6 +44,9 @@
 	      </div>
 	      <div class="pull-right col-md-2 pl0">{{commits.commit.committer.date | date:'d/M/yyyy' }}</div>
 	    </li>
+	    <a class="btn show-more text-center" id="showMore" ng-click="home.loadCommit(repoId, 'loadMore')">
+	      Carregar Mais
+	    </a>
 	  </ul>
 	</div>
 

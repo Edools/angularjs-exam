@@ -1,8 +1,8 @@
 import '../assets/styl/style.styl';
 
 class GithubRepositoryController {
-    constructor() {
-
+    constructor($scope) {
+        
     }
 }
 

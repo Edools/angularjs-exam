@@ -1,7 +1,7 @@
-import 'angular';
 import 'font-awesome/css/font-awesome.css';
 import './assets/styl/style.styl';
 
+import Register from './register';
 import LoadingUtils from './service';
 import GithubController from './controller';
 import RepositoryController from '../components/repository/controller/controller';
@@ -16,10 +16,10 @@ import NgEnter from '../components/common/directive/directive';
 
 class GithubApp {
     constructor() {
-        angular.module('GithubApp', [])
-            .directive('Repository',  () => new Repository())
-            .directive('Issue',  () => new Issue())
-            .directive('NgEnter',  () => new NgEnter())
+        new Register('GithubApp')
+            .directive('repository', Repository)
+            .directive('issue',  Issue)
+            .directive('ngEnter',  NgEnter)
 
             .service('$loadingUtils', LoadingUtils)
             .service('$repositoryService', RepositoryService)

@@ -1,5 +1,6 @@
 class Repository {
     constructor($interval) {
+        this.restrict = 'E';
         this.scope = {item: '='};
         this.controller = 'GithubRepositoryController';
         this.template = '<div class="repository" ng-init="init()">' +
@@ -9,19 +10,20 @@ class Repository {
                             '<span class="icon-click open-issue" title="Expandir chamados">' +
                                 '<i class="fa fa-expand"></i>' +
                             '</span>' +
-                            '<div ng-show="{{isIssueVisible}}">' +
-                                '<Issue repository="item"/>' +
+                            '<div>' +
+                                '<issue repository="item"/>' +
                             '</div>' +
                         '</div>';
-         this.bindToController = true;
          this.$interval = $interval;
     }
 
+    controller ($scope, $state)  {
+        $scope. state = $state ;
+    }
+
     link($scope, $el, $attr) {
-        console.log('XUUUU LINK')
         $el.find('i').on('click', function(event){
             $scope.$broadcast('open-issue');
-            $scope.isIssueVisible = true;
         });
     }
 }

@@ -1,0 +1,37 @@
+<div class="panel  panel-info t">
+  <!--Title and search for repositories-->
+  <div class="panel-heading">
+    <h1 class="text-center">
+      Respositórios
+      <span class="badge">{{repoData.length}}</span>
+    </h1>
+    <form >
+      <div class="form-group has-info">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="octicon octicon-repo"></span>
+          </div>
+          <input ng-model="searchText" placeholder="Buscar por repositório..." class="form-control input-lg">
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <!--Repository list-->
+  <div class="panel-body">
+    <div ng-repeat="repo in repoData | filter:searchText  | orderBy:predicate:reverse" class="list-group-item">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="link-title">
+            <span ng-if="!repo.fork" class="octicon octicon-repo"></span>
+            <a href="{{repo.html_url}}" target="_blank" >
+              {{repo.name}}
+            </a>
+          </p>
+          <p>{{repo.description}}</p>
+          <small>Última atualização: {{repo.updated_at | date : short : timezone}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

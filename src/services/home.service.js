@@ -11,10 +11,10 @@ class ElasticGit {
   }
 
   getCommit(commit_url) {
-	return this.$http.get(commit_url);
-  }
+    return this.$http.get(commit_url);
+ }
 }
 
 export default angular.module('services.elastic-git', [])
-  .service('elasticGit', ElasticGit)
-  .name;
+.service('elasticGit', ElasticGit)
+.name;

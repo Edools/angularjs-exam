@@ -3,10 +3,17 @@ export default class HomeController {
 	constructor(elasticGit, $location) {
 		this.$location = $location;
 		this.elasticGit = elasticGit;
-		elasticGit.getRepos().then(result => {this.repos = result.data; this.successApiCall = "Ok";});
+		elasticGit.getRepos().then(result => {
+			this.repos = result.data; 
+			this.successApiCall = "Ok";
+			this.toggleElement('loader', 'none');
+		});
 	}
 
 	loadCommit(repo, loadMore) {
+
+		this.toggleElement('loader', 'block');
+
 		let page = 0;
 		let repoId;
 
@@ -34,6 +41,8 @@ export default class HomeController {
 	  	let commit_url = "https://api.github.com/repositories/" + repoId + "/commits?page="+page+"&per_page=20&"+this.secret_token;
 
 	  	this.elasticGit.getCommit(commit_url).then(result => {
+	  		this.toggleElement('loader', 'none');
+	  		console.log("s");
 	  		if(loadMore) {
 	  			//check data.length to toggle show more button
 	  			if(result.data.length) {
@@ -55,7 +64,6 @@ export default class HomeController {
 	toggleElement(id, visibility) {
 		document.getElementById(id).style.display = visibility;
 	}
-
 }
 
 HomeController.$inject = ['elasticGit', '$location'];

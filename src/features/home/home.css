@@ -1,0 +1,160 @@
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+ul, li {
+  list-style-type: none; }
+
+.equal, .equal > div[class*='col-'] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 0 auto; }
+
+body {
+  font-family: Helvetica, arial, sans-serif;
+  background: linear-gradient(to right, #4db07d 0%, #4db07d 50%, #fff 50%, #fff 100%); }
+  body h1 {
+    color: #fff;
+    font-weight: 100;
+    text-align: right; }
+  body h2 {
+    color: #9f9f9f; }
+  body .p0 {
+    padding: 0; }
+  body .pl0 {
+    padding-left: 0; }
+
+#repo_list {
+  text-transform: lowercase;
+  text-align: right;
+  width: 100%; }
+  #repo_list a {
+    color: #fff;
+    font-weight: 300;
+    font-size: 15px;
+    margin: 14px 0;
+    display: block;
+    cursor: pointer;
+    position: relative; }
+    #repo_list a:hover {
+      text-decoration: underline; }
+    #repo_list a:hover:after, #repo_list a:hover:before {
+      right: -15px;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(194, 225, 245, 0); }
+    #repo_list a:hover:after {
+      border-color: rgba(136, 183, 213, 0);
+      border-right-color: #fff;
+      border-width: 10px;
+      margin-top: -10px; }
+    #repo_list a:hover:before {
+      border-right-color: #fff;
+      border-width: 10px;
+      margin-top: -10px; }
+
+#loader {
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.46);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  display: none; }
+  #loader svg {
+    margin: auto;
+    left: auto;
+    right: auto; }
+
+#loader_repos {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0; }
+
+.loader-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: auto;
+  fill: #9f9f9f; }
+
+.commits-container {
+  background: #fff;
+  overflow: hidden;
+  padding-left: 30px; }
+  .commits-container .icons {
+    color: #9f9f9f;
+    font-size: 21px; }
+
+#commitsContent {
+  margin-top: 35px;
+  float: left;
+  min-width: 370px; }
+  #commitsContent .commit {
+    background: #fff;
+    clear: both;
+    border-bottom: 1px dotted #9f9f9f;
+    overflow: hidden;
+    padding: 6px 0 18px;
+    margin-bottom: 12px; }
+    #commitsContent .commit .avatar-image {
+      width: 122px;
+      height: 122px;
+      border: 1px solid #9f9f9f;
+      border-radius: 12px;
+      clear: both; }
+  #commitsContent .show-more {
+    background: #9f9f9f;
+    color: #fff; }
+
+@media screen and (max-width: 630px) {
+  body #repo_list {
+    text-align: left; }
+    body #repo_list a {
+      width: 114px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  body h1 {
+    text-align: left;
+    font-size: 23px; }
+  body h2 {
+    font-size: 18px;
+    width: 146px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  body .icons .col-md-4 {
+    padding: 0; }
+  body .commits-container {
+    padding-left: 10px; }
+    body .commits-container #commitsContent .commit {
+      background: #fff;
+      clear: both;
+      border: 0;
+      overflow: hidden;
+      padding: 0px;
+      margin-bottom: 12px; }
+      body .commits-container #commitsContent .commit .commit-author {
+        padding: 0;
+        width: 150px;
+        margin: 10px 0; } }
+
+/*# sourceMappingURL=home.css.map */

@@ -31,7 +31,7 @@ $ npm install -g gulp bower
 
 Install dependencies
 ```sh
-$ npm i
+$ npm i && bower install
 ```
 
 Serve app

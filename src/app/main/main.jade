@@ -1,0 +1,33 @@
+.row#search
+	.col-md-4.col-md-offset-4.text-center
+		.input-group
+			input.form-control(type='text', placeholder='Search repositories', ng-model='main.searchQuery')
+			span.input-group-btn
+				button.btn.btn-primary(type='button', ng-click='main.search()')
+					| search {{main.searchQuery}}
+
+
+.panel.panel-default(ng-show='main.repositories')
+	.panel-heading
+		input.form-control(type='text', placeholder='Filter repositories...', ng-model='search.name')
+	.panel-body
+		ul.list-group
+			li.list-group-item(ng-repeat='repository in main.repositories | filter : search')
+				.row
+					.col-md-7
+						h4
+							a(ui-sref='repository({owner: repository.owner.login, name: repository.name})')
+								| {{repository.full_name}}
+						small
+							a.btn.btn-xs.btn-default(ui-sref='repository({owner: repository.owner.login, name: repository.name})')
+								| details
+							a.btn.btn-xs.btn-default(href='{{repository.html_url}}', target='_blank')
+								| open in Github
+					.col-md-5
+						.dl-horizontal
+							dt updated in
+							dd {{repository.updated_at | date : 'dd/MM/yy HH:mm:ss'}}
+							dt created in
+							dd {{repository.created_at | date : 'dd/MM/yy HH:mm:ss'}}
+							dt language
+							dd {{repository.language}}

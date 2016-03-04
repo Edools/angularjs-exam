@@ -1,0 +1,37 @@
+.row
+	.col-md-6
+		h1
+			| {{repository.data.full_name}}
+			small
+				|  | Issues
+	.col-md-6.backButton
+		button.btn.btn-default.pull-right(ui-sref='home')
+			| Back
+
+.panel.panel-default
+	.panel-heading
+		input.form-control(ng-model='search', placeholder='Filter issues...')
+	.panel-body
+		ul.list-group
+			li.list-group-item(ng-repeat='issue in repository.issues | filter : search')
+				.row
+					.col-md-7
+						h4
+							a(ui-sref='repository.issue({number: issue.number})')
+								| {{issue.title}}
+						small
+							a.btn.btn-xs.btn-default(ui-sref='repository.issue({number: issue.number})')
+								| details
+							a.btn.btn-xs.btn-default(href='{{issue.html_url}}', target="_blank")
+								| open in Github
+					.col-md-4
+						.dl-horizontal
+							dt updated in
+							dd {{issue.updated_at | date : 'dd/MM/yy HH:mm:ss'}}
+							dt created in
+							dd {{issue.created_at | date : 'dd/MM/yy HH:mm:ss'}}
+							dt created by
+							dd
+								a(href='{{issue.user.html_url}}') {{issue.user.login}}
+								
+div(ui-view='modal')

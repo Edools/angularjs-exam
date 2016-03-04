@@ -1,0 +1,21 @@
+<section class="repos">
+  <header>
+    <h2>Commits | {{project}}</h2>
+  </header>
+  <div class="row padding commits">
+    <div class="col-xs-12" ng-repeat="commit in commits">
+      <div class="commit">
+        <div class="author">
+          <img ng-src="{{commit.author.avatar_url}}" alt="">
+        </div>
+        <div class="title">
+          <p class="comment">{{commit.commit.message}}</p>
+          <p class="email">{{commit.commit.author.email}}</p>
+          <p class="author">@{{commit.committer.login}}</p>
+          <p class="date pull-right">{{commit.commit.author.date | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

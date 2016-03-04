@@ -1,0 +1,30 @@
+<section class="repos">
+  <header>
+    <h2>Lista de repositórios</h2>
+    <form class="pull-right">
+      <input type="text" class="form-control" placeholder="Pesquisar.." ng-model="query['name']">
+    </form>
+    <ul class="pull-right">
+      <li class="border" data-ng-click="sortCategory('alphabetic')" ng-class="{'active' : isActive('alphabetic')}">Ordem Alfabética</li>
+      <li class="border" data-ng-click="sortCategory('news')" ng-class="{'active' : isActive('news')}">Mais Recentes</li>
+      <li data-ng-click="sortCategory('olders')" ng-class="{'active' : isActive('olders')}">Mais Antigos</li>
+    </ul>
+  </header>
+  <div class="row padding">
+    <div class="col-md-3" ng-repeat="repo in repos | filter:query | orderBy: order()"
+      data-ng-click="goTo(repo.id, repo.name)">
+      <div class="card">
+        <div class="card-title">
+          {{repo.name}}
+        </div>
+        <div class="card-content">
+          <p ng-if="repo.description">{{repo.description | limitTo: 60}}...</p>
+          <p ng-if="!repo.description">
+            No description.
+            <br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

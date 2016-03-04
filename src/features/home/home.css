@@ -18,7 +18,7 @@ ul, li {
 
 body {
   font-family: Helvetica, arial, sans-serif;
-  background: linear-gradient(to right, #1e8cd6 0%, #1e8cd6 50%, #fff 50%, #fff 100%); }
+  background: linear-gradient(to right, #4db07d 0%, #4db07d 50%, #fff 50%, #fff 100%); }
   body h1 {
     color: #fff;
     font-weight: 100;
@@ -110,9 +110,9 @@ body {
   #commitsContent .commit {
     background: #fff;
     clear: both;
-    border: 1px solid #9f9f9f;
+    border-bottom: 1px dotted #9f9f9f;
     overflow: hidden;
-    padding: 6px;
+    padding: 6px 0 18px;
     margin-bottom: 12px; }
     #commitsContent .commit .avatar-image {
       width: 122px;

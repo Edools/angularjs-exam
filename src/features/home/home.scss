@@ -1,5 +1,5 @@
 //colors
-$blue: #1e8cd6;
+$green: #4db07d;
 $gray: #9f9f9f;
 
 *, *:after, *:before {
@@ -27,8 +27,8 @@ body {
 	font-family: Helvetica, arial, sans-serif;
 	background: linear-gradient(
 		to right, 
-		$blue 0%, 
-		$blue 50%, 
+		$green 0%, 
+		$green 50%, 
 		#fff 50%, 
 		#fff 100%
 		);
@@ -150,9 +150,9 @@ body {
 	.commit {
 		background: #fff;
 		clear: both;
-		border: 1px solid $gray;
+		border-bottom: 1px dotted $gray;
 		overflow: hidden;
-		padding: 6px;
+		padding: 6px 0 18px;
 		margin-bottom: 12px;
 
 		.avatar-image {

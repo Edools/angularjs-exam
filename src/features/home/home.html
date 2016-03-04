@@ -35,10 +35,10 @@
 
 				<ul id="commitsContent">
 					<li class="commit" ng-repeat="commits in home.commit">
-						<div class="col-md-3 p0">
+						<div class="col-md-2 p0">
 							<img ng-show="{{commits.author.avatar_url != null }}" class="avatar-image" ng-src="{{commits.author.avatar_url }}">
 						</div>
-						<div class="commit-author col-md-7">
+						<div class="commit-author col-md-8">
 							<div class="commit-message">
 								<strong>{{commits.commit.message}}</strong>
 							</div>

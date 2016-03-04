@@ -1,0 +1,23 @@
+{
+  "name": "Teste Edools",
+  "authors": [
+    "Diego Candido <diego@diegocandido.com>"
+  ],
+  "description": "Projeto de API Github",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "www.diegocandido.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.1",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.5.0"
+  }
+}

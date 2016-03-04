@@ -1,0 +1,88 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "octicons/octicons/sprockets-octicons.scss";
+// endbower
+
+@import "compass";
+
+//Variables
+
+$font-stack: 'Dosis', sans-serif;
+$font-scale: 1.3em;
+$font-major: #3D7A99;
+$radius: 4px;
+
+//Mixin
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//Navbar
+
+.navbar-brand{
+  font-family: $font-stack ;
+  font-size: 2em;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+  background-color: $font-major;
+}
+
+.navbar{
+  background-color: $font-major;
+  ul{
+    font-size: 1.3em;
+    font-family: $font-stack;
+    li{
+      padding: 0;
+      border: solid 3px #D9EDF7;
+      @include border-radius($radius);
+    }
+  }
+  a{
+    color: #D9EDF7;
+    &:hover {
+      color: #eee;
+    }
+  }
+
+}
+
+//Panel
+
+.panel{
+  font-family: $font-stack;
+}
+
+.panel{
+  a{
+    font-size: $font-scale;
+  }
+  p {
+    font-size: $font-scale;
+  }
+}
+
+h1{
+  padding-bottom: 20px;
+}
+
+
+//Footer
+
+.footer{
+  background-color: $font-major;
+  p{
+    padding: 30px;
+    margin: 0px;
+    color: #D9EDF7;
+    font-size: $font-scale;
+    font-family: $font-stack;
+  }
+}
+
+

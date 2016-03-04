@@ -1,0 +1,27 @@
+.modal.fade.in(style="display: block;")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(ng-click='repository.closeModal()')
+					span &times;
+				h4.modal-title
+					| {{repository.issue.title}}
+
+			.panel.panel-default
+				.panel-heading
+					input.form-control(type="text", placeholder="Filter comments...", ng-model="search.body")
+
+					.panel-body
+						ul.list-group
+							li.list-group-item(ng-repeat='comment in repository.comments | filter : search')
+								.row
+									.col-md-2
+										a(href="{{comment.user.html_url}}", target="_blank")
+										b {{comment.user.login}}
+										br
+										small in {{comment.created_at | date : 'dd/MM/yy HH:mm:ss'}}
+									.col-md-10 {{comment.body}}
+
+			.modal-footer
+				button.btn.btn-default(ng-click='repository.closeModal()')
+					| Close

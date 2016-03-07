@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<h3>
+		Search in GITHUB
+	</h3>
+
+		<input ng-model="query" type="text" placeholder="Type at least 5 letters to Search" autofocus class="form-control"
+					 ng-change="vm.search(query)">
+<br/>
+	<table class="table table-bordered bg-white">
+		<thead >
+			<tr>
+        <th class="sort-alpha" ng-click="sortBy='full_name';reverse=!reverse">Full Name</th>
+        <th class="sort-alpha" ng-click="sortBy='description';reverse=!reverse">Description</th>
+				<th class="sort-alpha" ng-click="sortBy='watchers';reverse=!reverse">Watchers</th>
+        <th class="sort-alpha" ng-click="sortBy='forks';reverse=!reverse">Forks</th>
+        <th class="sort-alpha" ng-click="sortBy='updated_at';reverse=!reverse">Last Update</th>
+			</tr>
+		</thead>
+		<tr ng-repeat="doc in vm.docs | filter:query | orderBy:sortBy:reverse" ng-click="vm.redirect(doc.html_url)">
+				<td  >
+						{{doc.full_name}}
+				</td>
+				<td>
+						{{doc.description}}
+				</td>
+				<td>
+						{{doc.watchers}}
+				</td>
+				<td>
+						{{doc.forks}}
+				</td>
+				<td>
+						{{doc.updated_at | date: 'dd/MM/yyyy'}}
+				</td>
+		</tr>
+	</table>
+	
+</div>

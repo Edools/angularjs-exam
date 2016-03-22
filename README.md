@@ -1,4 +1,4 @@
-# Exame Edools
+# GitHub Viewer
 Neste projeto foi utilizado AngularJs para recuperar alguns dados da API do GitHub.
  
 ## Características

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+    <div class="row user_info navbar navbar-fixed-top">
+        <div class="col-sm-8 hidden-xs">
+            <img ng-src="{{main.user.avatar_url}}" /><p>{{main.user.name}}</p>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+
+                <input type="text" class="form-control" placeholder="Github username" ng-model="main.user_search">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="main.search()">Search</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <input type="text" class="filter" ng-model="filterString" placeholder="Enter your filter terms" />
+        </div>
+
+        <div class="col-sm-6">
+            <div ng-if="main.errors" class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{main.errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 blocks" ng-if="!main.repos.length">
+            <div class="blocks_inner no_repositorie">
+                No repositorie to show :(
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 blocks" ng-repeat="repos in main.repos | searchFor: filterString">
+            <div class="blocks_inner">
+                <h3>{{repos.name}}</h3>
+                <p>{{repos.description ? repos.description : 'No description :('}}</p>
+                <p class="blocks_buttons"><a href="/#/{{main.user.name}}/{{repos.name}}/issues" class="btn btn-primary" role="button">View Issues</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>

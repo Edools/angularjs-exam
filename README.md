@@ -21,6 +21,7 @@ Instalar as dependências
 
 ```
 $ npm install
+$ bower install
 ```
 
 

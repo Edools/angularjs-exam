@@ -5,7 +5,15 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainController',
-      controllerAs: 'main'
+      controllerAs: 'vm'
+    });
+
+  $stateProvider
+    .state('about', {
+      url: '/about',
+      templateUrl: 'app/about/about.html',
+      controller: 'AboutController',
+      controllerAs: 'vm'
     });
 
   $urlRouterProvider.otherwise('/');

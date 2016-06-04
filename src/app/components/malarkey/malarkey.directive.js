@@ -4,17 +4,15 @@ export function MalarkeyDirective(malarkey) {
   let directive = {
     restrict: 'E',
     scope: {
-        extraValues: '='
+        model: '=ngModel'
     },
     template: '&nbsp;',
-    link: linkFunc,
-    controller: MalarkeyController,
-    controllerAs: 'vm'
+    link: linkFunc
   };
 
   return directive;
 
-  function linkFunc(scope, el, attr, vm) {
+  function linkFunc(scope, el) {
     let watcher;
     let typist = malarkey(el[0], {
       typeSpeed: 40,
@@ -26,14 +24,8 @@ export function MalarkeyDirective(malarkey) {
 
     el.addClass('acme-malarkey');
 
-    angular.forEach(scope.extraValues, (value) => {
+    angular.forEach(scope.model, (value) => {
       typist.type(value).pause().delete();
-    });
-
-    watcher = scope.$watch('vm.contributors', () => {
-      angular.forEach(vm.contributors, (contributor) => {
-        typist.type(contributor.login).pause().delete();
-      });
     });
 
     scope.$on('$destroy', () => {
@@ -41,29 +33,4 @@ export function MalarkeyDirective(malarkey) {
     });
   }
 
-}
-
-class MalarkeyController {
-  constructor ($log, githubContributor) {
-    'ngInject';
-
-    this.$log = $log;
-    this.contributors = [];
-
-    this.activate(githubContributor);
-  }
-
-  activate(githubContributor) {
-    return this.getContributors(githubContributor).then(() => {
-      this.$log.info('Activated Contributors View');
-    });
-  }
-
-  getContributors(githubContributor) {
-    return githubContributor.getContributors(10).then((data) => {
-      this.contributors = data;
-
-      return this.contributors;
-    });
-  }
 }

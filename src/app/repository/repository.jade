@@ -1,7 +1,22 @@
 div#repository(layout="column" layout-fill)
   md-content
     header
-      acme-navbar(creation-date='vm.creationDate')
+      acme-navbar
     section
       md-content
-        pre {{vm.repository | json}}
+        
+        md-tabs(md-dynamic-height md-border-bottom)
+          md-tab(label="Readme")
+            md-content.md-padding(flex layout layout-align="center")            
+              div(flex flex-gt-xs="80" layout="column")
+                h1.md-display-2 Readme
+                p(ng-hide="vm.readme") Readme not found!
+                div.readme(ng-bind-html="vm.readme" ng-show="vm.readme")
+              
+              
+          md-tab(label="Issues")
+            md-content.md-padding(flex layout layout-align="center")            
+              div(flex flex-gt-xs="80" layout="column")
+                h1.md-display-2 Issues
+                p(ng-hide="vm.issues") Issues not found!
+                issue-list(issues="vm.issues" ng-show="vm.issues" on-item-selected="vm.openIssueDetails(issue)")

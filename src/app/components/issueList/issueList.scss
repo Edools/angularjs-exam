@@ -1,0 +1,11 @@
+.issue-list {
+  .issue {
+    span, strong {
+      padding: 0 3px;
+    }
+    .issue-number {
+      font-weight: bold;
+      color: #6666ff;
+    }
+  }
+}

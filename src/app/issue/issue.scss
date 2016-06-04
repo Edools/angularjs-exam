@@ -1,0 +1,24 @@
+#issue {
+  .issue-title {
+    margin-left: 5px;
+  }
+  .issue-number {
+    color: #6666ff;
+  }
+  .issue-body {
+    white-space: pre-line;
+    font-size: 11pt;
+  }
+  .comment-body {
+    white-space: pre-line;
+    padding: 5px;
+  }
+  .divider {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+  }
+  .padding-0 {
+    padding: 0;
+  }
+}

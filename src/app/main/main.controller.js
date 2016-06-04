@@ -8,7 +8,7 @@ export class MainController {
 
   openRepositoryDetais(repository) {
     this.$state.go('repository', {
-      fullname: repository.full_name
+      repository: repository.full_name
     });
   }
 }

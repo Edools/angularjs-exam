@@ -1,0 +1,7 @@
+div.issue-list
+  md-list
+    md-subheader.md-no-sticky Repositories
+    md-list-item.issue(ng-repeat="item in vm.issues" ng-click="vm.itemSelected(item)")
+      p.issue-content
+        span.issue-number.md-primary # {{item.number}}
+        span.issue-title {{item.title}}

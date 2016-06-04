@@ -1,6 +1,7 @@
 import { config } from './index.config';
 import './main';
 import './about';
+import './repository';
 
 angular
   .module('app', [
@@ -12,6 +13,7 @@ angular
 
     // own modules
     'app.main',
-    'app.about'
+    'app.about',
+    'app.repository'
   ])
   .config(config);

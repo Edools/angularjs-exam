@@ -1,13 +1,14 @@
 export class MainController {
-  constructor(toastr, $log) {
+  constructor($state) {
     'ngInject';
 
-    this.toastr = toastr;
-    this.$log = $log;
+    this.$state = $state;
+    this.repositories = [];
   }
 
-  openRepositoryDetais(repository){
-    this.$log.log(repository.id);
+  openRepositoryDetais(repository) {
+    this.$state.go('repository', {
+      fullname: repository.full_name
+    });
   }
-
 }

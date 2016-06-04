@@ -1,0 +1,7 @@
+div#repository(layout="column" layout-fill)
+  md-content
+    header
+      acme-navbar(creation-date='vm.creationDate')
+    section
+      md-content
+        pre {{vm.repository | json}}

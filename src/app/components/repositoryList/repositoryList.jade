@@ -1,0 +1,13 @@
+div.repository-list
+  md-list
+    md-subheader.md-no-sticky Repositories
+    md-list-item.md-3-line(ng-repeat="item in vm.repositories" ng-click="vm.itemSelected(item)")
+      img.md-avatar(ng-src="{{item.owner.avatar_url}}", alt="{{item.owner.login}}")
+      div.md-list-item-text(layout='column')
+        h3 {{item.full_name}}
+        h4 
+          i.fa.fa-code-fork.list-item-icon
+          span.list-item-value {{item.forks}}
+          i.fa.fa-star.list-item-icon
+          span.list-item-value {{item.stargazers_count}}
+        p Updated at {{vm.getUpdatedDate(item)}}

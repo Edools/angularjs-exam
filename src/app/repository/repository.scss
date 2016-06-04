@@ -1,0 +1,21 @@
+#repository {
+  md-content.jumbotron {
+    margin-bottom: 30px;
+    padding: 1px 30px;
+    // background-color: $primary;
+    text-align: center;
+    // color: white;
+    h1 {
+      font-size: 3em;
+    }
+  }
+  .techs {
+    md-card {
+      width: 30%;
+      img.pull-right {
+        float: right;
+        width: 100px;
+      }
+    }
+  }
+}

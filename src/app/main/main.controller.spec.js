@@ -1,32 +1,39 @@
+import getRepositoriesMock from '../mocks/github.http.getRepositories.mock';
+
 describe('controllers', () => {
-  let vm;
+    let scope, vm, $httpBackend, constants;
 
-  beforeEach(angular.mock.module('githubEdools'));
+    beforeEach(angular.mock.module('githubEdools'));
 
-  beforeEach(inject(($controller, webDevTec, toastr) => {
-    spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-    spyOn(toastr, 'info').and.callThrough();
+    beforeEach(inject(($rootScope, $controller, _$httpBackend_, config) => {
+        scope = $rootScope.$new();
+        vm = $controller('MainController');
+        $httpBackend = _$httpBackend_;
+        constants = config;
+    }));
 
-    vm = $controller('MainController');
-  }));
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
 
-  it('should have a timestamp creation date', () => {
-    expect(vm.creationDate).toEqual(jasmine.any(Number));
-  });
+    it('should start with empty repositories array', () => {
+        expect(vm.repos).toEqual([]);
+    });
 
-  it('should define animate class after delaying timeout', inject($timeout => {
-    $timeout.flush();
-    expect(vm.classAnimation).toEqual('rubberBand');
-  }));
+    it('should make a search matching "angular"', () => {
+        $httpBackend
+            .when('GET', constants.GITHUB_API + '/search/repositories?q=angular')
+            .respond(200, getRepositoriesMock);
 
-  it('should show a Toastr info and stop animation when invoke showToastr()', inject(toastr => {
-    vm.showToastr();
-    expect(toastr.info).toHaveBeenCalled();
-    expect(vm.classAnimation).toEqual('');
-  }));
+        scope.$apply(() => {
+            vm.searchText = 'angular';
+            vm.search();
+        });
 
-  it('should define more than 5 awesome things', () => {
-    expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-    expect(vm.awesomeThings.length === 5).toBeTruthy();
-  });
+        $httpBackend.flush();
+
+        expect(vm.repos).toBeTruthy();
+        expect(vm.repos.length).toBeGreaterThan(0);
+    });
 });

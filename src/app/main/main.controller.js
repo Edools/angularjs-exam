@@ -1,32 +1,83 @@
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
-    'ngInject';
+    constructor($rootScope, $state, toastr, GithubService) {
+        'ngInject';
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1465066253164;
-    this.toastr = toastr;
 
-    this.activate($timeout, webDevTec);
-  }
+        let self = this;
 
-  activate($timeout, webDevTec) {
-    this.getWebDevTec(webDevTec);
-    $timeout(() => {
-      this.classAnimation = 'rubberBand';
-    }, 4000);
-  }
+        self.$rootScope = $rootScope;
+        self.$state = $state;
+        self.toastr = toastr;
+        self.github = GithubService;
 
-  getWebDevTec(webDevTec) {
-    this.awesomeThings = webDevTec.getTec();
+        self.clear();
 
-    angular.forEach(this.awesomeThings, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
-    });
-  }
+        if (self.$state.params.text)
+            self.searchText = self.$state.params.text;
 
-  showToastr() {
-    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    this.classAnimation = '';
-  }
+        if (self.$state.params.page)
+            self.page = parseInt(self.$state.params.page);
+
+        self.search();
+
+    }
+
+    clear() {
+        this.repos = [];
+        this.count = 0;
+        this.page = 1;
+        this.pageCount = 0;
+        this.perPage = 12;
+        this.searchText = '';
+    }
+
+    hasNext() {
+        return this.pageCount > this.page;
+    }
+
+    hasPrev() {
+        return this.page > 1;
+    }
+
+    next() {
+        let self = this;
+        if (!self.hasNext()) return;
+        self.$state.go('home', {
+            text: self.searchText,
+            page: self.page + 1
+        });
+    }
+
+    previous() {
+        let self = this;
+        if (!self.hasPrev()) return;
+        self.$state.go('home', {
+            text: self.searchText,
+            page: self.page - 1
+        });
+    }
+
+
+    search(name) {
+        let self = this;
+
+        if (!name) {
+            self.clear();
+            return;
+        }
+
+        self.github
+            .getRepositories(self.searchText, self.page, self.perPage)
+            .then((res) => {
+                self.count = res.data.total_count;
+                self.pageCount = Math.ceil(self.count / self.perPage);
+                self.repos = res.data.items;
+            })
+            .catch((res) => {
+                self.toastr.error(res.data.message, {
+                    timeOut: 10000
+                });
+                self.clear();
+            });
+    }
 }

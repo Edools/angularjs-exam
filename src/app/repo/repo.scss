@@ -1,0 +1,35 @@
+.repo-page {
+  .repo-page-header {
+    .title {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .form-control {
+      @include box-shadow(none);
+    }
+  }
+
+  .readme-tab {
+    &.active {
+      .nav-link {
+        background-color: $light;
+      }
+    }
+  }
+
+  .tab-content {
+    min-height: 50px;
+    border: 1px solid $border-color-base;
+    border-top: none;
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    margin-bottom: $padding-large-vertical * 4;
+    overflow: hidden;
+  }
+
+  .readme {
+    background-color: $light;
+    padding: 25px 50px $padding-large-vertical * 4;
+  }
+}

@@ -1,22 +1,37 @@
-/* global malarkey:false, moment:false */
+/* global moment:false */
 
+import constants from './index.constants';
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
-import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
-angular.module('githubEdools', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
-  .constant('malarkey', malarkey)
+import { GithubService } from './components/github/github.service';
+import { MainController } from './main/main.controller';
+import { RepoController } from './repo/repo.controller';
+import { NavbarDirective } from './components/navbar/navbar.directive';
+
+angular.module('githubEdools', 
+[
+  'ngAnimate', 
+  'ngCookies', 
+  'ngSanitize', 
+  'ngMessages', 
+  'ngAria', 
+  'ngResource', 
+  'ui.router', 
+  'ui.bootstrap', 
+  'toastr',
+	'angular-clipboard',
+  'ab-base64',
+  'btford.markdown',
+  'LocalStorageModule'
+  ])
   .constant('moment', moment)
+	.constant('config', constants)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  .service('githubContributor', GithubContributorService)
-  .service('webDevTec', WebDevTecService)
+	.service('GithubService', GithubService)
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
-  .directive('acmeMalarkey', MalarkeyDirective);
+	.controller('RepoController', RepoController)
+ 	.directive('navbar', NavbarDirective)

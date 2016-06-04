@@ -1,6 +1,16 @@
 <div class="row">
-  <div class="col-sm-6 col-md-3">
-    <img ng-src="{{user.avatar_url}}" class="img-rounded">
+  <div class="col-sm-12 col-md-3">
+    <img ng-src="{{user.avatar_url}}" class="img-responsive" height="260" width="260">
+    <div class="row">
+      <div class="col-sm-6 col-md-12">
+        <form name="usernameForm" ng-submit="usernameForm.$valid && research(username)" class="input-group">
+          <input type="text" class="form-control" ng-model="username" ng-required="true" placeholder="Nome de usuário">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" ng-click="research(username)">Procurar</button>
+          </span>
+        </form>
+      </div>
+    </div>
     <div class="caption">
       <h3>{{user.name}}</h3>
       <p>{{user.email}}</p>
@@ -35,13 +45,14 @@
       </p>
     </div>
   </div>
-  <div class="col-sm-6 col-md-9">
+  <div class="col-sm-12 col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">Repositórios</h3>
+        <h2 class="panel-title">Repositórios</h2>
+        <input type="text" class="form-control" ng-model="filterRepo" placeholder="Filtre por um repositório...">
       </div>
       <div class="list-group">
-        <a href="#/" class="list-group-item" ng-repeat="repo in repos | orderBy: 'stargazers_count':true |  limitTo:limitVisualization">
+        <a href="#/" class="list-group-item" ng-repeat="repo in repos | orderBy: 'stargazers_count':true |  limitTo:limitVisualization | filter: filterRepo">
           <h4 class="list-group-item-heading">{{repo.name}}</h4>
           <p>
             <i class="glyphicon glyphicon-star"></i>

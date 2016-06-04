@@ -9,10 +9,10 @@
  */
 angular.module('angularApp')
 .service('userRepositories', function ($http) {
-  this.getRepositories = function() {
+  this.getRepositories = function(user) {
     return $http({
       method: 'GET',
-      url: 'https://api.github.com/users/marcelobarreto/repos'
+      url: 'https://api.github.com/users/' + user + '/repos'
     });
   };
 });

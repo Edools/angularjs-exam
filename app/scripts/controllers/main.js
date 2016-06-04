@@ -12,24 +12,30 @@
  //https://api.github.com/users/marcelobarreto/repos -> user repositories
 
 angular.module('angularApp')
-.controller('MainCtrl', function ($scope, userInformation, userRepositories) {
+.controller('MainCtrl', function ($scope, $uibModal, userInformation, userRepositories) {
   $scope.limitVisualization = 5;
+  $scope.username = 'marcelobarreto';
 
   $scope.visualizationToggle = function() {
     $scope.limitVisualization = $scope.repos.length;
   };
 
+  $scope.research = function(username) {
+    $scope.username = username;
+    loadUserInformation();
+    loadUserRepositories();
+  };
+
   var loadUserInformation = function(){
-    userInformation.getInfo().success(function(data){
+    userInformation.getInfo($scope.username).success(function(data){
       $scope.user = data;
     }).error(function(data){
       console.log(data);
-      $scope.error = 'Não foi possível carregar os dados deste usuário';
     });
   };
 
   var loadUserRepositories = function(){
-    userRepositories.getRepositories().success(function(data){
+    userRepositories.getRepositories($scope.username).success(function(data){
       $scope.repos = data;
     }).error(function(data){
       console.log(data);

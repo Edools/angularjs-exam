@@ -1,0 +1,13 @@
+div.repository-search
+  md-autocomplete(md-selected-item="vm.selectedItem" md-search-text-change="vm.searchTextChange(vm.searchText)" md-search-text="vm.searchText" md-selected-item-change="vm.selectedItemChange(item)" md-items="item in vm.querySearch(vm.searchText)" md-item-text="item.name" md-min-length="0" placeholder="Pick an GitHub repository" md-menu-class="repository-search-template")
+    md-item-template
+      span.item-title
+        md-icon(md-svg-icon="assets/images/octicon-repo.svg")
+        span  {{item.full_name}} 
+      span.item-metadata
+        span.item-metastat
+          strong {{item.watchers}}
+          |  watchers
+        span.item-metastat
+          strong {{item.forks}}
+          |  forks

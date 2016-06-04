@@ -5,7 +5,11 @@ div#main(layout="column" layout-fill)
     section
       md-content.md-primary.md-hue-1.jumbotron
           p
-            img(src='assets/images/github-logo.png' alt="GitHub" width="300px")
+            img(src="assets/images/github-logo.png" alt="GitHub" width="300px")
             br
             | Just another way to play with GitHub...
             acme-malarkey(values="['Repositories', 'Issues', 'Members']")
+
+    section
+      md-content(layout layout-xs="column" layout-align="center")
+        repository-search(flex flex-gt-xs="50" on-item-selected="vm.openRepositoryDetais(repository)")

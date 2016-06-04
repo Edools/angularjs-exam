@@ -12,7 +12,7 @@ export function config($logProvider, $urlRouterProvider, $mdThemingProvider, toa
 
   // config theme pallete
   $mdThemingProvider.theme('default')
-    .primaryPalette('grey', {
+    .primaryPalette('blue-grey', {
       'default': '600',
       'hue-1': '100',
       'hue-2': '600',

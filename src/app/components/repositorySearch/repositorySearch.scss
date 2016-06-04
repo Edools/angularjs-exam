@@ -1,0 +1,24 @@
+.repository-search-template {
+  li {
+    border-bottom: 1px solid #ddd;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    white-space: normal;
+  }
+  li:last-child {
+    border-bottom-width: 0;
+  }
+  .item-metastat {
+    margin-right: 10px;
+  }
+  .item-metadata,
+  .repository-search-template .item-title {
+    display: block;
+    line-height: 2;
+  }
+  .item-title md-icon {
+    height: 22px;
+    width: 22px;
+  }
+}

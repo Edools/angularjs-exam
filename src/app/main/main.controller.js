@@ -1,24 +1,19 @@
 export class MainController {
-    constructor($rootScope, $state, toastr, GithubService) {
+    constructor($rootScope, toastr, GithubService) {
         'ngInject';
 
 
         let self = this;
 
         self.$rootScope = $rootScope;
-        self.$state = $state;
         self.toastr = toastr;
         self.github = GithubService;
 
         self.clear();
 
-        if (self.$state.params.text)
-            self.searchText = self.$state.params.text;
-
-        if (self.$state.params.page)
-            self.page = parseInt(self.$state.params.page);
-
-        self.search();
+        self.$rootScope.$on('search', (e, name) => {
+            self.search(name);
+        });
 
     }
 
@@ -42,19 +37,15 @@ export class MainController {
     next() {
         let self = this;
         if (!self.hasNext()) return;
-        self.$state.go('home', {
-            text: self.searchText,
-            page: self.page + 1
-        });
+        self.page += 1;
+        self.search(self.searchText);
     }
 
     previous() {
         let self = this;
         if (!self.hasPrev()) return;
-        self.$state.go('home', {
-            text: self.searchText,
-            page: self.page - 1
-        });
+        self.page -= 1;
+        self.search(self.searchText);
     }
 
 
@@ -67,8 +58,9 @@ export class MainController {
         }
 
         self.github
-            .getRepositories(self.searchText, self.page, self.perPage)
+            .getRepositories(name, self.page, self.perPage)
             .then((res) => {
+                self.searchText = name;
                 self.count = res.data.total_count;
                 self.pageCount = Math.ceil(self.count / self.perPage);
                 self.repos = res.data.items;

@@ -18,9 +18,14 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
                         return GithubService
                             .findRepositoryByName($stateParams.owner, $stateParams.id);
                     }
-                ]
+                ],
+                readme: ['$stateParams', 'GithubService', ($stateParams, GithubService) => {
+                    return GithubService
+                        .getReadme($stateParams.owner, $stateParams.id);
+                }]
             }
         });
+
 
     $urlRouterProvider.otherwise('/');
 }

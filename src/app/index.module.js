@@ -8,6 +8,7 @@ import { runBlock } from './index.run';
 import { GithubService } from './components/github/github.service';
 import { MainController } from './main/main.controller';
 import { RepoController } from './repo/repo.controller';
+
 import { NavbarDirective } from './components/navbar/navbar.directive';
 
 angular.module('githubEdools', 
@@ -23,8 +24,7 @@ angular.module('githubEdools',
   'toastr',
 	'angular-clipboard',
   'ab-base64',
-  'btford.markdown',
-  'LocalStorageModule'
+  'btford.markdown'
   ])
   .constant('moment', moment)
 	.constant('config', constants)
@@ -33,5 +33,5 @@ angular.module('githubEdools',
   .run(runBlock)
 	.service('GithubService', GithubService)
   .controller('MainController', MainController)
-	.controller('RepoController', RepoController)
+  .controller('RepoController', RepoController)
  	.directive('navbar', NavbarDirective)

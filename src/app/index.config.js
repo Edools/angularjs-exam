@@ -1,4 +1,4 @@
-export function config($logProvider, $mdThemingProvider, toastrConfig) {
+export function config($logProvider, $urlRouterProvider, $mdThemingProvider, toastrConfig) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -19,5 +19,7 @@ export function config($logProvider, $mdThemingProvider, toastrConfig) {
       'hue-3': 'A100'
     })
     .accentPalette('orange');
+
+  $urlRouterProvider.otherwise('/');
 
 }

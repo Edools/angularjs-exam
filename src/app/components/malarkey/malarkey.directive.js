@@ -4,7 +4,7 @@ export function MalarkeyDirective(malarkey) {
   let directive = {
     restrict: 'E',
     scope: {
-        model: '=ngModel'
+        values: '='
     },
     template: '&nbsp;',
     link: linkFunc
@@ -13,7 +13,6 @@ export function MalarkeyDirective(malarkey) {
   return directive;
 
   function linkFunc(scope, el) {
-    let watcher;
     let typist = malarkey(el[0], {
       typeSpeed: 40,
       deleteSpeed: 40,
@@ -24,12 +23,8 @@ export function MalarkeyDirective(malarkey) {
 
     el.addClass('acme-malarkey');
 
-    angular.forEach(scope.model, (value) => {
+    angular.forEach(scope.values, (value) => {
       typist.type(value).pause().delete();
-    });
-
-    scope.$on('$destroy', () => {
-      watcher();
     });
   }
 

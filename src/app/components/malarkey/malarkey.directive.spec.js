@@ -7,11 +7,11 @@
 describe('directive malarkey', function() {
   let element;
 
-  beforeEach(angular.mock.module('app'));
+  beforeEach(angular.mock.module('app.components.malarkey'));
 
-  beforeEach(inject(($compile, $rootScope, $q) => {
+  beforeEach(inject(($compile, $rootScope) => {
     element = angular.element(`
-      <acme-malarkey extra-values="['Poney', 'Monkey']"></acme-malarkey>
+      <acme-malarkey values="['Poney', 'Monkey']"></acme-malarkey>
     `);
 
     $compile(element)($rootScope.$new());

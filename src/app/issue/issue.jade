@@ -1,0 +1,35 @@
+div#issue(layout="column" layout-fill)
+  md-content
+    header
+      acme-navbar
+    section
+      md-content.md-padding(layout layout-align="center")
+              
+        div.md-whiteframe-1dp.padding-0(layout="column" flex flex-gt-xs="60")
+          md-toolbar.md-accent.toolbar-radius
+            div.md-toolbar-tools
+              h2 Issue # {{vm.issue.number}}
+              span(flex='')
+              md-button.md-default.md-raised(ng-click='vm.comment()') Comment
+          md-content.md-padding(flex='')
+            h1 
+              span.issue-number # {{vm.issue.number}}
+              span.issue-title {{vm.issue.title}}
+            small Created on {{vm.getDate(vm.issue.created_at)}}
+            br
+            small Updated on {{vm.getDate(vm.issue.updated_at)}}
+            
+            
+            h3 Description
+            p.issue-body(ng-bind-html="vm.issue.body_html")
+            
+            div(ng-show="vm.comments.length")
+              hr.divider                
+              md-list
+                md-subheader.md-no-sticky Comments
+                md-list-item.md-2-line.md-long-text(ng-repeat="comment in vm.comments")
+                  img.md-avatar(ng-src="{{comment.user.avatar_url}}", alt="{{comment.user.login}}")
+                  div.md-list-item-text(layout='column')
+                    strong {{comment.user.login}}
+                    p(ng-bind-html="comment.body_html")
+                    small Created on {{vm.getDate(vm.issue.created_at)}}

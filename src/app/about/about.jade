@@ -1,0 +1,16 @@
+div#about(layout="column" layout-fill)
+  md-content
+    header
+      acme-navbar(creation-date='vm.creationDate')
+    section.jumbotron
+      h1 Tools
+      p.lead
+        | This project uses awesome tools.      
+    div.techs(layout layout-align="center" layout-wrap flex="noshrink")
+      md-card(ng-repeat="awesomeThing in vm.awesomeThings | orderBy:'rank'")
+        md-card-content
+          img.pull-right(ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}")
+          h3.md-title {{ awesomeThing.title }}
+          p {{ awesomeThing.description }}
+        div.md-action-buttons
+          md-button(ng-href="{{ awesomeThing.url }}") Website

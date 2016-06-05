@@ -1,23 +1,38 @@
 AngularJS Exam
 ==============
 
-Dear developer, the goal of this exam is to know a little more about your programming skills. Here at Edools we value too much excellence, a code with good quality makes us work better and happier :), and increase our ability to deliver customer value with speed and consistency. With this in mind, we want to know how you think the code, and how is your relationship with it.
-
-The task is simple: play with the Github API. You will have to develop an application using AngularJS that will consume some public resources from Github through its API ( https://developer.github.com/ ), and present in a simple way but well-structured. Here are some suggestions of what you can do:
+## Features
 
 - List repositories
 - Filter repositories
 - List the issues inside repository visualization
-- Create a comment when viewing a issue
-- ...
 
-To get started, just do the fork of this repository, implement and then make a pull request, listing the features in the README that you have developed and how to run it.
+## Tools:
 
-It is very important that you show us your knowledge regarding good programming practices, **testing**, patterns and even the bad practices. Therefore, take these points into consideration when choosing and implementing your features. For this task to be challeging enough, we'd like you to use Javascript's ES6 syntax and features and keep your code modularized.
+- Sass (Ruby)
+- Bower
+- Gulp
+- BrowserSync
+- Jasmine
+- Karma
+- Protactor
+- Angular Material Design
+- ES6 (Babel)
+- Jade (or Pug)
 
-Besides things mentioned above, there are a few things that would be a big plus to see:
+```
+  Before:  
+  `$ sudo npm install -g gulp-cli bower` to install global dependencies
+  `$ sudo su -c "gem install sass"` to install sass
+  `$ npm install` to install node dependencies
+  `$ bower install` to install bower dependencies
 
-- usage a CSS pre-processor of your choice
-- usage of a tool to help you with your workflows (grunt, gulp, broccoli, webpack...)
-
-We wish you good luck, and may the Quality be with you!
+  Gulp tasks:
+  `$ gulp` to build an optimized version of your application in folder dist
+  `$ gulp serve` to start BrowserSync server on your source files with live reload
+  `$ gulp serve:dist` to start BrowserSync server on your optimized application without live reload
+  `$ gulp test` to run your unit tests with Karma
+  `$ gulp test:auto` to run your unit tests with Karma in watch mode
+  `$ gulp protractor` to launch your e2e tests with Protractor
+  `$ gulp protractor:dist` to launch your e2e tests with Protractor on the dist files
+```

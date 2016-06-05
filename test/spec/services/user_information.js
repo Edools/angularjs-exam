@@ -6,7 +6,7 @@ describe('Service: UserInformation', function () {
   beforeEach(module('angularApp'));
 
   // instantiate service
-  var userInformation;
+  var UserInformation;
   beforeEach(inject(function (_UserInformation_) {
     UserInformation = _UserInformation_;
   }));

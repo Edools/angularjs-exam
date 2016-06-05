@@ -29,7 +29,7 @@ angular.module('angularApp')
   var loadUserInformation = function(){
     UserInformation.getInfo($scope.username).success(function(data){
       $scope.user = data;
-    }).error(function(data){
+    }).error(function(){
       $scope.userNotFound = true;
       $scope.usernameForm.$setPristine();
     });

@@ -17,7 +17,11 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function ($scope) {
-    expect($scope.username).toBe('marcelobarreto');
+  it('should have a default username', function () {
+    expect(scope.username).toBe('marcelobarreto');
+  });
+
+  it('should have a default limit visualization value', function () {
+    expect(scope.limitVisualization).toBe(5);
   });
 });

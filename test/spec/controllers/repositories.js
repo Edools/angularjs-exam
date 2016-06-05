@@ -12,12 +12,13 @@ describe('Controller: RepositoriesCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     RepositoriesCtrl = $controller('RepositoriesCtrl', {
-      $scope: scope
-      // place here mocked dependencies
+      $scope: scope,
+      $routeParams: {username: 'marcelobarreto', reponame: 'via_cep'}
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(RepositoriesCtrl.awesomeThings.length).toBe(3);
+  it('should get the route params', function () {
+    expect(scope.username).toBe('marcelobarreto');
+    expect(scope.reponame).toBe('via_cep');
   });
 });

@@ -57,7 +57,7 @@
         <input type="text" class="form-control" ng-model="filterPullRequest" placeholder="Filtre por um pull request...">
       </div>
       <div class="list-group">
-        <a href="#/" class="list-group-item" ng-show="!repos.length">Nenhum PR para esse projeto</a>
+        <a href="#/" class="list-group-item" ng-show="!pullRequests.length">Nenhum PR para esse projeto</a>
         <a class="list-group-item" ng-repeat="pr in pullRequests | filter: filterPullRequest">
           <h4 class="list-group-item-heading">{{pr.title}}</h4>
           <p>

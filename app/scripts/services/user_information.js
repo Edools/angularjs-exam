@@ -8,7 +8,7 @@
  * Service in the angularApp.
  */
 angular.module('angularApp')
-.service('userInformation', function ($http) {
+.service('UserInformation', function ($http) {
   this.getInfo = function(user) {
     return $http({
       method: 'GET',

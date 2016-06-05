@@ -8,7 +8,7 @@
  * Service in the angularApp.
  */
 angular.module('angularApp')
-.service('userRepositories', function ($http) {
+.service('UserRepositories', function ($http) {
   this.getRepositories = function(user) {
     return $http({
       method: 'GET',

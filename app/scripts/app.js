@@ -15,8 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap'
+    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -25,10 +24,9 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/user/:username/repository/:reponame', {
+        templateUrl: 'views/repository.html',
+        controller: 'RepositoriesCtrl'
       })
       .otherwise({
         redirectTo: '/'

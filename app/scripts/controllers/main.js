@@ -12,7 +12,7 @@
  //https://api.github.com/users/marcelobarreto/repos -> user repositories
 
 angular.module('angularApp')
-.controller('MainCtrl', function ($scope, $uibModal, userInformation, userRepositories) {
+.controller('MainCtrl', function ($scope, UserInformation, UserRepositories) {
   $scope.limitVisualization = 5;
   $scope.username = 'marcelobarreto';
 
@@ -20,22 +20,23 @@ angular.module('angularApp')
     $scope.limitVisualization = $scope.repos.length;
   };
 
-  $scope.research = function(username) {
+  $scope.reSearch = function(username) {
     $scope.username = username;
     loadUserInformation();
     loadUserRepositories();
   };
 
   var loadUserInformation = function(){
-    userInformation.getInfo($scope.username).success(function(data){
+    UserInformation.getInfo($scope.username).success(function(data){
       $scope.user = data;
     }).error(function(data){
-      console.log(data);
+      $scope.userNotFound = true;
+      $scope.usernameForm.$setPristine();
     });
   };
 
   var loadUserRepositories = function(){
-    userRepositories.getRepositories($scope.username).success(function(data){
+    UserRepositories.getRepositories($scope.username).success(function(data){
       $scope.repos = data;
     }).error(function(data){
       console.log(data);

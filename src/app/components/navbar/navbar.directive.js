@@ -1,33 +1,33 @@
 export function NavbarDirective() {
-    'ngInject';
+  'ngInject';
 
-    let directive = {
-        restrict: 'E',
-        templateUrl: 'app/components/navbar/navbar.html',
-        scope: {},
-        controller: NavbarController,
-        controllerAs: 'vm',
-        bindToController: true
-    };
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/navbar/navbar.html',
+    scope: {},
+    controller: NavbarController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-    return directive;
+  return directive;
 }
 
 class NavbarController {
-    constructor($rootScope, $state) {
-        'ngInject';
+  constructor($rootScope, $state) {
+    'ngInject';
 
-        this.$rootScope = $rootScope;
-        this.$state = $state;
+    this.$rootScope = $rootScope;
+    this.$state = $state;
 
-    }
+  }
 
-    search() {
-        let self = this;
-        self.$rootScope.$broadcast('search', self.searchText);
-        self.$state.go('home', {
-            text: self.searchText,
-            page: 1
-        })
-    }
+  search(name) {
+    let self = this;
+    self.$rootScope.$broadcast('search', name);
+    self.$state.go('home', {
+      text: self.name,
+      page: 1
+    })
+  }
 }

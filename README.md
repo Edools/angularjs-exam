@@ -2,7 +2,7 @@
  The App is a Github Client made with `AngularJs` and `ES6` for the Edools Front-End Exam.
  
 
- ## Features
+ ### Features
  
  * Search for repositories
  * View Readme of a repository
@@ -10,7 +10,7 @@
  * View details like forks and stars of a repository
 
  
- ## Tools Used in Development
+ ### Tools Used in Development
  
  * SASS
  * Gulp

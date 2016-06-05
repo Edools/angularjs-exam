@@ -1,0 +1,17 @@
+{
+  "name": "angularjs_exam",
+  "version": "1.0.0",
+  "description": "teste edools",
+  "main": "index.htm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gilcierweb",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-loading-spinner": "0.0.3",
+    "angular-route": "^1.5.6",
+    "bootstrap-material-design": "^0.5.10"
+  }
+}

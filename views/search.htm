@@ -1,0 +1,35 @@
+<h1>Busca por repositórios</h1>
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar repositorios" ng-model="query">
+            <button class="btn btn-primary" type="submit" ng-click="Search()">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-12">
+    <div class="list-group" ng-repeat="repository in search_data.items">
+
+        <div class="list-group-item">
+
+            <a href="{{repository.html_url}}" target="_blank" title="{{repository.name}}">
+                <div class="row-picture">
+                    <img class="circle" src="{{repository.owner.avatar_url}}" alt="icon">
+                </div>
+            </a>
+
+            <div class="row-content">
+                <a href="{{repository.html_url}}" target="_blank" title="{{repository.name}}">
+                    <h4 class="list-group-item-heading">{{repository.name}}</h4>
+                </a>
+
+                <p class="list-group-item-text">{{repository.description}}</p>
+            </div>
+        </div>
+
+        <div class="list-group-separator"></div>
+    </div>
+</div>

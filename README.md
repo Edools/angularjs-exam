@@ -3,6 +3,7 @@
  
 
  ## Features
+ 
  * Search for repositories
  * View Readme of a repository
  * View issues of a repository

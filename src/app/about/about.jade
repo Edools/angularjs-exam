@@ -3,15 +3,9 @@ div#about(layout="column" layout-fill)
     header
       acme-navbar(creation-date='vm.creationDate')
     section.jumbotron
-      h1 'Allo, 'Allo!
+      h1 Tools
       p.lead
-        img(src='assets/images/yeoman.png' alt="I'm Yeoman")
-        br
-        |         Always a pleasure scaffolding your apps.
-      md-button.md-raised.animated.infinite(ng-class='vm.classAnimation' ng-click='vm.showToastr()') Splendid Toastr
-      p
-        | With ♥ thanks to the contributions of
-        acme-malarkey(values="['Yeoman', 'Gulp', 'Angular']")
+        | This project uses awesome tools.      
     div.techs(layout layout-align="center" layout-wrap flex="noshrink")
       md-card(ng-repeat="awesomeThing in vm.awesomeThings | orderBy:'rank'")
         md-card-content

@@ -8,11 +8,11 @@
  * Service in the angularApp.
  */
 angular.module('angularApp')
-.service('UserInformation', function ($http) {
-  this.getInfo = function(user) {
-    return $http({
+.factory('UserInformations', function ($resource) {
+  return $resource('https://api.github.com/users/:username', { username: '@username'}, {
+    get: {
       method: 'GET',
-      url: 'https://api.github.com/users/' + user
-    });
-  };
+      isArray: false
+    }
+  });
 });

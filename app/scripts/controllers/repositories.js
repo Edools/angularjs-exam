@@ -9,30 +9,33 @@
  */
 angular.module('angularApp')
 .controller('RepositoriesCtrl', function ($scope, $routeParams, Repository, RepositoryIssues, RepositoryPullRequests) {
-  $scope.username = $routeParams.username;
-  $scope.reponame = $routeParams.reponame;
-
   var loadRepository = function(){
-    Repository.getRepository($scope.username, $scope.reponame).success(function(data){
+    Repository.get({
+      username: $routeParams.username, repo: $routeParams.reponame
+    }).$promise.then(function(data){
       $scope.repo = data;
-    }).error(function(data){
-      console.log(data);
+    }, function(error){
+      console.log(error);
     });
   };
 
   var loadRepositoryIssues = function(){
-    RepositoryIssues.getIssues($scope.username, $scope.reponame).success(function(data){
+    RepositoryIssues.get({
+      username: $routeParams.username, repo: $routeParams.reponame
+    }).$promise.then(function(data){
       $scope.issues = data;
-    }).error(function(data){
-      console.log(data);
+    }, function(error){
+      console.log(error);
     });
   };
 
   var loadRepositoryPullRequests = function(){
-    RepositoryPullRequests.getPullRequests($scope.username, $scope.reponame).success(function(data){
+    RepositoryPullRequests.get({
+      username: $routeParams.username, repo: $routeParams.reponame
+    }).$promise.then(function(data){
       $scope.pullRequests = data;
-    }).error(function(data){
-      console.log(data);
+    }, function(error){
+      console.log(error);
     });
   };
 

@@ -8,11 +8,11 @@
  * Service in the angularApp.
  */
 angular.module('angularApp')
-.service('RepositoryIssues', function ($http) {
-  this.getIssues = function(username, repo) {
-    return $http({
+.factory('RepositoryIssues', function ($resource) {
+  return $resource('https://api.github.com/repos/:username/:repo/issues?state=open', {username: '@username', repo: '@repo'}, {
+    get: {
       method: 'GET',
-      url: 'https://api.github.com/repos/' + username + '/' + repo + '/issues?state=open'
-    });
-  };
+      isArray: true
+    }
+  });
 });

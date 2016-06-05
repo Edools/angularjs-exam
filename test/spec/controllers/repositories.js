@@ -12,13 +12,7 @@ describe('Controller: RepositoriesCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     RepositoriesCtrl = $controller('RepositoriesCtrl', {
-      $scope: scope,
-      $routeParams: {username: 'marcelobarreto', reponame: 'via_cep'}
+      $scope: scope
     });
   }));
-
-  it('should get the route params', function () {
-    expect(scope.username).toBe('marcelobarreto');
-    expect(scope.reponame).toBe('via_cep');
-  });
 });

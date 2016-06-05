@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: UserInformation', function () {
+describe('Service: UserInformations', function () {
 
   // load the service's module
   beforeEach(module('angularApp'));
 
   // instantiate service
-  var UserInformation;
-  beforeEach(inject(function (_UserInformation_) {
-    UserInformation = _UserInformation_;
+  var UserInformations;
+  beforeEach(inject(function (_UserInformations_) {
+    UserInformations = _UserInformations_;
   }));
 
   it('should do something', function () {
-    expect(!!UserInformation).toBe(true);
+    expect(!!UserInformations).toBe(true);
   });
 
 });

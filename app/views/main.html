@@ -3,10 +3,11 @@
   O usuário <strong>{{username}}</strong> não foi encontrado.
 </div>
 <div class="row">
-  <div class="col-sm-12 col-md-3">
-    <img ng-src="{{user.avatar_url}}" class="img-responsive" height="260" width="260">
+  <div class="col-sm-8 col-xs-offset-2 col-md-3 col-md-offset-0">
+    <img ng-src="{{user.avatar_url}}" class="center-block img-responsive" height="260" width="260">
+    <hr>
     <div class="row">
-      <div class="col-sm-6 col-md-12">
+      <div class="col-sm-12 col-md-12">
         <form name="usernameForm" ng-submit="usernameForm.$valid && reSearch(username)" class="input-group">
           <input type="text" class="form-control" ng-model="username" ng-required="true" placeholder="Nome de usuário">
           <span class="input-group-btn">

@@ -12,7 +12,7 @@
  //https://api.github.com/users/marcelobarreto/repos -> user repositories
 
 angular.module('angularApp')
-.controller('MainCtrl', function ($scope, UserInformation, UserRepositories) {
+.controller('MainCtrl', function ($scope, UserInformations, UserRepositories) {
   $scope.limitVisualization = 5;
   $scope.username = 'marcelobarreto';
 
@@ -27,19 +27,24 @@ angular.module('angularApp')
   };
 
   var loadUserInformation = function(){
-    UserInformation.getInfo($scope.username).success(function(data){
+    UserInformations.get({
+      username: $scope.username
+    }).$promise.then(function(data){
       $scope.user = data;
-    }).error(function(){
+    }, function(error){
+      console.log(error);
       $scope.userNotFound = true;
       $scope.usernameForm.$setPristine();
     });
   };
 
   var loadUserRepositories = function(){
-    UserRepositories.getRepositories($scope.username).success(function(data){
+    UserRepositories.get({
+      username: $scope.username
+    }).$promise.then(function(data){
       $scope.repos = data;
-    }).error(function(data){
-      console.log(data);
+    }, function(error){
+      console.log(error);
       $scope.error = 'Não foi possível carregar os repositórios deste usuário';
     });
   };

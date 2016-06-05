@@ -7,12 +7,13 @@
  * # Repository
  * Service in the angularApp.
  */
+
 angular.module('angularApp')
-.service('Repository', function ($http) {
-  this.getRepository = function(username, repo) {
-    return $http({
+.factory('Repository', function ($resource) {
+  return $resource('https://api.github.com/repos/:username/:repo', {username: '@username', repo: '@repo'}, {
+    get: {
       method: 'GET',
-      url: 'https://api.github.com/repos/' + username + '/' + repo
-    });
-  };
+      isArray: false
+    }
+  });
 });

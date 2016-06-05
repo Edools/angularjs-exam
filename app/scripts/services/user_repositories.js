@@ -8,11 +8,11 @@
  * Service in the angularApp.
  */
 angular.module('angularApp')
-.service('UserRepositories', function ($http) {
-  this.getRepositories = function(user) {
-    return $http({
+.factory('UserRepositories', function ($resource) {
+  return $resource('http://api.github.com/users/:username/repos', { username: '@username'}, {
+    get: {
       method: 'GET',
-      url: 'https://api.github.com/users/' + user + '/repos'
-    });
-  };
+      isArray: true
+    }
+  });
 });

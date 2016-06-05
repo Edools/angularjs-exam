@@ -1,0 +1,37 @@
+<h1>Busca por código</h1>
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar código" ng-model="query">
+            <input type="text" class="form-control" placeholder="Linguagem ex: ruby" ng-model="language">
+            <input type="text" class="form-control" placeholder="Repositório ex: ruby/ruby" ng-model="repository">
+            <button class="btn btn-primary" type="submit" ng-click="Search_code()">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-12">
+    <div class="list-group" ng-repeat="repository in search_code_data.items">
+
+        <div class="list-group-item">
+
+            <a href="{{repository.html_url}}" target="_blank" title="{{repository.repository.full_name}}">
+                <div class="row-picture">
+                    <img class="circle" src="{{repository.repository.owner.avatar_url}}" alt="icon">
+                </div>
+            </a>
+
+            <div class="row-content">
+                <a href="{{repository.html_url}}" target="_blank" title="{{repository.repository.full_name}}">
+                    <h4 class="list-group-item-heading">{{repository.repository.full_name}}</h4>
+                </a>
+
+                <p class="list-group-item-text">{{repository.repository.description}}</p>
+            </div>
+        </div>
+
+        <div class="list-group-separator"></div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<h2>Issues</h2>
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar Issues" ng-model="query">
+            <button class="btn btn-primary" type="submit" ng-click="Search_issues()">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-12">
+    <div class="list-group" ng-repeat="repository in search_data.items">
+
+        <div class="list-group-item">
+
+            <a href="{{repository.user.html_url}}" target="_blank" title="{{repository.user.login}}">
+                <div class="row-picture">
+                    <img class="circle" src="{{repository.user.avatar_url}}" alt="icon">
+                </div>
+            </a>
+
+            <div class="row-content">
+                <a href="{{repository.html_url}}" target="_blank" title="{{repository.name}}">
+                    <h4 class="list-group-item-heading">{{repository.user.login}} - {{repository.title}}</h4>
+                </a>
+
+                <p class="list-group-item-text">Status <strong>{{repository.state}}</strong> - Número de commentários
+                    <strong>{{repository.comments}}</strong>
+                    - Criado em <strong>{{repository.created_at}}</strong> - Atualizado em <strong>{{repository.updated_at}}</strong>
+                    <br>
+                    <a href="{{repository.html_url}}" target="_blank" title="{{repository.login.title}}">
+                        {{repository.html_url}}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="list-group-separator"></div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-sm-12 col-md-3">
+    <div class="caption">
+      <h3>{{repo.name}}</h3>
+      <p>{{repo.description}}</p>
+      <p>
+        <i class="glyphicon glyphicon-star"></i>
+        <span>
+          <small>
+            <b>Estrelas ({{repo.stargazers_count}})</b>
+          </small>
+        </span>
+      </p>
+
+      <p>
+        <i class="glyphicon glyphicon-eye-open"></i>
+        <span>
+          <small>
+            <b>Visualizadores ({{repo.subscribers_count}})</b>
+          </small>
+        </span>
+      </p>
+
+      <p>
+        <i class="glyphicon glyphicon-folder-open"></i>
+        <span>
+          <small>
+            <b>Linguagem principal {{repo.language}}</b>
+          </small>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-5">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Issues</h2>
+        <input type="text" class="form-control" ng-model="filterIssue" placeholder="Filtre por uma issue ...">
+      </div>
+      <div class="list-group">
+        <a href="#/" class="list-group-item" ng-show="!issues.length">Nenhuma issue nesse projeto</a>
+        <a class="list-group-item" ng-repeat="issue in issues | filter: filterIssue">
+          <h4 class="list-group-item-heading">{{issue.title}}</h4>
+          <p>
+            <i class="glyphicon glyphicon-star"></i>
+            {{issue.user.login}}
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Pull Requests</h2>
+        <input type="text" class="form-control" ng-model="filterPullRequest" placeholder="Filtre por um pull request...">
+      </div>
+      <div class="list-group">
+        <a href="#/" class="list-group-item" ng-show="!pullRequests.length">Nenhum PR para esse projeto</a>
+        <a class="list-group-item" ng-repeat="pr in pullRequests | filter: filterPullRequest">
+          <h4 class="list-group-item-heading">{{pr.title}}</h4>
+          <p>
+            <i class="glyphicon glyphicon-star"></i>
+            {{pr.user.login}}
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

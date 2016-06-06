@@ -1,0 +1,75 @@
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="userNotFound && usernameForm.$pristine">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  O usuário <strong>{{username}}</strong> não foi encontrado.
+</div>
+<div class="row">
+  <div class="col-sm-8 col-xs-offset-2 col-md-3 col-md-offset-0">
+    <img ng-src="{{user.avatar_url}}" class="center-block img-responsive" height="260" width="260">
+    <hr>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <form name="usernameForm" ng-submit="usernameForm.$valid && reSearch(username)" class="input-group">
+          <input type="text" class="form-control" ng-model="username" ng-required="true" placeholder="Nome de usuário">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" ng-click="reSearch(username)">Procurar</button>
+          </span>
+        </form>
+      </div>
+    </div>
+    <div class="caption">
+      <h3>{{user.name}}</h3>
+      <p>{{user.email}}</p>
+      <p>
+        <i class="glyphicon glyphicon-star"></i>
+        <span>
+          <small>
+            <b>Seguidores ({{user.followers}})</b>
+          </small>
+        </span>
+      </p>
+      <p>
+        <i class="glyphicon glyphicon-star-empty"></i>
+        <span>
+          <small>
+            <b>Seguindo ({{user.following}})</b>
+          </small>
+        </span>
+      </p>
+
+      <p>
+        <b>Repositórios ({{repos.length}})</b>
+        <p>
+          <small>Você atualmente está vendo {{limitVisualization}} repositórios</small>
+        </p>
+      </p>
+
+      <p>
+        <button ng-click="visualizationToggle()" class="btn btn-block btn-primary">
+          Ver todos repositórios
+        </button>
+      </p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-9">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Repositórios</h2>
+        <input type="text" class="form-control" ng-model="filterRepo" placeholder="Filtre por um repositório...">
+      </div>
+      <div class="list-group">
+        <a href="#/" class="list-group-item" ng-show="!repos.length">Este usuário não possui nenhum repositório público</a>
+        <a ng-href="#/user/{{username}}/repository/{{repo.name}}"   class="list-group-item" ng-repeat="repo in repos | orderBy: 'stargazers_count':true |  limitTo:limitVisualization | filter: filterRepo">
+          <h4 class="list-group-item-heading">{{repo.name}}</h4>
+          <p>
+            <i class="glyphicon glyphicon-star"></i>
+            {{repo.stargazers_count}}
+          </p>
+          <p ng-if="repo.fork">
+            <i class="glyphicon glyphicon-heart"></i>
+            <span>Fork</span>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

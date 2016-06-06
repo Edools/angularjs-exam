@@ -1,0 +1,38 @@
+<div class="repo-page">
+  <navbar></navbar>
+  <div class="container">
+    <div class="repo-page-header row">
+      <div class="col-sm-8">
+        <h2 class="title">{{repo.repository.owner.login}}/<b>{{repo.repository.name}}</b></h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group input-group-sm">
+          <input type="text" value="{{repo.repository.clone_url}}" class="form-control" /><span class="input-group-btn">
+            <button uib-tooltip="Copiar" clipboard="clipboard" text="repo.repository.clone_url" on-copied="repo.urlCopied()" class="btn btn-default"><i class="icon-docs"></i></button></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <uib-tabset>
+          <uib-tab heading="Readme" index="0" ng-if="repo.readme" class="readme-tab">
+            <div btf-markdown="repo.readme" ng-show="repo.readme" class="readme text"></div>
+          </uib-tab>
+          <uib-tab heading="Issues" index="1">
+            <div class="issues">
+              <div class="list-group">
+                <div ng-repeat="issue in repo.issues" class="list-group-item">
+                  <span class="title">{{::issue.title}}</span>
+                  <span ng-class="{empty: issue.comments &lt;= 0}" class="comment-count">
+                    <i class="icon-speech"></i>
+                     <span>{{::issue.comments}}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </uib-tab>
+        </uib-tabset>
+      </div>
+    </div>
+  </div>
+</div>

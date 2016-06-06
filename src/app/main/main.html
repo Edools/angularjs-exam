@@ -1,0 +1,41 @@
+<div class="page main-page">
+    <navbar></navbar>
+    <div class="row">
+        <div class="container">
+            <div class="list">
+                <div ng-repeat="repo in main.repos" class="col-sm-6 col-md-4">
+                    <div class="list-item clearfix">
+                        <div class="list-item-header clearfix">
+                            <div class="clearfix">
+                                <div class="owner">
+                                    <div class="avatar">
+                                        <img ng-src="{{repo.owner.avatar_url}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div class="title"><b>{{::repo.name}}</b>
+                                    <p>{{::repo.owner.login}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-panel">
+                            <div class="info stars"><b><i class="icon-star"></i><span>Stars:</span></b><span>{{::repo.stargazers_count}}</span></div>
+                            <div class="info forks"><b><i class="icon-graph"></i><span>Forks:</span></b><span>{{::repo.forks}}</span></div>
+                        </div>
+                        <div class="list-item-footer">
+                            <div class="btn-group btn-group-sm">
+                                <a ui-sref="repo({owner: repo.owner.login, id: repo.name})" class="btn btn-primary"><i class="icon-info"></i><span>Visualizar</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="main.count &gt; 0" class="col-sm-12 text-center">
+                    <div class="btn-group pagination">
+                        <button ng-click="main.previous()" uib-tooltip="Anterior" tooltip-placement="top" ng-disabled="!main.hasPrev()" class="btn btn-default"><i class="icon-arrow-left"></i></button>
+                        <button ng-click="main.next()" uib-tooltip="Próxima" tooltip-placement="top" ng-disabled="!main.hasNext()" class="btn btn-default"><i class="icon-arrow-right"></i></button>
+                    </div>
+                    <p class="pagination-caption">Página {{main.page}} de {{main.pageCount}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "name": "githubList",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bash env.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "node-notifier": "^5.1.2",
+    "ui-router": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rm": "^1.0.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-error": "^1.0.4",
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-sass-newer": "^1.3.4-newer",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.4",
+    "node-sass": "^4.5.2",
+    "run-sequence": "^1.2.2",
+    "sass-convert": "^0.5.2",
+    "sass-globbing": "^1.0.0-alpha1"
+  }
+}

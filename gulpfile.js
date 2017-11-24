@@ -3,8 +3,10 @@ const gutil =               require('gulp-util')
 const jshint =              require('gulp-jshint')
 const sass =                require('gulp-sass')
 const concat =              require('gulp-concat')
-const uglify =              require('gulp-uglify')
+const uglifyJS =            require('gulp-uglify')
 const uglifycss =           require('gulp-uglifycss')
+const imagemin =            require('gulp-imagemin')
+const htmlmin =             require('gulp-htmlmin')
 const rename =              require('gulp-rename')
 const sh =                  require('shelljs')
 const runSequence =         require('run-sequence')
@@ -12,24 +14,29 @@ const babel =               require('gulp-babel')
 const plumber =             require('gulp-plumber')
 const browserSync =         require('browser-sync').create()
 const reload =              browserSync.reload
-// const rm =                  require('gulp-rm')
+
+const BUILD_DIR =           'build'
+const APP_DIR =             'www/'
 const PATHS = {
   js: [`www/js/app.js`, `www/components/**/*.js`],
   css: [`scss`],
   components: ['www/components/'],
   node_modules: ['www/node_modules/']
 }
-
-const BUILD_DIR = 'build'
-const APP_DIR = 'www/'
+const uglifyJSOptions = {
+  compress: {},
+  mangle: {}
+}
 
 gulp.task('copy-index', () => {
   gulp.src(`www/index.html`)
+  .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(gulp.dest(BUILD_DIR))
 })
 
 gulp.task('copy-views', () => {
   gulp.src([`${PATHS.components}/**/*.html`])
+  .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(gulp.dest(`${BUILD_DIR}/components`))
 })
 
@@ -38,12 +45,13 @@ gulp.task('copy-lib', () => {
   .pipe(gulp.dest(`${BUILD_DIR}/lib`))
 })
 
-gulp.task('copy-img', () => 
+gulp.task('copy-img', () => {
   gulp.src([`${APP_DIR}/img/**/*`], {
-    base: `${APP_DIR}/img` 
+    base: `${APP_DIR}/img`
   })
+  .pipe(imagemin())
   .pipe(gulp.dest(`${BUILD_DIR}/img`))
-)
+})
 
 gulp.task('sass', () => {
   gulp.src([`${PATHS.components}/**/*.scss`])
@@ -55,11 +63,6 @@ gulp.task('sass', () => {
   .pipe(rename('app.css'))
   .pipe(gulp.dest(`${BUILD_DIR}/css`))
 })
-
-// gulp.task('clean', () => {
-//   gulp.src(`${BUILD_DIR}/**/*`, { read: false, force: true, dot: true })
-//   .pipe(rm())
-// })
 
 gulp.task('browser-sync', () => {
   browserSync.init({
@@ -84,6 +87,7 @@ gulp.task('js-app', () => {
     presets:['es2015'],
     plugins: ['transform-es2015-destructuring', 'transform-object-rest-spread']
   }))
+  .pipe(uglifyJS(uglifyJSOptions))
   .pipe(gulp.dest(`${BUILD_DIR}`))
 })
 
@@ -97,7 +101,6 @@ gulp.task('watch', () => {
 
 gulp.task('default',
   runSequence(
-    // 'clean',
     ['copy-index', 'copy-lib', 'copy-views', 'copy-img', 'sass', 'js-app'],
     'browser-sync',
     'watch'

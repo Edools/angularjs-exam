@@ -87,7 +87,7 @@ gulp.task('js-app', () => {
     presets:['es2015'],
     plugins: ['transform-es2015-destructuring', 'transform-object-rest-spread']
   }))
-  .pipe(uglifyJS(uglifyJSOptions))
+  // .pipe(uglifyJS(uglifyJSOptions))
   .pipe(gulp.dest(`${BUILD_DIR}`))
 })
 

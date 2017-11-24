@@ -2,37 +2,31 @@
 	<div class="block">
 		<div class="block__content">
 			<div class="block__photo">
-				<img src="https://avatars3.githubusercontent.com/u/18062168?s=460&v=4" alt="profile-picture">
-				<span class="linkedin">
-					<img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" alt="">
-				</span>
+				<img src="{{data.data.avatar_url}}" alt="profile-picture">
+				<a href="https://www.linkedin.com/in/pedro-albuquerque-157156138/" target="_blank">
+					<span class="linkedin">
+						<img src="img/linkedin-logo.svg" alt="Linkedin">
+					</span>
+				</a>
 			</div>
 			<div class="block__personal-infos">
-				<h3>@wevernek</h3>
-				<p>pedrowevernek@gmail.com</p>
+				<h3>{{data.data.login}}</h3>
+				<p>{{data.data.name}}</p>
 			</div>
 			<div class="block__github-infos">
 				<div class="block__icon">
-					<span class="label">3</span>
+					<span class="label">{{repos.data.length}}</span>
 					<span class="icon-layers"></span>
 					<p>Repos</p>
 				</div>
 				<div class="block__repositories">
 					<div class="scroll">
-						<div class="block__item">
-							<h3>matriz</h3>
-							<p>Boilerplate with ES6, Sass and Webpack</p>
-							<small>Updated on 17 Aug</small>
-						</div>
-						<div class="block__item">
-							<h3>quero-trabalhar-no-edools_frontend</h3>
-							<p>AngularJS Exam - stage of Edools hiring process</p>
-							<small>Updated 5 days ago</small>
-						</div>
-						<div class="block__item">
-							<h3>FirstProjectInBootstrap</h3>
-							<p>Meu primeiro projeto utilizando o framework Bootstrap</p>
-							<small>Updated on 30 May 2016</small>
+						<div class="block__item" ng-repeat="repo in repos.data">
+							<a href="" ng-href="{{::repo.html_url}}" target="_blank">
+								<h3>{{repo.name}}</h3>
+								<p>{{repo.description}}</p>
+								<small>{{repo.updated_at}}</small>
+							</a>
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 angular.module('githubList')
 
-.controller('mainCtrl', function($scope, mainService, storageUtils) {
+.controller('mainCtrl', function($scope, mainService) {
 	console.log("main ctrl ok!")
 })

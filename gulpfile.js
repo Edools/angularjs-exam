@@ -1,8 +1,12 @@
 var gulp =                require('gulp')
+var gutil =               require('gulp-util')
+var jshint =              require('gulp-jshint')
 var sass =                require('gulp-sass')
 var concat =              require('gulp-concat')
+var uglify =              require('gulp-uglify')
+var rename =              require('gulp-rename')
+var sh =                  require('shelljs')
 const runSequence =       require('run-sequence')
-var sh =                  require('shelljs');
 const babel =             require('gulp-babel')
 const plumber =           require('gulp-plumber')
 const browserSync =       require('browser-sync').create()
@@ -28,14 +32,10 @@ gulp.task('copy-views', () => {
   .pipe(gulp.dest(`${BUILD_DIR}/components`))
 })
 
-gulp.task('copy-assets', () => {
-  gulp.src(`${APP_DIR}/dist/**/*`)
-  .pipe(gulp.dest(`./${BUILD_DIR}/assets`))
-})
-
-gulp.task('sass', () => { 
-  gulp.src('./scss/assets/stylesheets/*.scss')
+gulp.task('sass', () => {
+  gulp.src([`${PATHS.components}/**/*.scss`])
   .pipe(sass())
+  .pipe(rename('app.css'))
   .pipe(gulp.dest(`${BUILD_DIR}/css`))
 })
  
@@ -86,7 +86,7 @@ gulp.task('watch', () => {
 gulp.task('default',
   runSequence(
     'clean',
-    ['copy-index',  'copy-views',  'copy-assets',  'copy-lib', 'sass', 'js-app'],
+    ['copy-index', 'copy-views', 'copy-lib', 'sass', 'js-app'],
     'browser-sync',
     'watch'
   )

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "bash env.sh"
+    "start": "bash env.sh",
+    "build": "npm install && gulp"
   },
   "keywords": [],
   "author": "",

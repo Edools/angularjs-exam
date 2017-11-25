@@ -1,5 +1,4 @@
 ## Exame vaga Front-End
-====================
 
 Para este exame, desenvolvi uma aplicação simples onde as requisições REST da API do Github me retornam informações como o meu nome e username, e também os meus repositórios contendo nome, descrição e última atualização. Na parte lógica eu utilizei o framework AngularJS 1 e para a parte visual o pré-processador Sass. Resolvi não aderir à responsividade do layout e ao uso de outros frameworks/bibliotecas para a parte visual, então criei o estilo do zero.
 
@@ -20,7 +19,7 @@ O mockup da aplicação pode ser visto no [AdobeXD](http://#/)
 
 E a aplicação, pode ser vista também pelo [Codepen](https://codepen.io/wevernek/pen/xPWEOm)
 
-### Instalação - Installation
+### Instalação
 
 Antes de mais nada, você precisa ter o NodeJS em sua máquina para instalar as dependências do projeto
 

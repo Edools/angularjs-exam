@@ -19,3 +19,19 @@ angular.module('githubList')
 		})
 	}
 })
+
+.service('errorService', function($http, $q) {
+	return dealWithError
+
+	function dealWithError(error) {
+		switch(error) {
+			case error = 400:
+					message: 'Problems parsing JSON or Body should be a JSON object'
+					return error
+					break
+			case error = 422:
+					message: 'Validation Failed'
+					break
+		}
+	}
+})

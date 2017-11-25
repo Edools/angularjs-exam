@@ -15,9 +15,7 @@ A aplicação conta com uma única view, onde resolvi organizá-la tal como um c
     - main.style.scss
 ```
 
-O mockup da aplicação pode ser visto no [AdobeXD](http://#/)
-
-E a aplicação, pode ser vista também pelo [Codepen](https://codepen.io/wevernek/pen/xPWEOm)
+A aplicação, pode ser vista também pelo [Codepen](https://codepen.io/wevernek/pen/xPWEOm)
 
 ### Instalação
 

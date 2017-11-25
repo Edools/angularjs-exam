@@ -6,13 +6,13 @@ A aplicação conta com uma única view, onde resolvi organizá-la tal como um c
 
 ```sh
 # [Estrutura]
-- components
-  - main
-    - main.html
-    - main.service.js
-    - main.controller.js
-    - main.route.js
-    - main.style.scss
+├── components
+│  ├── main
+│  │  ├── main.html
+│  │  ├── main.service.js
+│  │  ├── main.controller.js
+│  │  ├── main.route.js
+│  │  ├── main.style.scss
 ```
 
 A aplicação, pode ser vista também pelo [Codepen](https://codepen.io/wevernek/pen/xPWEOm)

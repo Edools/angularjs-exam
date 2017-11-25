@@ -21,7 +21,7 @@ const PATHS = {
   js: [`www/js/app.js`, `www/components/**/*.js`],
   css: [`scss`],
   components: ['www/components/'],
-  node_modules: ['www/node_modules/']
+  lib: ['www/lib/']
 }
 const uglifyJSOptions = {
   compress: {},
@@ -41,7 +41,7 @@ gulp.task('copy-views', () => {
 })
 
 gulp.task('copy-lib', () => {
-  gulp.src(`${PATHS.node_modules}/**/*`)
+  gulp.src(`${PATHS.lib}/**/*`)
   .pipe(gulp.dest(`${BUILD_DIR}/lib`))
 })
 
@@ -95,7 +95,7 @@ gulp.task('watch', () => {
   gulp.watch(PATHS.js, ['js-app']).on('change', () => browserSync.reload())
   gulp.watch(`${PATHS.components}/**/*.html`, ['copy-views']).on('change', () => browserSync.reload())
   gulp.watch(`www/index.html`, ['copy-index']).on('change', () => browserSync.reload())
-  gulp.watch(`${PATHS.node_modules}/**/*`, ['copy-lib']).on('change', () => browserSync.reload())
+  gulp.watch(`${PATHS.lib}/**/*`, ['copy-lib']).on('change', () => browserSync.reload())
   gulp.watch(`${PATHS.components}/**/*.scss`, ['sass']).on('change', () => browserSync.reload())
 })
 

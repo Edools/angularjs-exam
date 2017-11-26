@@ -1,0 +1,13 @@
+@import 'colors.scss';
+
+@mixin box-shadow {
+  -moz-box-shadow: 12px 12px 22px -5px $box-shadow-color;
+  -webkit-box-shadow: 12px 12px 22px -5px $box-shadow-color;
+  box-shadow: 12px 12px 22px -5px $box-shadow-color;
+}
+
+@mixin background {
+  background: $primary-bg-color;
+  background: -webkit-linear-gradient(to right, $second-bg-color, $primary-bg-color);
+  background: linear-gradient(to right, $second-bg-color, $primary-bg-color);
+}

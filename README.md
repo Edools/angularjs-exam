@@ -1,30 +1,41 @@
-Exame vaga Front-End
-====================
+# GitHub App
 
-Caro desenvolvedor, o objetivo deste exame é conhecer um pouco mais sobre suas habilidades de programação. Aqui, na Edools, valorizamos muito a excelência, o código com boa qualidade nos faz trabalhar melhor e mais felizes :) e aumentar nossa capacidade de oferecer valor ao cliente com rapidez e consistência. Com isso em mente, queremos saber como você escreve seu código.
+> This application was developed using Vue.js and searches the GitHub repository using various criteria:
+[Documentation](https://help.github.com/articles/searching-repositories/)
 
-A tarefa é simples: brincar com a API Github. Você terá que desenvolver uma aplicação que consumirá alguns recursos públicos da Github através de sua API (https://developer.github.com/), e presente de forma simples, mas bem estruturada. Aqui estão algumas sugestões sobre o que você pode fazer:
+## How to use
 
-- Lista de repositórios
-- Repositórios de filtros
-- Liste os problemas dentro da visualização do repositório
-- Crie um comentário ao visualizar um problema
-- ...
+It's easy. Fill in the search and press enter.
 
-Para começar, basta fazer o fork deste repositório, implementar e, em seguida, abrir um novo pull request, listando os recursos no README que você desenvolveu e como executá-lo.
+## Build Setup
 
-A aplicação precisa ser desenvolvida com conceitos web components (https://tableless.com.br/web-components-introducao/). 
-Além disos é necessário que aplicação seja desenvolvida usando um dos seguintes Framework: 
+``` bash
+# install node.
+https://nodejs.org/en/download/
 
-- Vue (https://vuejs.org)
-- Angular (https://angularjs.org)
-- React (https://reactjs.org)
+# install dependencies
+npm install
 
-É muito importante que você mostre seu conhecimento sobre boas práticas de programação, testes, padrões e até mesmo as más práticas. Portanto, tome estes pontos em consideração ao escolher e implementar seus recursos. Para que esta tarefa seja suficiente, gostaríamos que você usasse a sintaxe e recursos do ES6 do Javascript e que mantém seu código modularizado.
+# serve with hot reload at localhost:8080
+npm run dev
 
-Além das coisas mencionadas acima, há algumas coisas que seriam uma grande vantagem para ver:
+# build for production with minification
+npm run build
 
-- use um pré-processador CSS de sua escolha
-- uso de uma ferramenta para ajudá-lo com seus fluxos de trabalho (grunt, gulp, brócolis, webpack ...)
+# build for production and view the bundle analyzer report
+npm run build --report
 
-Desejamos-lhe boa sorte, e que a Qualidade esteja com você!
+# run unit tests (Not implemented)
+npm run unit
+
+# run all tests (Not implemented)
+npm test
+```
+
+## Some things I used
+
+- Vue.js configured with [Vue Cli](https://github.com/vuejs/vue-cli)
+- Sass
+- Components
+- No CSS framework, just flexbox and etc.
+- CSS classes named using [BEM](http://getbem.com/)

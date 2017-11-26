@@ -1,21 +1,15 @@
 angular.module('githubList')
 
-.controller('mainCtrl', function($scope, mainService, errorService) {
+.controller('mainCtrl', function($scope, mainService) {
 	mainService.getDataGithub()
 		.then(data => {
 			$scope.data = data
 		})
-		.catch(error => {
-			errorService.dealWithError(error.message)
-			alert(error.message)
-		})
+		.catch(err => console.log(err))
 	
 	mainService.getReposGithub()
 		.then(data => {
 			$scope.repos = data
 		})
-		.catch(error => {
-			errorService.dealWithError(error.message)
-			alert(error.message)
-		})
+		.catch(err => console.log(err))
 })

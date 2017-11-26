@@ -1,0 +1,37 @@
+<div class="container main animated bounceIn">
+	<div class="block">
+		<div class="block__content">
+			<div class="block__photo">
+				<img src="{{data.data.avatar_url}}">
+				<a href="https://www.linkedin.com/in/pedro-albuquerque-157156138/" target="_blank">
+					<span class="linkedin">
+						<img src="img/linkedin-logo.svg">
+					</span>
+				</a>
+			</div>
+			<div class="block__personal-infos">
+				<h3>{{data.data.login}}</h3>
+				<p>{{data.data.name}}</p>
+			</div>
+			<div class="block__github-infos">
+				<div class="block__icon">
+					<span class="label">{{repos.data.length}}</span>
+					<span class="icon-layers"></span>
+					<p>Repos</p>
+				</div>
+				<div class="block__repositories">
+					<div class="scroll">
+						<div class="block__item" ng-repeat="repo in repos.data">
+							<a href="" ng-href="{{::repo.html_url}}" target="_blank">
+								<h3>{{repo.name}}</h3>
+								<p>{{repo.description}}</p>
+								<small>{{repo.updated_at | date:'d/M/yyyy HH:mm:ss'}}</small>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

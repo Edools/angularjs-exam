@@ -1,30 +1,37 @@
-Exame vaga Front-End
-====================
+## Exame vaga Front-End
 
-Caro desenvolvedor, o objetivo deste exame é conhecer um pouco mais sobre suas habilidades de programação. Aqui, na Edools, valorizamos muito a excelência, o código com boa qualidade nos faz trabalhar melhor e mais felizes :) e aumentar nossa capacidade de oferecer valor ao cliente com rapidez e consistência. Com isso em mente, queremos saber como você escreve seu código.
+Para este exame, desenvolvi uma aplicação simples onde as requisições REST da API do Github me retornam informações como o meu nome e username, e também os meus repositórios contendo nome, descrição e última atualização. Na parte lógica eu utilizei o framework AngularJS 1 e para a parte visual o pré-processador Sass. Resolvi não aderir à responsividade do layout e ao uso de outros frameworks/bibliotecas para a parte visual, então criei o estilo do zero.
 
-A tarefa é simples: brincar com a API Github. Você terá que desenvolver uma aplicação que consumirá alguns recursos públicos da Github através de sua API (https://developer.github.com/), e presente de forma simples, mas bem estruturada. Aqui estão algumas sugestões sobre o que você pode fazer:
+A aplicação conta com uma única view, onde resolvi organizá-la tal como um componente onde temos
 
-- Lista de repositórios
-- Repositórios de filtros
-- Liste os problemas dentro da visualização do repositório
-- Crie um comentário ao visualizar um problema
-- ...
+```sh
+# [Estrutura]
+├── components
+│  ├── main
+│  │  ├── main.html
+│  │  ├── main.service.js
+│  │  ├── main.controller.js
+│  │  ├── main.route.js
+│  │  ├── main.style.scss
+```
 
-Para começar, basta fazer o fork deste repositório, implementar e, em seguida, abrir um novo pull request, listando os recursos no README que você desenvolveu e como executá-lo.
+A aplicação, pode ser vista também pelo [Codepen](https://codepen.io/wevernek/pen/xPWEOm)
 
-A aplicação precisa ser desenvolvida com conceitos web components (https://tableless.com.br/web-components-introducao/). 
-Além disos é necessário que aplicação seja desenvolvida usando um dos seguintes Framework: 
+### Instalação
 
-- Vue (https://vuejs.org)
-- Angular (https://angularjs.org)
-- React (https://reactjs.org)
+Antes de mais nada, você precisa ter o NodeJS em sua máquina para instalar as dependências do projeto
 
-É muito importante que você mostre seu conhecimento sobre boas práticas de programação, testes, padrões e até mesmo as más práticas. Portanto, tome estes pontos em consideração ao escolher e implementar seus recursos. Para que esta tarefa seja suficiente, gostaríamos que você usasse a sintaxe e recursos do ES6 do Javascript e que mantém seu código modularizado.
+- [NodeJS](http://nodejs.org/)
 
-Além das coisas mencionadas acima, há algumas coisas que seriam uma grande vantagem para ver:
 
-- use um pré-processador CSS de sua escolha
-- uso de uma ferramenta para ajudá-lo com seus fluxos de trabalho (grunt, gulp, brócolis, webpack ...)
+```sh
+# Clone este repositório
+$ git clone https://github.com/wevernek/quero-trabalhar-no-edools_frontend
+$ cd quero-trabalhar-no-edools_frontend
 
-Desejamos-lhe boa sorte, e que a Qualidade esteja com você!
+# No primeiro contato, rode o comando abaixo para instalar as dependências da aplicação
+$ npm install
+
+# Em seguida, inicie a aplicação com o comando abaixo
+$ npm start
+```

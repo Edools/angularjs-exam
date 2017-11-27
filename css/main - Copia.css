@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  background-image: url("./imgs/background2.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%; }
+
+.menu-lateral {
+  display: inline-block;
+  height: 100vh;
+  width: 700px;
+  background-color: rgba(59, 59, 59, 0.9);
+  padding-left: 76px; }
+  .menu-lateral .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 200px;
+    height: auto; }
+  .menu-lateral h1 {
+    width: 300px;
+    color: #d9dcd6;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+    display: block;
+    margin-top: 100px; }
+    .menu-lateral h1 span {
+      color: #4fa4d4; }
+  .menu-lateral p {
+    width: 300px;
+    color: #d9dcd6;
+    font-size: 1em;
+    display: block;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 50px; }
+  .menu-lateral input {
+    width: 340px;
+    display: block;
+    height: 30px;
+    margin-top: 25px;
+    font-family: "Open Sans", sans-serif;
+    border-style: none;
+    border-bottom: 2px solid #d9dcd6;
+    background-color: rgba(21, 21, 21, 0.5);
+    padding-left: 10px;
+    color: #d9dcd6; }
+  .menu-lateral button {
+    background-color: #4fa4d4;
+    border-style: none;
+    height: 30px;
+    font-family: "Open Sans", sans-serif; }
+
+.quadro {
+  position: absolute;
+  left: 500px;
+  top: 10%;
+  height: 80vh;
+  width: 1300px;
+  background-color: rgba(217, 220, 214, 0.97); }
+
+/*# sourceMappingURL=App.css.map */

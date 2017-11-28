@@ -1,4 +1,4 @@
-# AngularRepoList
+# RepoList
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 1.5.4
 

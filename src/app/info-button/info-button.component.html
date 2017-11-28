@@ -1,0 +1,10 @@
+<button [ngClass]="roundButton" (click)="showModal()">?</button>
+
+<div [style.display]="show ? 'block':'none' " class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+          <span (click)="hideModal()" [ngClass]="closeButton">&times;</span>
+          <p>{{txt}}</p>
+        </div>
+    </div>
+</div>

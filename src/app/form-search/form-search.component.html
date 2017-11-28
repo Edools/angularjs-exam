@@ -16,7 +16,7 @@
     <div class="container col-lg-6">
       <div class="input-group">
         <input class="form-control" #userName [value]="userName.value" 
-        type="text" placeholder="Please enter username github..." (keyup.enter)="onSaveUserName(userName.value)">
+        type="text" placeholder="Please enter username github...ex.: bragadaniel" (keyup.enter)="onSaveUserName(userName.value)">
           <span class="input-group-btn">
             <button class="btn btn-outline-success" (click)='onSaveUserName(userName.value)'>Search</button>
           </span>

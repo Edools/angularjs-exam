@@ -1,0 +1,28 @@
+<div class="form-inline">
+  <input class="form-control mr-2" placeholder="Search" #repository>
+  <button (click)="search(repository.value)" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+</div>
+
+<p class="h4 mt-3" *ngIf="totalCount">{{ totalCount }} repository results</p>
+
+<ul class="list-repositories" *ngIf="results">
+  <li *ngFor="let repository of results" class="py-3 border">
+    <div class="row">
+      <div class="col-md-8">
+        <a href="{{repository.html_url}}" class="h4">{{ repository.name }}</a>  
+      </div>
+      <div class="col-md-2">
+          <i class="fa fa-file-code-o" aria-hidden="true"></i> {{ repository.language }}
+      </div>
+      <div class="col-md-2">
+        <a href="https://github.com/particle-php/Filter/stargazers"><i class="fa fa-star" aria-hidden="true"></i> {{ repository.stargazers_count }}</a>
+      </div>
+    </div>
+    <div class="row col-md-12 my-2">
+        <small>{{ repository.description }}</small>
+    </div>
+    <div class="row col-md-12">
+        <small>Updated on {{repository.updated_at | date}}</small>
+    </div>
+  </li>
+</ul>

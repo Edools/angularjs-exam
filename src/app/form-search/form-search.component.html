@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Home</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+  <div class="jumbotron">
+    <div class="container col-lg-6">
+      <div class="input-group">
+        <input class="form-control" #userName [value]="userName.value" 
+        type="text" placeholder="Please enter username github...ex.: bragadaniel" (keyup.enter)="onSaveUserName(userName.value)">
+          <span class="input-group-btn">
+            <button class="btn btn-outline-success" (click)='onSaveUserName(userName.value)'>Search</button>
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='dataModel.login' class="container">
+    <div class="row">
+      <div class="col-2 col-md-2 justify-content-md-center">
+        <div class="avatar">
+          <img class="rounded mx-auto img-thumbnail" [src]="dataModel.avatar" alt="" style="width:160px; height:160px;">
+        </div>
+        <div class="data-personal">
+          <h4>{{dataModel.name}}</h4>
+          <h5>{{ dataModel.login }}</h5>
+          <a class="btn btn-success" [href]="dataModel.profileUrl" target="_blank">Follow this Github</a>
+        </div>
+      </div>
+
+      <div class="list-repository col-10 col-md-10">
+        <h3>List Repository</h3>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let repo of dataModel.repository">
+            <a [href]="repo['html_url']" target="_blank">{{repo['name']}}</a>
+             <p>Total issues: <strong> {{ repo['open_issues_count'] }}</strong></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+

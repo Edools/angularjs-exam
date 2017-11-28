@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <span>{{modalVm.issue.title}} - Comentários</span>
+    </h4>
+</div>
+
+<div class="modal-body">
+    <div ng-if="!modalVm.comentarios.length">
+        <p>Essa Issue não possui nenhum comentário</p>
+    </div>
+
+    <div class="" ng-if="modalVm.comentarios.length" ng-repeat="comentario in modalVm.comentarios">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <img class="avatar" ng-src="{{comentario.user.avatar_url}}" /> {{comentario.user.login}}
+            </div>
+            <div class="panel-body">{{comentario.body}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="$dismiss()">Fechar</button>
+</div>

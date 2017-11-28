@@ -1,30 +1,52 @@
-Exame vaga Front-End
-====================
+# GitSearch
+O projeto GitSearch foi desenvolvido utilizando AngularJs, com o objetivo de consumir a api do GitHub para realizar pesquisas de repositórios. Ele foi criado como uma atividade para avaliação da vaga de Front-end da Edools.
 
-Caro desenvolvedor, o objetivo deste exame é conhecer um pouco mais sobre suas habilidades de programação. Aqui, na Edools, valorizamos muito a excelência, o código com boa qualidade nos faz trabalhar melhor e mais felizes :) e aumentar nossa capacidade de oferecer valor ao cliente com rapidez e consistência. Com isso em mente, queremos saber como você escreve seu código.
+## Funcionalidades
+O sistema possui as seguintes funcionalidades:
+* Buscar repositórios
+* Exibir uma lista com os repositórios, exibindo o número de stars e forks 
+* Ordenar os resultados pelo número de stars, forks ou data de atualização, em ordem crescentende ou descrescente
+* Visualizar os detalhes de um repositório, como o Read-me
+* Visualizar as issues de cada repositório
 
-A tarefa é simples: brincar com a API Github. Você terá que desenvolver uma aplicação que consumirá alguns recursos públicos da Github através de sua API (https://developer.github.com/), e presente de forma simples, mas bem estruturada. Aqui estão algumas sugestões sobre o que você pode fazer:
+## Arquitetura e Estilo
+O projeto foi desenvolvido em AngularJs e utiliza a biblioteca Bootstrap para compor o seu estilo e Less para personalização. 
 
-- Lista de repositórios
-- Repositórios de filtros
-- Liste os problemas dentro da visualização do repositório
-- Crie um comentário ao visualizar um problema
-- ...
+## Ferramentas utilizadas
+* `Gulp`;
+* `Bower`;
+* `NodeJs`;
+* `BrowserSync`;
+* `Yeoman`;
+* `Generator Gulp Angular`
 
-Para começar, basta fazer o fork deste repositório, implementar e, em seguida, abrir um novo pull request, listando os recursos no README que você desenvolveu e como executá-lo.
+# Para executar o projeto
 
-A aplicação precisa ser desenvolvida com conceitos web components (https://tableless.com.br/web-components-introducao/). 
-Além disos é necessário que aplicação seja desenvolvida usando um dos seguintes Framework: 
+Para executar o projeto é necessário preparar o ambiente de desenvolvimento, rodando o seguinte comando:
 
-- Vue (https://vuejs.org)
-- Angular (https://angularjs.org)
-- React (https://reactjs.org)
+```
+$ npm install -g gulp bower
+```
 
-É muito importante que você mostre seu conhecimento sobre boas práticas de programação, testes, padrões e até mesmo as más práticas. Portanto, tome estes pontos em consideração ao escolher e implementar seus recursos. Para que esta tarefa seja suficiente, gostaríamos que você usasse a sintaxe e recursos do ES6 do Javascript e que mantém seu código modularizado.
+Em seguida, é necessário instalar as dependências do projeto, executando o comando abaixo:
 
-Além das coisas mencionadas acima, há algumas coisas que seriam uma grande vantagem para ver:
+```
+$ npm install
+```
 
-- use um pré-processador CSS de sua escolha
-- uso de uma ferramenta para ajudá-lo com seus fluxos de trabalho (grunt, gulp, brócolis, webpack ...)
+Para iniciar a aplicação, basta rodar o comando:
 
-Desejamos-lhe boa sorte, e que a Qualidade esteja com você!
+```
+$ gulp serve
+```
+
+E para realizar o build do porjeto, é necessário executar o comando abaixo:
+
+```
+$ gulp build
+```
+O projeto buildado poderá ser encontardo dentro da pasta dist.
+
+# Projetos Futuros
+
+O projeto foi criado com a base inicial para os testes que serão desenvolvidos futuramente, além da paginação dos repositórios e issues.

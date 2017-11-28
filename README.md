@@ -1,30 +1,53 @@
-Exame vaga Front-End
-====================
+# RoposDoolsGit
+RoposDoolsGit é um projeto desenvolvido em AngularJs, proposto pela Edools como atividade na avalição da vaga de Front-End. 
 
-Caro desenvolvedor, o objetivo deste exame é conhecer um pouco mais sobre suas habilidades de programação. Aqui, na Edools, valorizamos muito a excelência, o código com boa qualidade nos faz trabalhar melhor e mais felizes :) e aumentar nossa capacidade de oferecer valor ao cliente com rapidez e consistência. Com isso em mente, queremos saber como você escreve seu código.
 
-A tarefa é simples: brincar com a API Github. Você terá que desenvolver uma aplicação que consumirá alguns recursos públicos da Github através de sua API (https://developer.github.com/), e presente de forma simples, mas bem estruturada. Aqui estão algumas sugestões sobre o que você pode fazer:
+## Funcionalidades
+* Buscar repositórios;
+* Visualizar as issues de um repositório;
+* Visualizar o Readme de um repositório;
+* Visualizar os comentários de cada issue;
 
-- Lista de repositórios
-- Repositórios de filtros
-- Liste os problemas dentro da visualização do repositório
-- Crie um comentário ao visualizar um problema
-- ...
+## Arquitetura
+O RoposDoolsGit foi desenvolvido utilizando Angularjs.
 
-Para começar, basta fazer o fork deste repositório, implementar e, em seguida, abrir um novo pull request, listando os recursos no README que você desenvolveu e como executá-lo.
+## Ferramentas usadas
+* `Gulp`;
+* `Bower`;
+* `NodeJs`;
+* `BrowserSync`;
+* `Yeoman Generator Gulp Angular`
 
-A aplicação precisa ser desenvolvida com conceitos web components (https://tableless.com.br/web-components-introducao/). 
-Além disos é necessário que aplicação seja desenvolvida usando um dos seguintes Framework: 
+## Estilo
+Foi utilizado a biblioteca bootstrap para padronização do layout. Bem como less para personalização dos estilos.
 
-- Vue (https://vuejs.org)
-- Angular (https://angularjs.org)
-- React (https://reactjs.org)
 
-É muito importante que você mostre seu conhecimento sobre boas práticas de programação, testes, padrões e até mesmo as más práticas. Portanto, tome estes pontos em consideração ao escolher e implementar seus recursos. Para que esta tarefa seja suficiente, gostaríamos que você usasse a sintaxe e recursos do ES6 do Javascript e que mantém seu código modularizado.
+# Para iniciar o projeto
 
-Além das coisas mencionadas acima, há algumas coisas que seriam uma grande vantagem para ver:
+Preparando o ambiente de desenvolvimento:
 
-- use um pré-processador CSS de sua escolha
-- uso de uma ferramenta para ajudá-lo com seus fluxos de trabalho (grunt, gulp, brócolis, webpack ...)
+```
+$ npm install -g gulp bower
+```
 
-Desejamos-lhe boa sorte, e que a Qualidade esteja com você!
+Instale as dependências execute o comando na pasta da aplicação:
+
+```
+$ npm install
+```
+
+Para iniciar o servidor execute:
+
+```
+$ gulp serve
+```
+
+Para buildar a aplicação execute o comando abaixo:
+
+```
+$ gulp build
+```
+
+Os arquivos buildados irão ser encontrado na pasta dist.
+
+O projeto já esta configurado para criação de tests. Porém eles serão desenvolvidos em uma próxima oportunidade.

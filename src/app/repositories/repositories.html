@@ -1,0 +1,88 @@
+<acme-navbar></acme-navbar>
+
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Repositories <small>Searching for: {{vm.term}}</small></h1>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <label>Order by:</label>
+                        <select ng-model="vm.selectedSort" class="form-control" ng-change="vm.getGithubRepos()" ng-options="sort as sort.name for sort in vm.sorts track by sort.id"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Sort by:</label>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default btn-md" ng-click="vm.invertOrder()" ng-class="vm.orderDesc ? 'active' : ''">
+                                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-md" ng-click="vm.invertOrder()" ng-class="!vm.orderDesc ? 'active' : ''">
+                                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 repo" ng-repeat="repo in vm.repositories">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h5><a ng-href="/repository/{{ repo.full_name }}">{{ repo.name }}</a></h5>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="btn-group btn-group-sm pull-right" role="group">
+                                <button type="button" class="btn btn-default">
+                                    <i class="fa fa-code-fork" aria-hidden="true"></i>
+                                    {{repo.forks_count}}
+                            </button>
+                                <button type="button" class="btn btn-default">
+                                    <i class="fa fa-star" aria-hidden="true"></i> {{repo.stargazers_count}}
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="{{ repo.owner.html_url }}">
+                                <img class="media-object img-thumbnail" ng-src="{{ repo.owner.avatar_url}}" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4>{{ repo.name }}</h4>
+                            <p class="media-heading"><i class="fa fa-user-o" aria-hidden="true"></i> {{ repo.owner.login }}</p>
+                            <p>{{ repo.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <i class="fa fa-calendar-o" aria-hidden="true"></i> Updated at {{repo.updated_at | date:'dd/MM/yyyy' }}
+                        </div>
+                        <div class="col-sm-4">
+                            <a type="button" class="btn btn-default btn-sm pull-right" ng-href="/repository/{{ repo.full_name }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i> View Repo
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

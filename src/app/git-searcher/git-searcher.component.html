@@ -1,0 +1,12 @@
+Usuário: <input type="text" [(ngModel)]="list">
+
+<button [ngClass]="squaredButton" (click)="searchUser()">Buscar Repositórios</button>
+
+<info-button></info-button>
+
+<ul class="w3-ul w3-large">
+  <a href="{{item.html_url}}" style="text-decoration:none" *ngFor="let item of repos">
+    <li [ngClass]="repoList">
+    {{item.name}}
+  </li></a>
+</ul>

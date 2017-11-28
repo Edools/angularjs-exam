@@ -1,30 +1,36 @@
-Exame vaga Front-End
-====================
+# quero-trabalhar-no-edools_frontend
+AngularJS Exam - stage of Edools hiring process
 
-Caro desenvolvedor, o objetivo deste exame é conhecer um pouco mais sobre suas habilidades de programação. Aqui, na Edools, valorizamos muito a excelência, o código com boa qualidade nos faz trabalhar melhor e mais felizes :) e aumentar nossa capacidade de oferecer valor ao cliente com rapidez e consistência. Com isso em mente, queremos saber como você escreve seu código.
+# RepoList
 
-A tarefa é simples: brincar com a API Github. Você terá que desenvolver uma aplicação que consumirá alguns recursos públicos da Github através de sua API (https://developer.github.com/), e presente de forma simples, mas bem estruturada. Aqui estão algumas sugestões sobre o que você pode fazer:
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 1.5.4
 
-- Lista de repositórios
-- Repositórios de filtros
-- Liste os problemas dentro da visualização do repositório
-- Crie um comentário ao visualizar um problema
-- ...
+O projeto se trata de uma lista de repositórios acessada através da API do Github utilizando-se apenas de seu nome de usuário do site.
+Preencha o campo com título "Usuário" e pressione o botão Buscar Repositórios para ter acesso a lista. Se precisar de informações sobre a usabilidade, pressiona o botão "?".
+Pode-se também acessar cada repositório pressionando o item correspondente da lista.
 
-Para começar, basta fazer o fork deste repositório, implementar e, em seguida, abrir um novo pull request, listando os recursos no README que você desenvolveu e como executá-lo.
+## Development server
 
-A aplicação precisa ser desenvolvida com conceitos web components (https://tableless.com.br/web-components-introducao/). 
-Além disos é necessário que aplicação seja desenvolvida usando um dos seguintes Framework: 
+Execute 'ng serve' para um server de desenvolvedor. Navegue para 'http://localhost:4200'. O app irá automaticamente recarregar se você alterar qualquer um dos arquivos fontes.
 
-- Vue (https://vuejs.org)
-- Angular (https://angularjs.org)
-- React (https://reactjs.org)
+## Code scaffolding
 
-É muito importante que você mostre seu conhecimento sobre boas práticas de programação, testes, padrões e até mesmo as más práticas. Portanto, tome estes pontos em consideração ao escolher e implementar seus recursos. Para que esta tarefa seja suficiente, gostaríamos que você usasse a sintaxe e recursos do ES6 do Javascript e que mantém seu código modularizado.
+Execute 'ng generate component component-name' para gerar um novo componente. Você pode também usar 'ng generate directive|pipe|service|class|guard|interface|enum|module'.
 
-Além das coisas mencionadas acima, há algumas coisas que seriam uma grande vantagem para ver:
+## Build
 
-- use um pré-processador CSS de sua escolha
-- uso de uma ferramenta para ajudá-lo com seus fluxos de trabalho (grunt, gulp, brócolis, webpack ...)
+Execute 'ng build' para montar o projeto. Os artefatos montados serão armazenados no diretorio 'dist/'. Use a bandeira '-prod' para uma production build.
 
-Desejamos-lhe boa sorte, e que a Qualidade esteja com você!
+## Running unit tests
+
+Execute 'ng test' para realizar testes de unidade via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Execute 'ng e2e' para realizar um teste end-to-end via
+[Protractor](http://www.protractortest.org/).
+
+## Further help
+
+Para receber mais ajuda sobre o Angular CLI use 'ng help' ou cheque o
+[Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

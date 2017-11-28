@@ -2,7 +2,7 @@
   "name": "edools-v2",
   "version": "0.0.0",
   "license": "MIT",
-  "autor":"Daniel Oliveira Braga <daniel_oliveira0@hormail.com>",
+  "autor": "Daniel Oliveira Braga <daniel_oliveira0@hormail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

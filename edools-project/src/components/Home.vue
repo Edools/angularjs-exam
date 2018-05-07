@@ -53,11 +53,11 @@ export default {
     return {
       search: '',
       pagination: {
-        rowsPerPage: 10
+        rowsPerPage: 5
       },
       headers: [
         {
-          text: 'feature_keys',
+          text: 'Feature Keys',
           align: 'left',
           sortable: false,
           value: 'name'
@@ -67,9 +67,9 @@ export default {
     }
   },
   created () {
-    axios.get('/features')
+    axios.get('/features?per_page=' + this.pagination.rowsPerPage)
       .then(response => {
-        console.log(response.data.features)
+        console.log(response)
         this.items = response.data.features
       }).catch(error => {
         console.log(error.config)

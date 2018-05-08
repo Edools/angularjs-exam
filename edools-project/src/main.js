@@ -4,6 +4,7 @@ import router from './router'
 import axios from 'axios'
 
 import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.css'
 
 // Compatibilidade IE11 & Safari 9
 import 'babel-polyfill'

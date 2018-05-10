@@ -5,7 +5,7 @@
         <h1 class="welcome">BEM VINDO AO PAINEL DO APP DA EDOOLS!</h1>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <!-- <v-layout row wrap>
       <v-flex xs12>
         <h3 class="small">Aqui você poderá visualizar todos os aplicativos disponíveis.</h3>
       </v-flex>
@@ -33,11 +33,11 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-flex>
-    </v-layout>
+    </v-layout> -->
 
     <v-layout row wrap>
       <v-flex xs12>
-        <h3 class="small">Aqui você poderá editar todas as features da escola selecionada.</h3>
+        <h3 class="small">Aqui você poderá ver todos os aplicativos e editar todos os recursos da escola selecionada.</h3>
       </v-flex>
       <v-flex xs12>
           <v-expansion-panel popout>
@@ -53,11 +53,11 @@
                 >
                   <template slot="items" slot-scope="props">
                     <td class="text-xs-left">{{ props.item.id }}</td>
+                    <td>{{ props.item.feature_key }}</td>
                     <td v-if="props.item.active === true">Ativo</td>
                     <td v-if="props.item.active === false">Inativo</td>
                     <td v-if="props.item.available === true">Disponível</td>
                     <td v-if="props.item.available === false">Indisponível</td>
-                    <td>{{ props.item.feature_id }}</td>
                     <td class="text-xs-center"><v-switch @click="editFeature(props.item.id)" v-model="props.item.active"></v-switch></td>
                   </template>
                   <template  slot="pageText" slot-scope="{ pageStart, pageStop }">
@@ -103,6 +103,11 @@ export default {
           value: 'id'
         },
         {
+          text: 'Aplicativo',
+          align: 'left',
+          value: 'featureId'
+        },
+        {
           text: 'Atividade',
           align: 'left',
           value: 'active'
@@ -111,11 +116,6 @@ export default {
           text: 'Disponibilidade',
           align: 'left',
           value: 'available'
-        },
-        {
-          text: 'ID Aplicativo',
-          align: 'left',
-          value: 'featureId'
         },
         {
           text: 'Ativar/Desativar Recurso',
@@ -137,6 +137,13 @@ export default {
     axios.get('/schools/64/school_features?per_page=' + this.pagination.rowsPerPage)
       .then(response => {
         this.schoolItems = response.data.schoolfeatures
+        this.schoolItems.forEach(schoolItem => {
+          this.featureItems.forEach(feature => {
+            if (schoolItem.feature_id === feature.id) {
+              schoolItem.feature_key = feature.feature_key
+            }
+          })
+        })
       }).catch(error => {
         console.log(error.config)
       })

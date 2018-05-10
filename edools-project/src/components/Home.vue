@@ -53,10 +53,12 @@
                 >
                   <template slot="items" slot-scope="props">
                     <td class="text-xs-left">{{ props.item.id }}</td>
-                    <td>{{ props.item.active }}</td>
-                    <td>{{ props.item.available }}</td>
+                    <td v-if="props.item.active === true">Ativo</td>
+                    <td v-if="props.item.active === false">Inativo</td>
+                    <td v-if="props.item.available === true">Disponível</td>
+                    <td v-if="props.item.available === false">Indisponível</td>
                     <td>{{ props.item.feature_id }}</td>
-                    <td><v-switch @click="editFeature(props.item.id)" v-model="props.item.active"></v-switch></td>
+                    <td class="text-xs-center"><v-switch @click="editFeature(props.item.id)" v-model="props.item.active"></v-switch></td>
                   </template>
                   <template  slot="pageText" slot-scope="{ pageStart, pageStop }">
                     De {{ pageStart }} à {{ pageStop }}
@@ -101,12 +103,12 @@ export default {
           value: 'id'
         },
         {
-          text: 'Ativo',
+          text: 'Atividade',
           align: 'left',
           value: 'active'
         },
         {
-          text: 'Disponível',
+          text: 'Disponibilidade',
           align: 'left',
           value: 'available'
         },
@@ -116,7 +118,7 @@ export default {
           value: 'featureId'
         },
         {
-          text: 'Ativar/Desativar',
+          text: 'Ativar/Desativar Recurso',
           align: 'left',
           value: 'activate'
         }
@@ -129,7 +131,6 @@ export default {
     axios.get('/features?per_page=' + this.pagination.rowsPerPage)
       .then(response => {
         this.featureItems = response.data.features
-        console.log(this.featureItems)
       }).catch(error => {
         console.log(error.config)
       })

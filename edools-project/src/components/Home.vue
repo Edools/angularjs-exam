@@ -58,7 +58,7 @@
                     <td v-if="props.item.active === false">Inativo</td>
                     <td v-if="props.item.available === true">Disponível</td>
                     <td v-if="props.item.available === false">Indisponível</td>
-                    <td class="text-xs-center"><v-switch @click="editFeature(props.item.id)" v-model="props.item.active"></v-switch></td>
+                    <td v-if="props.item.available === true" class="text-xs-center"><v-switch color="green" @click="editFeature(props.item.id)" v-model="props.item.active"></v-switch></td>
                   </template>
                   <template  slot="pageText" slot-scope="{ pageStart, pageStop }">
                     De {{ pageStart }} à {{ pageStop }}

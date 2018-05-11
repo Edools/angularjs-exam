@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <router-view/>
   </v-app>
 </template>
@@ -15,5 +15,8 @@ export default {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

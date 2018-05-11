@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import school from '@/components/school'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '*',
+      redirect: '/school/64'
+    },
+    {
+      path: '/school/:id',
+      name: 'school',
+      component: school
     }
   ]
 })

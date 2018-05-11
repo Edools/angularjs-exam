@@ -10,6 +10,15 @@
         </span>
       </div>
     </div>
+    <div class="select">
+      Itens por página
+      <select v-model="perPage">
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>Todos</option>
+      </select>
+    </div>
     <button class="button-return" @click="$router.go(-1)">Voltar</button>
   </div>
 </template>
@@ -20,17 +29,23 @@ export default {
   name: 'features',
   data () {
     return {
+      perPage: '10',
       features: null
     }
   },
   methods: {
-    async getFeatures () {
-      const features = await axios.get('/features')
+    async getFeatures (perPage) {
+      const features = await axios.get(`/features?per_page=${perPage}`)
       this.features = features.data
     }
   },
+  watch: {
+    perPage () {
+      this.perPage === 'Todos' ? this.getFeatures(this.features.total_count) : this.getFeatures(this.perPage)
+    }
+  },
   created () {
-    this.getFeatures()
+    this.getFeatures(this.perPage)
   }
 }
 </script>
@@ -60,6 +75,15 @@ export default {
       background: #B2FF59;
       box-sizing: border-box;
     }
+  }
+}
+
+.select {
+  margin: 0 60px 0 auto;
+  text-align: center;
+  @include size(150px, 60px)
+  select {
+    @include select
   }
 }
 

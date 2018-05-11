@@ -9,6 +9,15 @@
         />
       </div>
     </div>
+    <div class="select">
+      Itens por página
+      <select v-model="perPage">
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>Todos</option>
+      </select>
+    </div>
     <button class="button-router" @click="$router.push('/features')">Aplicativos dísponíveis para a escola</button>
   </div>
 </template>
@@ -22,18 +31,24 @@ export default {
   components: { appCard },
   data () {
     return {
+      perPage: '10',
       schoolId: this.$route.params.id,
       schoolFeatures: null
     }
   },
   methods: {
-    async getSchoolFeatures () {
-      const schoolFeatures = await axios.get(`/schools/${this.schoolId}/school_features`)
+    async getSchoolFeatures (perPage) {
+      const schoolFeatures = await axios.get(`/schools/${this.schoolId}/school_features?per_page=${perPage}`)
       this.schoolFeatures = schoolFeatures.data
     }
   },
+  watch: {
+    perPage () {
+      this.perPage === 'Todos' ? this.getSchoolFeatures(this.schoolFeatures.total_count) : this.getSchoolFeatures(this.perPage)
+    }
+  },
   created () {
-    this.getSchoolFeatures()
+    this.getSchoolFeatures(this.perPage)
   }
 }
 </script>
@@ -46,6 +61,14 @@ export default {
   margin: 0 auto;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  .select {
+    margin: 0 60px 0 auto;
+    text-align: center;
+    @include size(150px, 60px)
+    select {
+      @include select
+    }
+  }
 }
 .features {
   display: flex;

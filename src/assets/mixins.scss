@@ -30,3 +30,11 @@
   cursor: default;
   transition: 0.5s linear;
 }
+
+@mixin select {
+  outline: none;
+  border: 2px solid #1976D2;
+  border-radius: 20px;
+  padding: 5px;
+  background: transparent;
+}

@@ -1,10 +1,13 @@
 # edools-project
 
-> Projeto para concorrer à vaga de desenvolvedor Front-End na Edools.
+> A project to play with the API resources provided by Edools.
 
-## Build Setup
+## Build Setup and Usage
 
 ``` bash
+# for a live preview of the application
+https://edools-project.herokuapp.com/
+
 # install dependencies
 npm install
 
@@ -16,15 +19,4 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

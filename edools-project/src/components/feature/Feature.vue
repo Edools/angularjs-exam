@@ -78,10 +78,12 @@ export default {
     }
   },
   mounted () {
+    // GETTING FEATURES FROM API
     axios.get('/features?per_page=' + this.pagination.rowsPerPage)
       .then(response => {
         this.featureItems = response.data.features
       })
+    // GETTING THE SCHOOL FEATURES
     axios.get('/schools/64/school_features?per_page=' + this.pagination.rowsPerPage)
       .then(response => {
         this.schoolItems = response.data.schoolfeatures
@@ -95,6 +97,7 @@ export default {
       })
   },
   methods: {
+    // SET THE FEATURE TO TRUE OR FALSE
     editFeature (id) {
       axios.put('/school_features/' + id + '/deactivate', {active: this.schoolFeatures})
         .then(response => {

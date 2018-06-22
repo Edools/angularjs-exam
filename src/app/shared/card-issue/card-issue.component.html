@@ -1,0 +1,11 @@
+<article class="column card">
+    <h1>
+        <a [routerLink]="['issues', data.number]"><strong>#{{ data.number }}</strong> – {{ data.title }}</a>
+    </h1>
+    
+    <div class="card__details">
+        <p>By {{ data.user }}</p>
+
+        <a [routerLink]="['issues', data.number]"><strong>{{ data.comments }}</strong> Comments</a>
+    </div>
+</article>

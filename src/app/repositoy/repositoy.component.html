@@ -1,0 +1,24 @@
+<div class="container">
+    <nav class="breadcrumb">
+        <li>
+            <a [routerLink]="['/']">Home</a>
+        </li>
+    
+        <li>{{ repository }}</li>
+    </nav>
+</div>
+
+<section *ngIf="loading" class="loading"></section>
+
+<div class="container">
+    <div class="grid grid--full">
+        <ng-container *ngIf="!loading && issues.length > 0">
+            <app-card-issue *ngFor="let issue of issues"
+                [data]="issue"></app-card-issue>
+        </ng-container>
+
+        <ng-container *ngIf="!loading && issues.length === 0">
+            <div class="not-found">No Issues</div>
+        </ng-container>
+    </div>
+</div>

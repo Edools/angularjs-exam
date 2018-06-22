@@ -1,0 +1,39 @@
+.card {
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, .05);
+
+    h1 {
+        display: block;
+
+        font-weight: 300;
+        font-size: 20px;
+
+        a {
+            word-wrap: break-word;
+            color: #24292e;
+
+            strong { font-weight: 700; }
+        
+            &:hover { opacity: .7; }
+        }
+    }
+
+    .card__details {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: 10px;
+
+        font-size: 14px;
+        font-weight: 300;
+        
+        p { font-style: italic; }
+
+        a {
+            color: #24292e;
+        
+            &:hover { opacity: .7; }
+        }
+    }
+}

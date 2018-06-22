@@ -1,0 +1,28 @@
+.button {
+    background-color: #24292e;
+    display: inline-block;
+    height: 40px;
+    cursor: pointer;
+    
+    padding: { left: 20px; right: 20px; }
+    
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+
+    border-radius: 6px;
+    border: 0;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+
+    &:hover {
+        background-color: lighten(#24292e, 5%);
+    }
+}
+
+.button.disabled {
+    opacity: .4;
+    pointer-events: none;
+    user-select: none;
+}

@@ -1,0 +1,10 @@
+<section *ngIf="loading" class="loading"></section>
+
+<div class="container">
+  <section class="grid">
+    <ng-container *ngIf="!loading">
+        <app-card *ngFor="let repository of repositories"
+          [data]="repository"></app-card>
+    </ng-container>
+  </section>
+</div>

@@ -1,0 +1,12 @@
+<article class="column card">
+  <h1>
+    <a [routerLink]="['repository', data.owner.name, data.name]">
+      {{ data.name }}
+    </a>
+  </h1>
+
+  <div class="card__details">
+    <img [src]="data.owner.avatar" height="20">
+    <span>{{ data.owner.name }}</span>
+  </div>
+</article>

@@ -1,0 +1,39 @@
+<div class="container">
+  <nav class="breadcrumb">
+      <li>
+          <a [routerLink]="['/']">Home</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/repository', owner, repository]">{{ repository }}</a>
+      </li>
+  
+      <li>Issues</li>
+  </nav>
+</div>
+
+<section *ngIf="loading" class="loading"></section>
+
+<div class="container">
+  <div class="grid grid--full">
+    <ng-container *ngIf="!loading && comments.length > 0">
+        
+      <app-card-comment *ngFor="let comment of comments"
+        [data]="comment">
+      </app-card-comment>
+
+      <div class="form">
+        <form (ngSubmit)="postComment(formComment)" #formComment="ngForm">
+          <textarea name="comment" [(ngModel)]="comment" cols="30" rows="5" placeholder="Type a comment"></textarea>
+          <button type="submit" class="button">Post Comment</button>
+        </form>
+      </div>
+
+    </ng-container>
+
+    <ng-container *ngIf="!loading && comments.length === 0">
+        <div class="not-found">No comments</div>
+    </ng-container>
+  </div>
+
+</div>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|IBM+Plex+Mono:400,600');
+
+$th-color:#fff;
+$th-bgcolor: rgb(46, 46, 46);
+$th-border: 1px solid rgba(139, 139, 139, 0.125);
+$th-bgcolor2: #272727;
+$th-bgcolor3: rgba(0, 0, 0, 0.1);
+$th-font: "IBM Plex Mono", monospace;
+
+body {
+    background-color: $th-bgcolor;
+    color: $th-color;
+  }
+
+.list-group {
+  list-style-type: none;
+}
+
+.card {
+  background-color: $th-bgcolor2;
+  border: $th-border;
+  color: $th-color;
+  margin: 0 auto;
+  max-width: 90%;
+    input {
+      max-width: 60%;
+      margin: 10px auto;
+    }
+}
+
+// .latest-repos {
+//   font-size: 28px;
+//   margin-left: 10px;
+//   h3 {
+//     font-size: 28px;
+//   }
+// }
+
+.itemText {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 6px 0;
+  font-family: $th-font;
+  text-decoration: none;
+}
+
+
+@mixin card-header {
+  background-color: $th-bgcolor3;
+  border-bottom: $th-border;
+  // cursor: pointer;
+  font-weight: 400;
+  font-family: $th-font;
+  color: $th-color;
+   h3 {
+    padding: 15px 0px 15px 15px;
+  }
+}
+
+
+.card-header  {
+  @include card-header;
+}
